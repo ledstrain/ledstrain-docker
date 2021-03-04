@@ -4,7 +4,7 @@ services:
   forum:
     build:
       context: ./docker
-      target: dev
+ #    target: dev
     labels:
       caddy: "${HOSTNAME}"
       caddy.reverse_proxy: "{{ upstreams 8080 }}"
@@ -17,9 +17,10 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     depends_on:
-      - db
-#   ports:
-#     - 8080:8080
+      db:
+        condition: "service_healthy"
+    ports:
+      - 8080:8080
     networks:
       - internal
       - caddy
@@ -30,6 +31,13 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+#     volumes:
+    healthcheck:
+      test: "/usr/bin/mysql --user=${MYSQL_USER} --password=${MYSQL_PASSWORD} --execute \"SELECT 1;\""
+      timeout: 2s
+      interval: 10s
+      retries: 5
+      start_period: 5s
     networks:
       - internal
 
