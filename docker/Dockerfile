@@ -20,15 +20,5 @@ VOLUME /app/public/assets
 VOLUME /app/storage
 
 # COPY forum_config/entrypoint.sh /entrypoint.sh
-COPY forum_config/forum_directories.sh /opt/docker/provision/entrypoint.d/50-forum_directories.sh
+COPY forum_config/forum_setup.sh /opt/docker/provision/entrypoint.d/50-forum_setup.sh
 WORKDIR /app
-
-
-## ========== Install dev tools
-#FROM production as dev
-#
-#RUN apt-get update \
-# && apt-get install -y \
-#      nano \
-#      zip  \
-# && rm -r /var/lib/apt/lists

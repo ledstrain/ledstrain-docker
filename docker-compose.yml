@@ -7,9 +7,9 @@ services:
  #    target: dev
     labels:
       caddy: "${HOSTNAME}"
-      caddy.reverse_proxy: "{{ upstreams 8080 }}"
+      caddy.reverse_proxy: "{{ upstreams 80 }}"
     volumes:
-      - "./data/forum/config/config.php:/var/www/html/config.php"
+      - "./data/forum/conf:/conf"
     environment:
       PUID_ID: ${PUID_ID}
       HOSTNAME: https://${HOSTNAME}
@@ -31,13 +31,14 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-#     volumes:
+    volumes:
+      - "./data/db/data:/var/lib/mysql"
     healthcheck:
       test: "/usr/bin/mysql --user=${MYSQL_USER} --password=${MYSQL_PASSWORD} --execute \"SELECT 1;\""
       timeout: 2s
       interval: 10s
       retries: 5
-      start_period: 5s
+      start_period: 4s
     networks:
       - internal
 
