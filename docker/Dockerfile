@@ -17,7 +17,6 @@ COPY --from=builder /app /app
 
 VOLUME /app/assets
 VOLUME /app/public/assets
-VOLUME /app/storage
 
 # COPY forum_config/entrypoint.sh /entrypoint.sh
 COPY forum_config/forum_setup.sh /opt/docker/provision/entrypoint.d/50-forum_setup.sh
