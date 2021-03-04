@@ -53,7 +53,7 @@ RUN apt-get update && apt-get install -y \
                                             zip \
  && rm -rf /var/lib/apt/lists/*
 
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
 RUN composer create-project flarum/flarum . --stability=beta
@@ -75,4 +75,4 @@ RUN apt-get update \
       nano \
       zip  \
  && rm -r /var/lib/apt/lists
-COPY --from=builder /usr/local/bin/composer /usr/local/bin/composer
+COPY --from=builder /usr/bin/composer /usr/bin/composer
