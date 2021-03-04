@@ -1,0 +1,39 @@
+version: '3.3'
+
+services:
+  forum:
+    build:
+      context: ./docker
+      target: dev
+    labels:
+      caddy: "${HOSTNAME}"
+      caddy.reverse_proxy: "{{ upstreams 8080 }}"
+    volumes:
+      - "./data/forum/config/config.php:/var/www/html/config.php"
+    environment:
+      PUID_ID: ${PUID_ID}
+      HOSTNAME: https://${HOSTNAME}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    depends_on:
+      - db
+#   ports:
+#     - 8080:8080
+    networks:
+      - internal
+      - caddy
+  db:
+    image: mariadb:10.3
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    networks:
+      - internal
+
+networks:
+  internal:
+  caddy:
+    external: true
