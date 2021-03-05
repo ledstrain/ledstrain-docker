@@ -2,9 +2,9 @@ version: '3.3'
 
 services:
   forum:
-    image: ${REGISTRY_LOCATION}
-#   build:
-#     context: ./docker
+#   image: ${REGISTRY_LOCATION}
+    build:
+      context: ./docker
     labels:
       caddy: "${HOSTNAME}"
       caddy.reverse_proxy: "{{ upstreams 80 }}"
