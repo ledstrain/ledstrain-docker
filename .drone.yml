@@ -1,0 +1,41 @@
+---
+kind: pipeline
+type: docker
+name: default
+
+trigger:
+  event:
+  -  tag
+
+steps:
+
+- name: Validate composer syntax
+  image: webdevops/php-nginx:7.3
+  commands:
+    - cd docker
+    - composer --no-interaction validate
+
+- name: Validate shell scripts syntax
+  image: koalaman/shellcheck-alpine
+  environment:
+    SHELLCHECK_OPTS: "-e SC2154"
+  commands:
+    - find -type f -iname '*.sh' -exec shellcheck {} +
+
+- name: Build LEDStrain docker image and push to registry
+  image: plugins/docker
+  settings:
+    use_cache: true
+    repo:
+      from_secret: DOCKER_REGISTRY_REPO
+    username:
+      from_secret: DOCKER_REGISTRY_USERNAME
+    password:
+      from_secret: DOCKER_REGISTRY_PASSWORD
+    registry:
+      from_secret: DOCKER_REGISTRY_URL
+    tags:
+      - latest
+      - ${DRONE_TAG}
+    dockerfile: docker/Dockerfile
+    context: docker/
