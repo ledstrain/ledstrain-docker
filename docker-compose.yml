@@ -2,8 +2,9 @@ version: '3.3'
 
 services:
   forum:
-    build:
-      context: ./docker
+    image: ${REGISTRY_LOCATION}
+#   build:
+#     context: ./docker
     labels:
       caddy: "${HOSTNAME}"
       caddy.reverse_proxy: "{{ upstreams 80 }}"
@@ -13,10 +14,11 @@ services:
       - "./data/forum/data/public/assets:/app/public/assets"
       - "./data/forum/data/storage/sessions:/app/storage/sessions"
     environment:
-      PUID_ID: ${PUID_ID}
-      HOSTNAME: https://${HOSTNAME}
+      INSTALL:        "${INSTALL}"
+      PUID_ID:        ${PUID_ID}
+      HOSTNAME:       https://${HOSTNAME}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_USER:     ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     depends_on:
       db:
@@ -28,9 +30,9 @@ services:
     image: mariadb:10.3
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE:      ${MYSQL_DATABASE}
+      MYSQL_USER:          ${MYSQL_USER}
+      MYSQL_PASSWORD:      ${MYSQL_PASSWORD}
     volumes:
       - "./data/db/data:/var/lib/mysql"
     healthcheck:
