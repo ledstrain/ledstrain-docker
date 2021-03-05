@@ -2,24 +2,28 @@ version: '3.3'
 
 services:
   forum:
+#   image: ${REGISTRY_LOCATION}
     build:
       context: ./docker
-      target: dev
     labels:
       caddy: "${HOSTNAME}"
-      caddy.reverse_proxy: "{{ upstreams 8080 }}"
+      caddy.reverse_proxy: "{{ upstreams 80 }}"
     volumes:
-      - "./data/forum/config/config.php:/var/www/html/config.php"
+      - "./data/forum/conf:/conf"
+      - "./data/forum/data/assets:/app/assets"
+      - "./data/forum/data/public/assets:/app/public/assets"
+      - "./data/forum/data/storage/sessions:/app/storage/sessions"
     environment:
-      PUID_ID: ${PUID_ID}
-      HOSTNAME: https://${HOSTNAME}
+      INSTALL:        "${INSTALL}"
+      hc_schedule:    ${hc_schedule}
+      PUID_ID:        ${PUID_ID}
+      HOSTNAME:       https://${HOSTNAME}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_USER:     ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     depends_on:
-      - db
-#   ports:
-#     - 8080:8080
+      db:
+        condition: "service_healthy"
     networks:
       - internal
       - caddy
@@ -27,9 +31,17 @@ services:
     image: mariadb:10.3
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE:      ${MYSQL_DATABASE}
+      MYSQL_USER:          ${MYSQL_USER}
+      MYSQL_PASSWORD:      ${MYSQL_PASSWORD}
+    volumes:
+      - "./data/db/data:/var/lib/mysql"
+    healthcheck:
+      test: "/usr/bin/mysql --user=${MYSQL_USER} --password=${MYSQL_PASSWORD} --execute \"SELECT 1;\""
+      timeout: 2s
+      interval: 10s
+      retries: 5
+      start_period: 4s
     networks:
       - internal
 
