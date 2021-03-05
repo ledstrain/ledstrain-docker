@@ -15,6 +15,7 @@ services:
       - "./data/forum/data/storage/sessions:/app/storage/sessions"
     environment:
       INSTALL:        "${INSTALL}"
+      hc_schedule:    ${hc_schedule}
       PUID_ID:        ${PUID_ID}
       HOSTNAME:       https://${HOSTNAME}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
