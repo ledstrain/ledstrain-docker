@@ -3,7 +3,7 @@ FROM webdevops/php-nginx:7.3 as builder
 
 WORKDIR /app
 RUN composer create-project flarum/flarum . --stability=beta
-COPY forum_config/composer.json forum_config/composer.lock ./
+COPY composer.json composer.lock ./
 
 RUN composer install
 
