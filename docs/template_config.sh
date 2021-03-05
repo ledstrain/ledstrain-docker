@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 cat > data/forum/conf/config.php <<EOF
 <?php return array (
   'debug' => true,

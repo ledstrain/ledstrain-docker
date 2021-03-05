@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # hc_schedule from healthcheck.io should be available in environment
 healthcheck_address="$hc_schedule"
 
