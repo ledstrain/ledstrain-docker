@@ -39,3 +39,8 @@ steps:
       - ${DRONE_TAG}
     dockerfile: docker/Dockerfile
     context: docker/
+---
+kind: signature
+hmac: b5907d894dc3e24fb1a2bb5e4c690d2ed8e047c525dd1bb4f433a108ebea707f
+
+...

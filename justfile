@@ -9,3 +9,5 @@ build:
     docker image build -t "$REGISTRY_LOCATION" .
     docker image push "$REGISTRY_LOCATION"
   )
+save-config:
+    drone sign $REPO --save
