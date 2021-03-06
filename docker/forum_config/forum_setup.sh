@@ -35,10 +35,10 @@ settings:
 EOF
   php flarum install --file install.yml
   cp config.php /conf/config.php
-  chown application /conf/config.php
+  chown ${PUID_ID} /conf/config.php
 fi
 
-chown application:application -R \
+chown ${PUID_ID} -R  \
   /app/assets        \
   /app/public/assets \
   /app/storage

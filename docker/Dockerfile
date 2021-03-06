@@ -16,7 +16,7 @@ ENV WEB_DOCUMENT_ROOT=/app/public
 COPY --from=builder /app /app
 
 RUN mkdir -p /etc/cron.script
-COPY forum_config/flarum_schedule.sh /etc/cron.script
+COPY forum_config/cronscripts/flarum_schedule.sh /etc/cron.script
 RUN docker-cronjob '23 0 * * * application /etc/cron.script/flarum_schedule.sh'
 
 VOLUME /app/assets
