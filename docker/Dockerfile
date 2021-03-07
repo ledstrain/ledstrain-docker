@@ -19,7 +19,6 @@ RUN mkdir -p /etc/cron.script
 COPY forum_config/cronscripts/flarum_schedule.sh /etc/cron.script
 RUN docker-cronjob '23 0 * * * application /etc/cron.script/flarum_schedule.sh'
 
-VOLUME /app/assets
 VOLUME /app/public/assets
 
 # COPY forum_config/entrypoint.sh /entrypoint.sh

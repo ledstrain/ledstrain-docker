@@ -3,7 +3,6 @@ set -e
 cd "$APPLICATION_PATH"
 
 mkdir -p \
- /app/assets         \
  /app/public/assets  \
  /app/storage
 
@@ -35,10 +34,9 @@ settings:
 EOF
   php flarum install --file install.yml
   cp config.php /conf/config.php
-  chown ${PUID_ID} /conf/config.php
+  chown "${PUID_ID}" /conf/config.php
 fi
 
-chown ${PUID_ID} -R  \
-  /app/assets        \
+chown "${PUID_ID}" -R  \
   /app/public/assets \
   /app/storage

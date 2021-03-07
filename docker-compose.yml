@@ -10,7 +10,6 @@ services:
       caddy.reverse_proxy: "{{ upstreams 80 }}"
     volumes:
       - "./data/forum/conf:/conf"
-      - "./data/forum/data/assets:/app/assets"
       - "./data/forum/data/public/assets:/app/public/assets"
       - "./data/forum/data/storage/sessions:/app/storage/sessions"
     environment:
