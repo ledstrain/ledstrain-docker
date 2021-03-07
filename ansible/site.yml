@@ -1,0 +1,19 @@
+---
+
+- name: Deploy forum version
+  hosts: ledstrain
+
+  tasks:
+    - name: Change version in docker-compose
+      vars:
+        version: "{{ version }}"
+      lineinfile:
+        path: '{{ dockerpath }}/{{ hostname }}/{{ app }}/docker-compose.yml'
+        regexp: ' *image:.*?:.*'
+        line: '    image: ${REGISTRY_LOCATION}:{{ version }}'
+
+#   - name: Pull new image
+#     community.docker.docker_compose:
+#       project_src: '{{ dockerpath }}/{{ hostname }}/{{ app }}/docker-compose.yml'
+#       pull: yes
+#       state: present
