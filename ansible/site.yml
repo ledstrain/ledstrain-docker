@@ -12,8 +12,8 @@
         regexp: ' *image:.*?:.*'
         line: '    image: ${REGISTRY_LOCATION}:{{ version }}'
 
-    - name: Pull new image
-      community.docker.docker_compose:
-        project_src: '{{ dockerpath }}/{{ hostname }}/{{ app }}/docker-compose.yml'
-        pull: yes
-        state: present
+#   - name: Pull new image
+#     community.docker.docker_compose:
+#       project_src: '{{ dockerpath }}/{{ hostname }}/{{ app }}/docker-compose.yml'
+#       pull: yes
+#       state: present

@@ -62,12 +62,10 @@ steps:
     vault_password:
       from_secret: ANSIBLE_VAULT_PASSWORD
     private_key:
-      from_secret: STAGING_SERVER_SSH_PRIVATE
-    tags:
-      - staging
+      from_secret: DRONE_SSH_PRIVATE
     extra_vars: version=${DRONE_TAG}
 ---
 kind: signature
-hmac: 0a5d29c95a2ae00fdc7c90d23b3c1b4fe82c9ea4a79543baff6b282eb55bebda
+hmac: 501c063d49cbeaa039bb81255ab418c1634335a98b326410a68ec40d65fd6123
 
 ...
