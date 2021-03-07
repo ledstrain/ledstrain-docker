@@ -3,8 +3,11 @@ set -e
 cd "$APPLICATION_PATH"
 
 mkdir -p \
- /app/public/assets  \
- /app/storage
+  /app/public/assets/avatars    \
+  /app/public/assets/extensions \
+  /app/public/assets/files      \
+  /app/public/assets/images     \
+  /app/storage
 
 if [ -f /conf/config.php ]; then
   ln -fs /conf/config.php ./config.php
