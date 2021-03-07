@@ -1,11 +1,11 @@
 ---
 kind: pipeline
 type: docker
-name: default
+name: build
 
 trigger:
   event:
-  -  tag
+  - tag
 
 steps:
 
@@ -39,8 +39,35 @@ steps:
       - ${DRONE_TAG}
     dockerfile: docker/Dockerfile
     context: docker/
+
+---
+kind: pipeline
+type: docker
+name: deployment
+
+trigger:
+  event:
+  - promote
+  target:
+  - production
+
+steps:
+
+- name: Deploy to staging
+  image: plugins/ansible:3
+  settings:
+    playbook: ansible/site.yml
+    galaxy: ansible/requirements.yml
+    inventory: ansible/inventory
+    vault_password:
+      from_secret: ANSIBLE_VAULT_PASSWORD
+    private_key:
+      from_secret: STAGING_SERVER_SSH_PRIVATE
+    tags:
+      - staging
+    extra_vars: version=${DRONE_TAG}
 ---
 kind: signature
-hmac: b5907d894dc3e24fb1a2bb5e4c690d2ed8e047c525dd1bb4f433a108ebea707f
+hmac: 0a5d29c95a2ae00fdc7c90d23b3c1b4fe82c9ea4a79543baff6b282eb55bebda
 
 ...
