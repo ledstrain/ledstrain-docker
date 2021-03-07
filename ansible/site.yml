@@ -2,18 +2,28 @@
 
 - name: Deploy forum version
   hosts: ledstrain
+  vars_files:
+    - vault.yml
+  vars:
+    version: "{{ version }}"
 
   tasks:
     - name: Change version in docker-compose
-      vars:
-        version: "{{ version }}"
       lineinfile:
         path: '{{ dockerpath }}/{{ hostname }}/{{ app }}/docker-compose.yml'
-        regexp: ' *image:.*?:.*'
+        regexp: ' +image: \$\{REGISTRY_LOCATION\}:.*'
         line: '    image: ${REGISTRY_LOCATION}:{{ version }}'
 
-#   - name: Pull new image
-#     community.docker.docker_compose:
-#       project_src: '{{ dockerpath }}/{{ hostname }}/{{ app }}/docker-compose.yml'
-#       pull: yes
-#       state: present
+    - name: Pull new image
+      community.docker.docker_compose:
+        project_src: '{{ dockerpath }}/{{ hostname }}/{{ app }}'
+        pull: yes
+        state: present
+      notify:
+        - restart_reverse_proxy
+  handlers:
+  - name: restart_reverse_proxy
+    community.general.docker_compose:
+      project_src: "{{ dockerpath }}/{{ ansible_facts.nodename }}/caddy"
+      state: present
+      recreate: always
