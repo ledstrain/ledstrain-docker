@@ -4,6 +4,8 @@ services:
   forum:
     build:
       context: ./docker
+      args:
+        - EXTIVERSE_TOKEN=${EXTIVERSE_TOKEN}
     labels:
       caddy: "${HOSTNAME}"
       caddy.reverse_proxy: "{{ upstreams 80 }}"
@@ -16,13 +18,13 @@ services:
 #     - "./data/forum/data/public/assets/files:/app/public/assets/files"
 #     - "./data/forum/data/public/assets/images:/app/public/assets/images"
     environment:
-      INSTALL:        "${INSTALL}"
-      hc_schedule:    ${hc_schedule}
-      PUID_ID:        ${PUID_ID}
-      HOSTNAME:       https://${HOSTNAME}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER:     ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      INSTALL:         "${INSTALL}"
+      hc_schedule:     ${hc_schedule}
+      PUID_ID:         ${PUID_ID}
+      HOSTNAME:        https://${HOSTNAME}
+      MYSQL_DATABASE:  ${MYSQL_DATABASE}
+      MYSQL_USER:      ${MYSQL_USER}
+      MYSQL_PASSWORD:  ${MYSQL_PASSWORD}
     depends_on:
       db:
         condition: "service_healthy"

@@ -34,11 +34,16 @@ steps:
       from_secret: DOCKER_REGISTRY_PASSWORD
     registry:
       from_secret: DOCKER_REGISTRY_URL
+    build_args_from_env:
+      - EXTIVERSE_TOKEN
     tags:
       - latest
       - ${DRONE_TAG}
     dockerfile: docker/Dockerfile
     context: docker/
+  environment:
+    EXTIVERSE_TOKEN:
+      from_secret: EXTIVERSE_TOKEN
 
 ---
 kind: pipeline
@@ -66,6 +71,6 @@ steps:
     extra_vars: version=${DRONE_TAG}
 ---
 kind: signature
-hmac: 501c063d49cbeaa039bb81255ab418c1634335a98b326410a68ec40d65fd6123
+hmac: b65cfdef6f9ce2fc61f2006609dd2c85dc35513523dada0286f13b04feff5e75
 
 ...
