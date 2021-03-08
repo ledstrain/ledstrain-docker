@@ -22,8 +22,8 @@
       notify:
         - restart_reverse_proxy
   handlers:
-  - name: restart_reverse_proxy
-    community.general.docker_compose:
-      project_src: "{{ dockerpath }}/{{ ansible_facts.nodename }}/caddy"
-      state: present
-      recreate: always
+    - name: restart_reverse_proxy
+      community.general.docker_compose:
+        project_src: "{{ dockerpath }}/{{ ansible_facts.nodename }}/caddy"
+        state: present
+        recreate: always
