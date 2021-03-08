@@ -26,4 +26,9 @@ VOLUME /app/public/assets/images
 
 # COPY forum_config/entrypoint.sh /entrypoint.sh
 COPY forum_config/forum_setup.sh /opt/docker/provision/entrypoint.d/50-forum_setup.sh
+
+# Configure for websockets
+COPY webserver_config/vhost.conf /opt/docker/etc/nginx/vhost.conf
+COPY webserver_config/50-websocket.conf /opt/docker/etc/nginx/vhost.common.d/50-websocket.conf
+COPY webserver_config/10-location-root.conf /opt/docker/etc/nginx/vhost.common.d/10-location-root.conf
 WORKDIR /app
