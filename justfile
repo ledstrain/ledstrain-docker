@@ -4,9 +4,13 @@ stop:
   docker-compose down
 enter:
   #!/usr/bin/env bash
-  just start
   docker-compose exec forum bash
-  git diff -U0 docker/composer.json | grep -E '^[+-] ' || true
+
+  FORUM=$(docker inspect -f '{{ "{{" }} .Name {{ "}}" }}' $(docker-compose ps -q forum) | cut -c2-)
+  tmpfile="$(mktemp)"
+  docker container cp ${FORUM}:/app/composer.json "$tmpfile"
+  diff docker/composer.json "$tmpfile" | grep -E '^>'
+  rm "$tmpfile"
 update:
     #!/usr/bin/env bash
     FORUM=$(docker inspect -f '{{ "{{" }} .Name {{ "}}" }}' $(docker-compose ps -q forum) | cut -c2-)
