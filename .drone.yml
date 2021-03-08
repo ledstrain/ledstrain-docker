@@ -58,7 +58,7 @@ trigger:
 
 steps:
 
-- name: Deploy to staging
+- name: Deploy to production
   image: plugins/ansible:3
   settings:
     playbook: ansible/site.yml
@@ -71,6 +71,6 @@ steps:
     extra_vars: version=${DRONE_TAG}
 ---
 kind: signature
-hmac: b65cfdef6f9ce2fc61f2006609dd2c85dc35513523dada0286f13b04feff5e75
+hmac: 2f67c1f7a93529aeb72cac0b944a3d237420d97f4a3f9f4823ded284420c9d40
 
 ...
