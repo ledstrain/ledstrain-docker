@@ -2294,16 +2294,16 @@
         },
         {
             "name": "flarum/sticky",
-            "version": "v0.1.0-beta.15",
+            "version": "v0.1.0-beta.15.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/flarum/sticky.git",
-                "reference": "57cf21950bc651f085e6c9427e7408df487ea4b4"
+                "reference": "0b7a172e0eed21aef05f7220542390b2526a04ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/flarum/sticky/zipball/57cf21950bc651f085e6c9427e7408df487ea4b4",
-                "reference": "57cf21950bc651f085e6c9427e7408df487ea4b4",
+                "url": "https://api.github.com/repos/flarum/sticky/zipball/0b7a172e0eed21aef05f7220542390b2526a04ce",
+                "reference": "0b7a172e0eed21aef05f7220542390b2526a04ce",
                 "shasum": ""
             },
             "require": {
@@ -2349,7 +2349,7 @@
                     "type": "website"
                 }
             ],
-            "time": "2020-12-15T08:28:40+00:00"
+            "time": "2021-01-22T19:26:57+00:00"
         },
         {
             "name": "flarum/subscriptions",
@@ -2680,16 +2680,16 @@
         },
         {
             "name": "fof/byobu",
-            "version": "0.6.0",
+            "version": "0.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfFlarum/byobu.git",
-                "reference": "a24237d97d380e565d7bf856f21158d0c0f343dc"
+                "reference": "83de140b75dd0933f9299a802b122beaa87ca695"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfFlarum/byobu/zipball/a24237d97d380e565d7bf856f21158d0c0f343dc",
-                "reference": "a24237d97d380e565d7bf856f21158d0c0f343dc",
+                "url": "https://api.github.com/repos/FriendsOfFlarum/byobu/zipball/83de140b75dd0933f9299a802b122beaa87ca695",
+                "reference": "83de140b75dd0933f9299a802b122beaa87ca695",
                 "shasum": ""
             },
             "require": {
@@ -2757,7 +2757,7 @@
                     "type": "website"
                 }
             ],
-            "time": "2020-12-19T23:01:13+00:00"
+            "time": "2021-01-13T21:56:47+00:00"
         },
         {
             "name": "fof/components",
@@ -2812,22 +2812,23 @@
         },
         {
             "name": "fof/console",
-            "version": "0.6.1",
+            "version": "0.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfFlarum/console.git",
-                "reference": "4ae0d161f79abac21cca19125e42a4bfe020586a"
+                "reference": "b6e3b744ab0ac7c0ff3e21f883722daa6520f05f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfFlarum/console/zipball/4ae0d161f79abac21cca19125e42a4bfe020586a",
-                "reference": "4ae0d161f79abac21cca19125e42a4bfe020586a",
+                "url": "https://api.github.com/repos/FriendsOfFlarum/console/zipball/b6e3b744ab0ac7c0ff3e21f883722daa6520f05f",
+                "reference": "b6e3b744ab0ac7c0ff3e21f883722daa6520f05f",
                 "shasum": ""
             },
             "require": {
                 "dragonmantank/cron-expression": "^1.2.1",
-                "flarum/core": "^0.1.0-beta.14",
-                "illuminate/console": "^6.0",
+                "flarum/core": "^0.1.0-beta.15",
+                "illuminate/console": "^6.20.0",
+                "illuminate/support": "^6.20.0",
                 "symfony/process": "~4.0"
             },
             "type": "library",
@@ -2870,25 +2871,25 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2020-12-14T08:43:14+00:00"
+            "time": "2021-01-06T16:19:13+00:00"
         },
         {
             "name": "fof/drafts",
-            "version": "0.3.1",
+            "version": "0.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfFlarum/drafts.git",
-                "reference": "cc77ec510c1c7f31c66a45b30a36b1c76798c32e"
+                "reference": "9df5e9c69baaa7b63a7139579f9300a82b3f7928"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfFlarum/drafts/zipball/cc77ec510c1c7f31c66a45b30a36b1c76798c32e",
-                "reference": "cc77ec510c1c7f31c66a45b30a36b1c76798c32e",
+                "url": "https://api.github.com/repos/FriendsOfFlarum/drafts/zipball/9df5e9c69baaa7b63a7139579f9300a82b3f7928",
+                "reference": "9df5e9c69baaa7b63a7139579f9300a82b3f7928",
                 "shasum": ""
             },
             "require": {
                 "flarum/core": "^0.1.0-beta.15",
-                "fof/console": "^0.6.1"
+                "fof/console": "^0.6.2"
             },
             "type": "flarum-extension",
             "extra": {
@@ -2939,7 +2940,7 @@
                     "type": "website"
                 }
             ],
-            "time": "2020-12-18T16:26:42+00:00"
+            "time": "2021-02-09T18:39:55+00:00"
         },
         {
             "name": "fof/extend",
@@ -2989,16 +2990,16 @@
         },
         {
             "name": "fof/follow-tags",
-            "version": "0.6.3",
+            "version": "0.6.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfFlarum/follow-tags.git",
-                "reference": "3f1f32d86fa9265dcbddc733ca3c9f48edccbc41"
+                "reference": "196b51692cf262e6b8398e51ca7c388a26d543ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfFlarum/follow-tags/zipball/3f1f32d86fa9265dcbddc733ca3c9f48edccbc41",
-                "reference": "3f1f32d86fa9265dcbddc733ca3c9f48edccbc41",
+                "url": "https://api.github.com/repos/FriendsOfFlarum/follow-tags/zipball/196b51692cf262e6b8398e51ca7c388a26d543ea",
+                "reference": "196b51692cf262e6b8398e51ca7c388a26d543ea",
                 "shasum": ""
             },
             "require": {
@@ -3053,7 +3054,7 @@
                     "type": "website"
                 }
             ],
-            "time": "2020-12-22T00:17:18+00:00"
+            "time": "2021-01-22T21:12:40+00:00"
         },
         {
             "name": "fof/formatting",
@@ -3124,16 +3125,16 @@
         },
         {
             "name": "fof/links",
-            "version": "0.5.0",
+            "version": "0.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfFlarum/links.git",
-                "reference": "7f4ed4b56bb14abe32910920fa846fa35a322898"
+                "reference": "85e79618d42deb5873a7eaf612bcc4ca2dda3d12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfFlarum/links/zipball/7f4ed4b56bb14abe32910920fa846fa35a322898",
-                "reference": "7f4ed4b56bb14abe32910920fa846fa35a322898",
+                "url": "https://api.github.com/repos/FriendsOfFlarum/links/zipball/85e79618d42deb5873a7eaf612bcc4ca2dda3d12",
+                "reference": "85e79618d42deb5873a7eaf612bcc4ca2dda3d12",
                 "shasum": ""
             },
             "require": {
@@ -3193,7 +3194,7 @@
                     "type": "website"
                 }
             ],
-            "time": "2020-12-16T10:16:11+00:00"
+            "time": "2021-02-02T20:15:24+00:00"
         },
         {
             "name": "fof/merge-discussions",
@@ -3343,16 +3344,16 @@
         },
         {
             "name": "fof/oauth",
-            "version": "0.2.0",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfFlarum/oauth.git",
-                "reference": "030df027f8243e6d25b286464768c24497b5b2d4"
+                "reference": "c303ef61e24568aff3b49221b55d16ed5d2d9b4c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfFlarum/oauth/zipball/030df027f8243e6d25b286464768c24497b5b2d4",
-                "reference": "030df027f8243e6d25b286464768c24497b5b2d4",
+                "url": "https://api.github.com/repos/FriendsOfFlarum/oauth/zipball/c303ef61e24568aff3b49221b55d16ed5d2d9b4c",
+                "reference": "c303ef61e24568aff3b49221b55d16ed5d2d9b4c",
                 "shasum": ""
             },
             "require": {
@@ -3371,7 +3372,8 @@
                 "flarum/auth-github": "*",
                 "flarum/auth-twitter": "*",
                 "fof/auth-discord": "*",
-                "fof/auth-gitlab": "*"
+                "fof/auth-gitlab": "*",
+                "luuhai48/oauth-google": "*"
             },
             "type": "flarum-extension",
             "extra": {
@@ -3428,7 +3430,7 @@
                     "type": "website"
                 }
             ],
-            "time": "2020-12-16T18:19:53+00:00"
+            "time": "2021-01-28T17:13:52+00:00"
         },
         {
             "name": "fof/secure-https",
@@ -3718,23 +3720,23 @@
         },
         {
             "name": "fof/upload",
-            "version": "0.12.0",
+            "version": "0.12.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfFlarum/upload.git",
-                "reference": "ad7046dcad6034017015748fe114365a627f453c"
+                "reference": "d70dd6701f9472f9da7ed254a82043d2a5cdfab4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfFlarum/upload/zipball/ad7046dcad6034017015748fe114365a627f453c",
-                "reference": "ad7046dcad6034017015748fe114365a627f453c",
+                "url": "https://api.github.com/repos/FriendsOfFlarum/upload/zipball/d70dd6701f9472f9da7ed254a82043d2a5cdfab4",
+                "reference": "d70dd6701f9472f9da7ed254a82043d2a5cdfab4",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "flarum/core": ">=0.1.0-beta.15 <0.1.0-beta.17",
                 "guzzlehttp/guzzle": "^6.0 || ^7.0",
-                "ramsey/uuid": "^3.5.2",
+                "ramsey/uuid": "^3.5.2 || ^4",
                 "softcreatr/php-mime-detector": "^3.0"
             },
             "replace": {
@@ -3799,20 +3801,20 @@
                     "type": "website"
                 }
             ],
-            "time": "2020-12-13T23:34:06+00:00"
+            "time": "2021-02-09T20:09:08+00:00"
         },
         {
             "name": "fof/user-bio",
-            "version": "0.4.1",
+            "version": "0.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfFlarum/user-bio.git",
-                "reference": "ef78ffe75e5907f65301f7edcdf25311b8f0bc99"
+                "reference": "72f49b3561bbf44f7c3af5616fbdebed998ecbc7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfFlarum/user-bio/zipball/ef78ffe75e5907f65301f7edcdf25311b8f0bc99",
-                "reference": "ef78ffe75e5907f65301f7edcdf25311b8f0bc99",
+                "url": "https://api.github.com/repos/FriendsOfFlarum/user-bio/zipball/72f49b3561bbf44f7c3af5616fbdebed998ecbc7",
+                "reference": "72f49b3561bbf44f7c3af5616fbdebed998ecbc7",
                 "shasum": ""
             },
             "require": {
@@ -3867,7 +3869,7 @@
                     "type": "website"
                 }
             ],
-            "time": "2020-12-22T21:30:15+00:00"
+            "time": "2021-01-17T15:39:41+00:00"
         },
         {
             "name": "franzl/whoops-middleware",
