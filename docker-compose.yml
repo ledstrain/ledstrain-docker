@@ -4,6 +4,7 @@ services:
   forum:
     build:
       context: ./docker
+      target: dev
       args:
         - EXTIVERSE_TOKEN=${EXTIVERSE_TOKEN}
     labels:

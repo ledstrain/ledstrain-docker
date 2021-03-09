@@ -41,6 +41,7 @@ steps:
       - ${DRONE_TAG}
     dockerfile: docker/Dockerfile
     context: docker/
+    target: production
   environment:
     EXTIVERSE_TOKEN:
       from_secret: EXTIVERSE_TOKEN
@@ -71,6 +72,6 @@ steps:
     extra_vars: version=${DRONE_TAG}
 ---
 kind: signature
-hmac: 2f67c1f7a93529aeb72cac0b944a3d237420d97f4a3f9f4823ded284420c9d40
+hmac: 8e90b79487ce266e6ae79e3c2ab5336869ab4d15f2bbc5850c1b4008fc239b8e
 
 ...
