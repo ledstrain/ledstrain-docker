@@ -3,10 +3,10 @@ FROM webdevops/php-nginx:7.3 as builder
 ARG EXTIVERSE_TOKEN
 
 WORKDIR /app
-RUN composer create-project flarum/flarum . --stability=beta
+#RUN composer create-project flarum/flarum . --stability=beta
 COPY .null composer.* ./
 
-RUN if [ -z ${EXTIVERSE_TOKEN+x} ]; then composer config --global --auth bearer.extiverse.com $EXTIVERSE_TOKEN; fi \
+RUN if [ -n "$EXTIVERSE_TOKEN" ]; then composer config --global --auth bearer.extiverse.com "$EXTIVERSE_TOKEN"; fi \
  && composer install
 
 
@@ -47,5 +47,5 @@ WORKDIR /app
 FROM production as dev
 ARG EXTIVERSE_TOKEN
 
-RUN if [ -z ${EXTIVERSE_TOKEN+x} ]; then composer config --global --auth bearer.extiverse.com $EXTIVERSE_TOKEN; fi
+RUN if [ -n "$EXTIVERSE_TOKEN" ]; then composer config --global --auth bearer.extiverse.com "$EXTIVERSE_TOKEN"; fi
 RUN usermod -s /bin/bash application
