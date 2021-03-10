@@ -1,4 +1,10 @@
 start:
+  #!/usr/bin/env bash
+  mkdir -p data/redis/conf
+  if [ ! -f data/redis/conf/redis.conf ]; then
+    sudo chown $(whoami) data/redis/conf
+    cp docs/redis.example data/redis/conf/redis.conf
+  fi
   docker-compose up -d
 stop:
   docker-compose down
