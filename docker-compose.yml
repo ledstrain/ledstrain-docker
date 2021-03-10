@@ -29,9 +29,19 @@ services:
     depends_on:
       db:
         condition: "service_healthy"
+      redis:
+        condition: "service_started"
     networks:
       - internal
       - caddy
+  redis:
+    image: redis
+    restart: unless-stopped
+    volumes:
+    - './data/redis/conf:/usr/local/etc/redis:ro'
+    entrypoint: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+    networks:
+    - internal
   db:
     image: mariadb:10.3
     environment:

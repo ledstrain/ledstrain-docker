@@ -14,6 +14,7 @@ if [ -f /conf/config.php ]; then
   php flarum migrate
   # Requires Cache Assets
   # https://discuss.flarum.org/d/23321-cache-assets-by-bokt
+
   php flarum cache:clear
   php flarum cache:assets --js --css --locales || true
 
@@ -40,6 +41,7 @@ EOF
   chown "${PUID_ID}" /conf/config.php
 fi
 
-chown "${PUID_ID}" -R  \
-  /app/public/assets \
-  /app/storage
+chown "${PUID_ID}" -R                   \
+  /app/public/assets                    \
+  /app/storage                          \
+  /app/vendor/flarum/core/src/Database    # For ReCache plugin
