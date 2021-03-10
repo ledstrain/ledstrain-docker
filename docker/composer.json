@@ -83,6 +83,7 @@
         "fof/upload": "^0.12.10",
         "fof/user-bio": "^0.4.2",
         "kyrne/websocket": "^2.4",
+        "reflar/recache": "^2.3",
         "v17development/flarum-seo": "^1.6"
     },
     "config": {
