@@ -46,6 +46,9 @@ RUN usermod -s /sbin/nologin application
 
 WORKDIR /app
 
+# ========== Setup development mode
 FROM production as dev
+ARG EXTIVERSE_TOKEN
 
+RUN composer config --global --auth bearer.extiverse.com $EXTIVERSE_TOKEN
 RUN usermod -s /bin/bash application
