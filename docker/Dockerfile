@@ -4,7 +4,7 @@ ARG EXTIVERSE_TOKEN
 
 WORKDIR /app
 RUN composer create-project flarum/flarum . --stability=beta
-COPY composer.json composer.lock ./
+COPY .null composer.* ./
 
 RUN if [ -z ${EXTIVERSE_TOKEN+x} ]; then composer config --global --auth bearer.extiverse.com $EXTIVERSE_TOKEN; fi \
  && composer install
