@@ -6,8 +6,8 @@ WORKDIR /app
 RUN composer create-project flarum/flarum . --stability=beta
 COPY composer.json composer.lock ./
 
-RUN composer config --global --auth bearer.extiverse.com $EXTIVERSE_TOKEN
-RUN composer install
+RUN if [ -z ${EXTIVERSE_TOKEN+x} ]; then composer config --global --auth bearer.extiverse.com $EXTIVERSE_TOKEN; fi \
+ && composer install
 
 
 # ========== Setup webserver
@@ -18,19 +18,15 @@ ENV PHP_DISMOD='amqp,apcu,bcmath,bz2,calendar,exif,gettext,imagick,imap,intl,ion
     ldap,memcached,mongodb,mysqli,pcntl,pdo_pgsql,pgsql,redis,shmop,soap,sockets,\
     sodium,sysvmsg,sysvsem,sysvshm,vips,xmlrpc,xsl'
 
+VOLUME /app/public/assets
+
 COPY --from=builder /app /app
-
-RUN mkdir -p /etc/cron.script
-COPY forum_config/cronscripts/flarum_schedule.sh /etc/cron.script
-RUN docker-cronjob '23 0 * * * application /etc/cron.script/flarum_schedule.sh'
-
-VOLUME /app/public/assets/avatars
-VOLUME /app/public/assets/extensions
-VOLUME /app/public/assets/files
-VOLUME /app/public/assets/images
 
 # COPY entrypoint script
 COPY forum_config/forum_setup.sh /opt/docker/provision/entrypoint.d/50-forum_setup.sh
+
+COPY forum_config/cronscripts/flarum_schedule.sh /etc/cron.script/flarum_schedule.sh
+RUN docker-cronjob '23 0 * * * application /etc/cron.script/flarum_schedule.sh'
 
 # Custom php config
 COPY webserver_config/php.ini /opt/docker/etc/php/php.ini
@@ -46,9 +42,10 @@ RUN usermod -s /sbin/nologin application
 
 WORKDIR /app
 
+
 # ========== Setup development mode
 FROM production as dev
 ARG EXTIVERSE_TOKEN
 
-RUN composer config --global --auth bearer.extiverse.com $EXTIVERSE_TOKEN
+RUN if [ -z ${EXTIVERSE_TOKEN+x} ]; then composer config --global --auth bearer.extiverse.com $EXTIVERSE_TOKEN; fi
 RUN usermod -s /bin/bash application
