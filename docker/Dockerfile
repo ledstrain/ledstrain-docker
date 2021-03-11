@@ -33,6 +33,9 @@ RUN docker-cronjob '23 0 * * * application /etc/cron.script/flarum_schedule.sh'
 # Custom php config
 COPY webserver_config/php.ini /opt/docker/etc/php/php.ini
 
+# Get real ip
+COPY webserver_config/20-realip.conf /opt/docker/etc/nginx/conf.d/20-realip.conf
+
 # Configure for websockets
 COPY webserver_config/vhost.conf /opt/docker/etc/nginx/vhost.conf
 COPY webserver_config/50-websocket.conf /opt/docker/etc/nginx/vhost.common.d/50-websocket.conf
