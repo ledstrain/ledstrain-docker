@@ -31,6 +31,8 @@ VOLUME /app/public/assets/images
 
 # COPY entrypoint script
 COPY forum_config/forum_setup.sh /opt/docker/provision/entrypoint.d/50-forum_setup.sh
+# Get real ip
+COPY webserver_config/20-realip.conf /opt/docker/etc/nginx/conf.d/20-realip.conf
 
 # Custom php config
 COPY webserver_config/php.ini /opt/docker/etc/php/php.ini
