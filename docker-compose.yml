@@ -13,7 +13,7 @@ services:
     volumes:
       - "./data/forum/conf:/conf"
       - "./data/forum/data/storage/sessions:/app/storage/sessions"
-      - "./data/forum/data/composer_cache:/root/.composer"
+      - "./data/forum/data/composer_cache:/root/.composer/cache"
 #     - "./data/forum/data/public/assets:/app/public/assets"
       - "./data/forum/data/public/assets/avatars:/app/public/assets/avatars"
       - "./data/forum/data/public/assets/files:/app/public/assets/files"
