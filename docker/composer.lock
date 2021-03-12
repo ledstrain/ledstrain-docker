@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b2a1b76a2eb547b54a2750db67f53ecf",
+    "content-hash": "732f802e47f775d471be4f8f5bd4449b",
     "packages": [
         {
             "name": "axy/backtrace",
@@ -2689,72 +2689,6 @@
             "time": "2020-12-17T03:32:04+00:00"
         },
         {
-            "name": "fof/ban-ips",
-            "version": "0.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/FriendsOfFlarum/ban-ips.git",
-                "reference": "41d64ec897495d39c17038c9abaae2c44e579fb4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfFlarum/ban-ips/zipball/41d64ec897495d39c17038c9abaae2c44e579fb4",
-                "reference": "41d64ec897495d39c17038c9abaae2c44e579fb4",
-                "shasum": ""
-            },
-            "require": {
-                "flarum/core": "^0.1.0-beta.15"
-            },
-            "type": "flarum-extension",
-            "extra": {
-                "flarum-extension": {
-                    "title": "FoF Ban IPs",
-                    "category": "moderation",
-                    "icon": {
-                        "name": "fas fa-gavel",
-                        "backgroundColor": "#e74c3c",
-                        "color": "#fff"
-                    }
-                },
-                "flagrow": {
-                    "discuss": "https://discuss.flarum.org/d/20949"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "FoF\\BanIPs\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "David Sevilla Martín",
-                    "email": "me+fof@datitisev.me",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Ban IP addresses from your forum",
-            "homepage": "https://friendsofflarum.org",
-            "keywords": [
-                "flarum"
-            ],
-            "support": {
-                "forum": "https://discuss.flarum.org/d/20949",
-                "issues": "https://github.com/FriendsOfFlarum/ban-ips/issues",
-                "source": "https://github.com/FriendsOfFlarum/ban-ips"
-            },
-            "funding": [
-                {
-                    "url": "https://opencollective.com/fof/donate",
-                    "type": "website"
-                }
-            ],
-            "time": "2020-12-16T10:27:59+00:00"
-        },
-        {
             "name": "fof/byobu",
             "version": "0.6.1",
             "source": {
@@ -3793,6 +3727,85 @@
                 }
             ],
             "time": "2020-12-16T10:42:25+00:00"
+        },
+        {
+            "name": "fof/stopforumspam",
+            "version": "0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfFlarum/stopforumspam.git",
+                "reference": "517b99e5d901fcca399bf309ec764c0f99315d95"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfFlarum/stopforumspam/zipball/517b99e5d901fcca399bf309ec764c0f99315d95",
+                "reference": "517b99e5d901fcca399bf309ec764c0f99315d95",
+                "shasum": ""
+            },
+            "require": {
+                "flarum/core": ">=0.1.0-beta.15",
+                "guzzlehttp/guzzle": "6.* || 7.*"
+            },
+            "replace": {
+                "reflar/stopforumspam": "*"
+            },
+            "suggest": {
+                "fof/spamblock": "Allows the option to report spammers to StopForumSpam in order to keep the greater forum community spam free."
+            },
+            "type": "flarum-extension",
+            "extra": {
+                "flarum-extension": {
+                    "title": "FoF Stop Forum Spam",
+                    "category": "moderation",
+                    "icon": {
+                        "name": "fas fa-stop",
+                        "backgroundColor": "#e74c3c",
+                        "color": "#fff"
+                    }
+                },
+                "flagrow": {
+                    "discuss": "https://discuss.flarum.org/d/17846"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "FoF\\StopForumSpam\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Charlie K",
+                    "email": "charlie.k@redevs.org",
+                    "role": "Developer"
+                },
+                {
+                    "name": "David Sevilla Martin",
+                    "email": "me@datitisev.me",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Stop Forum Spam",
+            "homepage": "https://friendsofflarum.org",
+            "keywords": [
+                "flarum",
+                "friendsofflarum"
+            ],
+            "support": {
+                "forum": "https://discuss.flarum.org/d/17846",
+                "issues": "https://github.com/FriendsOfFlarum/stopforumspam/issues",
+                "source": "https://github.com/FriendsOfFlarum/stopforumspam"
+            },
+            "funding": [
+                {
+                    "url": "https://opencollective.com/fof/donate",
+                    "type": "website"
+                }
+            ],
+            "time": "2020-12-16T10:42:09+00:00"
         },
         {
             "name": "fof/upload",
