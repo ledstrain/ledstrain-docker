@@ -16,7 +16,7 @@ RUN composer install
 FROM webdevops/php-nginx:7.3 as production
 
 ENV WEB_DOCUMENT_ROOT=/app/public
-ENV PHP_DISMOD='amqp,apcu,bcmath,bz2,calendar,exif,gettext,imagick,imap,intl,ioncube,\
+ENV PHP_DISMOD='amqp,apcu,bcmath,bz2,calendar,gettext,imagick,imap,intl,ioncube,\
     ldap,memcached,mongodb,mysqli,pcntl,pdo_pgsql,pgsql,redis,shmop,soap,sockets,\
     sodium,sysvmsg,sysvsem,sysvshm,vips,xmlrpc,xsl'
 
