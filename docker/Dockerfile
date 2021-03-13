@@ -1,5 +1,5 @@
 # ========== Install the forum and plugins
-FROM webdevops/php-nginx:7.3 as builder
+FROM webdevops/php-nginx:7.4 as builder
 ARG EXTIVERSE_TOKEN
 
 USER application
@@ -13,7 +13,7 @@ RUN composer install
 
 
 # ========== Setup webserver
-FROM webdevops/php-nginx:7.3 as production
+FROM webdevops/php-nginx:7.4 as production
 
 ENV WEB_DOCUMENT_ROOT=/app/public
 ENV PHP_DISMOD='amqp,apcu,bcmath,bz2,calendar,gettext,imagick,imap,intl,ioncube,\
