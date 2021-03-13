@@ -59,6 +59,19 @@ services:
       start_period: 4s
     networks:
       - internal
+  phpmyadmin:
+    image: phpmyadmin
+    labels:
+      caddy: ${PHPMYADMIN_HOSTNAME}
+      caddy.reverse_proxy: "{{ upstreams 80 }}"
+    environment:
+      PMA_HOST: db
+      PMA_ABSOLUTE_URI: ${PHPMYADMIN_HOSTNAME}
+      PMA_USER:         ${MYSQL_USER}
+      PMA_PASSWORD:     ${MYSQL_PASSWORD}
+    networks:
+      - internal
+      - caddy
 
 networks:
   internal:
