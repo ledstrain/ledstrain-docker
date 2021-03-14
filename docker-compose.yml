@@ -10,6 +10,10 @@ services:
     labels:
       caddy: "${HOSTNAME}"
       caddy.reverse_proxy: "{{ upstreams 80 }}"
+      caddy.header: /assets
+      caddy.header.+Cache-Control_0: "public, must-revalidate, proxy-revalidate"
+      caddy.header.+Cache-Control_1: "max-age=25000"
+      caddy.header.Pragma: "public"
     volumes:
       - "./data/forum/conf:/conf"
       - "./data/forum/data/storage/sessions:/app/storage/sessions"
