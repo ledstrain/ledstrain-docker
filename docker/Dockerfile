@@ -19,8 +19,52 @@ COPY forum_config/websocket_server.sh       /opt/docker/bin/service.d/websocket.
 COPY forum_config/forum_setup.sh            /opt/docker/provision/entrypoint.d/50-forum_setup.sh
 
 
+# # ========== Install the forum and plugins from scratch
+# # ========== Only uncomment when in use (or using BuildKit)
+# FROM webdevops/php-nginx:7.4 as dev_builder
+# ENV COMPOSER_VERSION=2
+# ARG EXTIVERSE_TOKEN
+#
+# RUN apt-get update && apt-get install --no-install-recommends -y jq && rm -rf rm /var/lib/apt/lists/*
+#
+# USER application
+# WORKDIR /app
+#
+# RUN composer create-project flarum/flarum . --stability=beta
+#
+# RUN if [ -n "$EXTIVERSE_TOKEN" ]; then \
+#       composer config --global --auth bearer.extiverse.com "$EXTIVERSE_TOKEN"; \
+#       jq '. += {"repositories": [{"type": "composer", "url": "https://extiverse.com/composer/"}]}' composer.json > .composer.json.tmp; \
+#       mv .composer.json.tmp composer.json; \
+#     fi
+#
+# RUN composer require                             \
+#   bokt/flarum-cache-assets                       \
+#   clarkwinkelmann/flarum-ext-first-post-approval \
+#   fof/analytics                                  \
+#   fof/byobu                                      \
+#   fof/drafts                                     \
+#   fof/follow-tags                                \
+#   fof/formatting                                 \
+#   fof/links                                      \
+#   fof/merge-discussions                          \
+#   fof/nightmode                                  \
+#   fof/oauth                                      \
+#   fof/secure-https                               \
+#   fof/sitemap                                    \
+#   fof/spamblock                                  \
+#   fof/split                                      \
+#   fof/stopforumspam                              \
+#   fof/upload                                     \
+#   fof/user-bio                                   \
+#   kyrne/websocket                                \
+#   reflar/recache                                 \
+#   v17development/flarum-seo
+#
+#
 # ========== Install the forum and plugins
-FROM webdevops/php-nginx:7.4 as builder
+FROM webdevops/php-nginx:7.4 as production_builder
+ENV COMPOSER_VERSION=2
 ARG EXTIVERSE_TOKEN
 
 USER application
@@ -43,9 +87,9 @@ ENV PHP_DISMOD='amqp,apcu,bcmath,bz2,calendar,gettext,imagick,imap,intl,ioncube,
 
 VOLUME /app/public/assets
 
-COPY --from=webserverconfig /opt /opt
-COPY --from=webserverconfig /etc /etc
-COPY --from=builder         /app /app
+COPY --from=webserverconfig     /opt /opt
+COPY --from=webserverconfig     /etc /etc
+COPY --from=production_builder  /app /app
 
 RUN usermod -s /sbin/nologin application
 
