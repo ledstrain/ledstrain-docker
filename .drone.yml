@@ -26,6 +26,7 @@ steps:
   image: plugins/docker
   settings:
     use_cache: true
+    squash: true
     repo:
       from_secret: DOCKER_REGISTRY_REPO
     username:
@@ -72,6 +73,6 @@ steps:
     extra_vars: version=${DRONE_TAG}
 ---
 kind: signature
-hmac: 8e90b79487ce266e6ae79e3c2ab5336869ab4d15f2bbc5850c1b4008fc239b8e
+hmac: 629db6668ea1da859945cc22d765bf98c890276a3ca57d9f8ffe6f5525cb0ad0
 
 ...
