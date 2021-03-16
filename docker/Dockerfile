@@ -3,7 +3,7 @@ FROM webdevops/php-nginx:7.4 as webserverconfig
 
 # Draft plugin
 COPY forum_config/cronscripts/flarum_schedule.sh /etc/cron.script/flarum_schedule.sh
-RUN docker-cronjob '23 0 * * * application /etc/cron.script/flarum_schedule.sh'
+RUN docker-cronjob '*/15 * * * * application /etc/cron.script/flarum_schedule.sh'
 
 # Custom php config
 COPY webserver_config/php.ini               /opt/docker/etc/php/php.ini
