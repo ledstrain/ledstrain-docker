@@ -21,27 +21,27 @@ COPY forum_config/forum-setup.sh            /opt/docker/provision/entrypoint.d/5
 
 # # ========== Install the forum and plugins from scratch
 # # ========== Only uncomment when in use (or using BuildKit)
-FROM webdevops/php-nginx:7.4 as dev_builder
-ENV COMPOSER_VERSION=2
-ARG EXTIVERSE_TOKEN
-
-RUN apt-get update && apt-get install --no-install-recommends -y jq && rm -rf rm /var/lib/apt/lists/*
-
-USER application
-WORKDIR /app
-
-RUN composer create-project flarum/flarum . --stability=beta
-
-RUN if [ -n "$EXTIVERSE_TOKEN" ]; then \
-      composer config --global --auth bearer.extiverse.com "$EXTIVERSE_TOKEN"; \
-      jq '. += {"repositories": [{"type": "composer", "url": "https://extiverse.com/composer/"}]}' composer.json > .composer.json.tmp; \
-      mv .composer.json.tmp composer.json; \
-    fi
-
-COPY .null composer.* /composer/conf/
-RUN composer require $(jq '.require | keys' /composer/conf/composer.json | grep -v '"flarum/' | grep -o '".*"' | tr -d '"' | tr '\n' ' ')
-
-
+# FROM webdevops/php-nginx:7.4 as dev_builder
+# ENV COMPOSER_VERSION=2
+# ARG EXTIVERSE_TOKEN
+#
+# RUN apt-get update && apt-get install --no-install-recommends -y jq && rm -rf rm /var/lib/apt/lists/*
+#
+# USER application
+# WORKDIR /app
+#
+# RUN composer create-project flarum/flarum . --stability=beta
+#
+# RUN if [ -n "$EXTIVERSE_TOKEN" ]; then \
+#       composer config --global --auth bearer.extiverse.com "$EXTIVERSE_TOKEN"; \
+#       jq '. += {"repositories": [{"type": "composer", "url": "https://extiverse.com/composer/"}]}' composer.json > .composer.json.tmp; \
+#       mv .composer.json.tmp composer.json; \
+#     fi
+#
+# COPY .null composer.* /composer/conf/
+# RUN composer require $(jq '.require | keys' /composer/conf/composer.json | grep -v '"flarum/' | grep -o '".*"' | tr -d '"' | tr '\n' ' ')
+#
+#
 # ========== Install the forum and plugins
 FROM webdevops/php-nginx:7.4 as production_builder
 ENV COMPOSER_VERSION=2
