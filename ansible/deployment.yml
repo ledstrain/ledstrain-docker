@@ -2,21 +2,25 @@
 
 - name: Deploy forum version
   hosts: ledstrain
+  tags:
+    - staging
+    - production
   vars_files:
     - vault.yml
   vars:
     version: "{{ version }}"
+    stage:   "{{ stage }}"
 
   tasks:
     - name: Change version in docker-compose
       lineinfile:
-        path: '{{ dockerpath }}/{{ hostname }}/{{ app }}/docker-compose.yml'
+        path: '{{ dockerpath }}/{{ vars[stage]["hostname"] }}/{{ vars[stage]["app"] }}/docker-compose.yml'
         regexp: ' +image: \$\{REGISTRY_LOCATION\}:.*'
         line: '    image: ${REGISTRY_LOCATION}:{{ version }}'
 
     - name: Pull new image
       community.docker.docker_compose:
-        project_src: '{{ dockerpath }}/{{ hostname }}/{{ app }}'
+        project_src: '{{ dockerpath }}/{{ vars[stage]["hostname"]}}/{{ vars[stage]["app"] }}'
         pull: yes
         state: present
       notify:

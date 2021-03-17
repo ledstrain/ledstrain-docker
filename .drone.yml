@@ -57,22 +57,53 @@ trigger:
   - promote
   target:
   - production
+  - staging
 
 steps:
 
-- name: Deploy to production
+- name: Deploy to staging
   image: plugins/ansible:3
+  environment:
+    stage: staging
   settings:
-    playbook: ansible/site.yml
+    playbook: ansible/deployment.yml
     galaxy: ansible/requirements.yml
     inventory: ansible/inventory
     vault_password:
       from_secret: ANSIBLE_VAULT_PASSWORD
     private_key:
       from_secret: DRONE_SSH_PRIVATE
-    extra_vars: version=${DRONE_TAG}
+    extra_vars:
+      version=${DRONE_TAG}
+      stage="staging"
+    tags:
+      - staging
+  when:
+    target:
+    - staging
+
+- name: Deploy to production
+  image: plugins/ansible:3
+  environment:
+    stage: production
+  settings:
+    playbook: ansible/deployment.yml
+    galaxy: ansible/requirements.yml
+    inventory: ansible/inventory
+    vault_password:
+      from_secret: ANSIBLE_VAULT_PASSWORD
+    private_key:
+      from_secret: DRONE_SSH_PRIVATE
+    extra_vars:
+      version=${DRONE_TAG}
+      stage="staging"
+    tags:
+      - production
+  when:
+    target:
+    - production
 ---
 kind: signature
-hmac: 629db6668ea1da859945cc22d765bf98c890276a3ca57d9f8ffe6f5525cb0ad0
+hmac: 0094433d5815b89ec515dfca29b0fed81e402aa9a700d301d01d90b3aff73cd2
 
 ...
