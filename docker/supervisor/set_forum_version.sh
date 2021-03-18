@@ -2,6 +2,7 @@
 response="-1"
 data='{"custom_footer":"<div id=img_version>'$IMAGE_VERSION'</div>"}'
 
+sleep 5
 response=$(curl                                            \
   --silent                                                 \
   --insecure                                               \

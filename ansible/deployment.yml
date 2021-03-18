@@ -16,7 +16,7 @@
       lineinfile:
         path: '{{ dockerpath }}/{{ vars[stage]["hostname"] }}/{{ vars[stage]["app"] }}/.env'
         regexp: '^IMAGE_VERSION=".*"'
-        line:   'IMAGE_VERSION="{{ version }}'
+        line:   'IMAGE_VERSION="{{ version }}"'
 
     - name: Pull new image
       community.docker.docker_compose:
