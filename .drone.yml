@@ -56,8 +56,9 @@ trigger:
   event:
   - promote
   target:
-  - production
-  - staging
+    include:
+    - production
+    - staging
 
 steps:
 
@@ -96,7 +97,7 @@ steps:
       from_secret: DRONE_SSH_PRIVATE
     extra_vars:
       version=${DRONE_TAG}
-      stage="staging"
+      stage="production"
     tags:
       - production
   when:
@@ -104,6 +105,6 @@ steps:
     - production
 ---
 kind: signature
-hmac: 0094433d5815b89ec515dfca29b0fed81e402aa9a700d301d01d90b3aff73cd2
+hmac: 3c9cb045b87a7f84e89ed834c5f264b6a0f5e72544633b4f2059d33a9e2a728d
 
 ...
