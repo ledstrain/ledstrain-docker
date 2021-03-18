@@ -1,4 +1,14 @@
 #!/usr/bin/env bash
+#################
+# This is considered to be the main script for setting up the environment
+#  for flarum and must finish before the forum comes up.
+# If config.php is not available, it uses the included template to write
+#  one from environment variables.
+# If one does exist, it will run migrations and clear the cache
+# It also creates and changes permissions for flarum to use.
+# This script also caches assets for the forum to use.
+#
+#################
 set -e
 cd "$APPLICATION_PATH"
 
