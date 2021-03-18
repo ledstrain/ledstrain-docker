@@ -14,9 +14,9 @@
   tasks:
     - name: Change version in docker-compose
       lineinfile:
-        path: '{{ dockerpath }}/{{ vars[stage]["hostname"] }}/{{ vars[stage]["app"] }}/docker-compose.yml'
-        regexp: ' +image: \$\{REGISTRY_LOCATION\}:.*'
-        line: '    image: ${REGISTRY_LOCATION}:{{ version }}'
+        path: '{{ dockerpath }}/{{ vars[stage]["hostname"] }}/{{ vars[stage]["app"] }}/.env'
+        regexp: '^IMAGE_VERSION=".*"'
+        line:   'IMAGE_VERSION="{{ version }}'
 
     - name: Pull new image
       community.docker.docker_compose:
