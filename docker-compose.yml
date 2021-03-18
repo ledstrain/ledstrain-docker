@@ -26,7 +26,9 @@ services:
       INSTALL:         "${INSTALL}"
       hc_schedule:     ${hc_schedule}
       PUID_ID:         ${PUID_ID}
-      HOSTNAME:        https://${HOSTNAME}
+      HOSTNAME:        ${HOSTNAME}
+      IMAGE_VERSION:   ${IMAGE_VERSION}
+      MASTER_TOKEN:    ${MASTER_TOKEN}
       MYSQL_DATABASE:  ${MYSQL_DATABASE}
       MYSQL_USER:      ${MYSQL_USER}
       MYSQL_PASSWORD:  ${MYSQL_PASSWORD}
