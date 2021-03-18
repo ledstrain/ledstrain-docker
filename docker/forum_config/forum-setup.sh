@@ -5,7 +5,7 @@ cd "$APPLICATION_PATH"
 install_flarum() {
   cat > install.yml <<EOF
 debug: true
-baseUrl: ${HOSTNAME}
+baseUrl: https://${HOSTNAME}
 databaseConfiguration:
   driver: mysql
   host: db
