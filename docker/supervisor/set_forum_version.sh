@@ -24,6 +24,11 @@ response=$(curl                                            \
   --data "$data")
 if [ "$response" -eq "204" ]; then
   echo "Image Version (footer): $IMAGE_VERSION" 1> /proc/1/fd/1 2> /proc/1/fd/2
+  (
+    cd /app || exit
+    php flarum cache:clear
+    php flarum cache:assets --js --css --locales || true
+  )
 else
   exit 1
 fi
