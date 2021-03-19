@@ -5,6 +5,11 @@ FROM webdevops/php-nginx:7.4 as webserverconfig
 COPY forum_config/cronscripts/flarum_schedule.sh /etc/cron.script/flarum_schedule.sh
 RUN docker-cronjob '*/15 * * * * application /etc/cron.script/flarum_schedule.sh'
 
+COPY forum_config/sql_scripts/liked_posts_can_create_discussion.sql /etc/cron.script/liked_posts_can_create_discussion.sql
+RUN docker-cronjob '0 0 * * * application \
+ mysql --host=db --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" "$MYSQL_DATABASE" \
+ < /etc/cron.script/liked_posts_can_create_discussion.sql'
+
 # Custom php config
 COPY webserver_config/php.ini               /opt/docker/etc/php/php.ini
 # Get real ip
@@ -67,6 +72,8 @@ ENV WEB_DOCUMENT_ROOT=/app/public
 ENV PHP_DISMOD='amqp,apcu,bcmath,bz2,calendar,gettext,imagick,imap,intl,ioncube,\
     ldap,memcached,mongodb,mysqli,pcntl,pdo_pgsql,pgsql,redis,shmop,soap,sockets,\
     sodium,sysvmsg,sysvsem,sysvshm,vips,xmlrpc,xsl'
+
+RUN apt-get update && apt-get install --no-install-recommends -y default-mysql-client && rm -rf rm /var/lib/apt/lists/*
 
 VOLUME /app/public/assets
 
