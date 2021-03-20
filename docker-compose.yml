@@ -73,8 +73,8 @@ services:
     environment:
       PMA_HOST: db
       PMA_ABSOLUTE_URI: ${PHPMYADMIN_HOSTNAME}
-      PMA_USER:         ${MYSQL_USER}
-      PMA_PASSWORD:     ${MYSQL_PASSWORD}
+      PMA_USER:         root
+      PMA_PASSWORD:     ${MYSQL_ROOT_PASSWORD}
     networks:
       - internal
       - caddy

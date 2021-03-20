@@ -46,7 +46,7 @@ COPY forum_config/forum-setup.sh            /opt/docker/provision/entrypoint.d/5
 #       mv .composer.json.tmp composer.json; \
 #     fi
 #
-# COPY .null composer.* /composer/conf/
+# COPY .null composer*.json /composer/conf/
 # RUN composer require $(jq '.require | keys' /composer/conf/composer.json | grep -v '"flarum/' | grep -o '".*"' | tr -d '"' | tr '\n' ' ')
 #
 #
