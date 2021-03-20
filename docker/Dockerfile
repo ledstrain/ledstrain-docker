@@ -5,10 +5,10 @@ FROM webdevops/php-nginx:7.4 as webserverconfig
 COPY forum_config/cronscripts/flarum_schedule.sh /etc/cron.script/flarum_schedule.sh
 RUN docker-cronjob '*/15 * * * * application /etc/cron.script/flarum_schedule.sh'
 
-COPY forum_config/sql_scripts/liked_posts_can_create_discussion.sql /etc/cron.script/liked_posts_can_create_discussion.sql
-RUN docker-cronjob '0 0 * * * application \
+COPY forum_config/sql_scripts/*.sql /etc/cron.script/sql/
+RUN docker-cronjob '0 0 * * * application for sql in /etc/cron.script/sql/*.sql; do \
  mysql --host=db --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" "$MYSQL_DATABASE" \
- < /etc/cron.script/liked_posts_can_create_discussion.sql'
+ < "$sql"; done'
 
 # Custom php config
 COPY webserver_config/php.ini               /opt/docker/etc/php/php.ini

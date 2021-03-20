@@ -1,9 +1,9 @@
 -- If a user has
---  - Last seen in the last week
---  - Is not approved for creating a post or discussion
+--  - Been last seen in the last week
+--  - An account that must be at least 2 days old
+--  - An account that must not be suspended
+--  - Not already been approved for creating a post or discussion
 --  - A post with at least 1 like from another user
---  - Account must be at least 2 days old
---  - Account must not be suspended
 -- Then it will set approval to 1
 -- tldr; If someone else liked your post, you can create discussions without needing
 --  approval
@@ -20,4 +20,4 @@ UPDATE users u SET first_post_approval_count=1,
   AND  u.id IN (SELECT p.user_id FROM posts p
                 WHERE p.id IN (SELECT post_id FROM post_likes pl
                                WHERE pl.user_id != u.id)
-               )
+               );
