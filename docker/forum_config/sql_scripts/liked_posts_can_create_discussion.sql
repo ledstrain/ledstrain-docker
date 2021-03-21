@@ -4,6 +4,7 @@
 --  - An account that must not be suspended
 --  - Not already been approved for creating a post or discussion
 --  - A post with at least 1 like from another user
+--  -  Or, a post that another user has mentioned.
 -- Then it will set approval to 1
 -- tldr; If someone else liked your post, you can create discussions without needing
 --  approval
@@ -17,7 +18,9 @@ UPDATE users u SET first_post_approval_count=1,
           u.first_post_approval_count       = 0
        OR u.first_discussion_approval_count = 0
       )
-  AND  u.id IN (SELECT p.user_id FROM posts p
-                WHERE p.id IN (SELECT post_id FROM post_likes pl
-                               WHERE pl.user_id != u.id)
-               );
+  AND u.id IN (SELECT p.user_id FROM posts p
+               WHERE p.id IN (SELECT post_id FROM post_likes pl
+                               WHERE pl.user_id != u.id
+                              UNION ALL
+                              SELECT mentions_post_id FROM post_mentions_post pmp
+                               WHERE pmp.post_id NOT IN (SELECT id FROM posts WHERE id != u.id)));
