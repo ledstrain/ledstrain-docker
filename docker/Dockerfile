@@ -1,7 +1,8 @@
 # ========== webserver overrides
 FROM webdevops/php-nginx:7.4 as webserverconfig
 
-# Draft plugin
+# Flarum Scheduler for
+# Draft, Sitemap
 COPY forum_config/cronscripts/flarum_schedule.sh /etc/cron.script/flarum_schedule.sh
 RUN docker-cronjob '*/15 * * * * application /etc/cron.script/flarum_schedule.sh'
 
