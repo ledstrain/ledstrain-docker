@@ -12,20 +12,20 @@ RUN docker-cronjob '0 0 * * * application for sql in /etc/cron.script/sql/*.sql;
  < "$sql"; done'
 
 # Custom php config
-COPY webserver_config/php.ini               /opt/docker/etc/php/php.ini
+COPY webserver_config/php.ini                      /opt/docker/etc/php/php.ini
 # Get real ip
-COPY webserver_config/20-realip.conf        /opt/docker/etc/nginx/conf.d/20-realip.conf
+COPY webserver_config/20-realip.conf               /opt/docker/etc/nginx/conf.d/20-realip.conf
 # Configure for websockets
-COPY webserver_config/vhost.conf            /opt/docker/etc/nginx/vhost.conf
-COPY webserver_config/50-websocket.conf     /opt/docker/etc/nginx/vhost.common.d/50-websocket.conf
-COPY webserver_config/10-location-root.conf /opt/docker/etc/nginx/vhost.common.d/10-location-root.conf
-COPY supervisor/websocket_supervisor.conf   /opt/docker/etc/supervisor.d/websocket.conf
-COPY supervisor/websocket_server.sh         /opt/docker/bin/service.d/websocket.sh
+COPY webserver_config/vhost.conf                   /opt/docker/etc/nginx/vhost.conf
+COPY webserver_config/50-websocket.conf            /opt/docker/etc/nginx/vhost.common.d/50-websocket.conf
+COPY webserver_config/10-location-root.conf        /opt/docker/etc/nginx/vhost.common.d/10-location-root.conf
+COPY supervisor/websocket_supervisor.conf          /opt/docker/etc/supervisor.d/websocket.conf
+COPY supervisor/websocket_server.sh                /opt/docker/bin/service.d/websocket.sh
 # Custom Footer with Image version
-COPY supervisor/forum_version_supr.conf     /opt/docker/etc/supervisor.d/forum_version.conf
-COPY supervisor/set_forum_version.sh        /opt/docker/bin/service.d/set_forum_version.sh
+RUN docker-cronjob '@reboot application /etc/cron.script/set_forum_version.sh'
+COPY forum_config/cronscripts/set_forum_version.sh /etc/cron.script/set_forum_version.sh
 # Entrypoint
-COPY forum_config/forum-setup.sh            /opt/docker/provision/entrypoint.d/50-forum-setup.sh
+COPY forum_config/forum-setup.sh                   /opt/docker/provision/entrypoint.d/50-forum-setup.sh
 
 
 # # ========== Install the forum and plugins from scratch

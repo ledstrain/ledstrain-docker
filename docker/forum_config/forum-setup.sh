@@ -12,7 +12,7 @@
 set -e
 cd "$APPLICATION_PATH"
 
-printenv | grep -E 'MYSQL_USER|MYSQL_PASSWORD|MYSQL_DATABASE' > /etc/environment
+printenv | grep -E 'MYSQL_USER|MYSQL_PASSWORD|MYSQL_DATABASE|HOSTNAME|MASTER_TOKEN|IMAGE_VERSION' > /etc/environment
 
 install_flarum() {
   cat > install.yml <<EOF
