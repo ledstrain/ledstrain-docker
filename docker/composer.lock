@@ -3001,16 +3001,16 @@
         },
         {
             "name": "fof/follow-tags",
-            "version": "0.6.5",
+            "version": "0.6.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfFlarum/follow-tags.git",
-                "reference": "196b51692cf262e6b8398e51ca7c388a26d543ea"
+                "reference": "cd18913832d19912232c87435e9f8511d4bc0b0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfFlarum/follow-tags/zipball/196b51692cf262e6b8398e51ca7c388a26d543ea",
-                "reference": "196b51692cf262e6b8398e51ca7c388a26d543ea",
+                "url": "https://api.github.com/repos/FriendsOfFlarum/follow-tags/zipball/cd18913832d19912232c87435e9f8511d4bc0b0b",
+                "reference": "cd18913832d19912232c87435e9f8511d4bc0b0b",
                 "shasum": ""
             },
             "require": {
@@ -3065,7 +3065,7 @@
                     "type": "website"
                 }
             ],
-            "time": "2021-01-22T21:12:40+00:00"
+            "time": "2021-03-26T10:42:09+00:00"
         },
         {
             "name": "fof/formatting",
