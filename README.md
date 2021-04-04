@@ -9,8 +9,8 @@ x-y-z
 * z = minor changes  
 For example, the below shows the flarum version, 1 plugin or update change at that version, and 5 minor changes
 ```
-0.1.0-beta.15-01-05
-x = 0.1.0-beta.15, y = 01, z = 05
+0.1.0-beta.15-01-005
+x = 0.1.0-beta.15, y = 01, z = 005
 ```
 
 ## Making changes

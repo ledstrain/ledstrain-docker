@@ -6,8 +6,8 @@
 --  - A post with at least 1 like from another user
 --  -  Or, a post that another user has mentioned.
 -- Then it will set approval to 1
--- tldr; If someone else liked your post, you can create discussions without needing
---  approval
+-- tldr; If someone else liked or replied to your post, you can
+-- create discussions without needing approval
 
 UPDATE users u SET first_post_approval_count=1,
                    first_discussion_approval_count=1
