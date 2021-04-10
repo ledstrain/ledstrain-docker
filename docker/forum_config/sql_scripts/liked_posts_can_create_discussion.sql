@@ -23,4 +23,4 @@ UPDATE users u SET first_post_approval_count=1,
                                WHERE pl.user_id != u.id
                               UNION ALL
                               SELECT mentions_post_id FROM post_mentions_post pmp
-                               WHERE pmp.post_id NOT IN (SELECT id FROM posts WHERE id != u.id)));
+                               WHERE pmp.post_id IN (SELECT id FROM posts WHERE id != u.id)));
