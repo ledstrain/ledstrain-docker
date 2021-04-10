@@ -48,7 +48,7 @@ COPY forum_config/forum-setup.sh                   /opt/docker/provision/entrypo
 #     fi
 #
 # COPY .null composer*.json /composer/conf/
-# RUN composer require $(jq '.require | keys' /composer/conf/composer.json | grep -v '"flarum/' | grep -o '".*"' | tr -d '"' | tr '\n' ' ')
+# RUN composer require -W $(jq '.require | keys' /composer/conf/composer.json | grep -v '"flarum/' | grep -o '".*"' | tr -d '"' | tr '\n' ' ')
 #
 #
 # ========== Install the forum and plugins
