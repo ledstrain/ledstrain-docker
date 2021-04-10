@@ -7,10 +7,10 @@ x-y-z
 * x = flarum version
 * y = plugin changes (added or removed)
 * z = minor changes  
-For example, the below shows the flarum version, 1 plugin or update change at that version, and 5 minor changes
+For example, the below shows the flarum version, 1 plugin or update changes, and 5 minor changes
 ```
-0.1.0-beta.15-01-005
-x = 0.1.0-beta.15, y = 01, z = 005
+16-001-005
+x = 16, y = 001, z = 005
 ```
 
 ## Making changes
