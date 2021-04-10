@@ -41,7 +41,7 @@ services:
       - internal
       - caddy
   redis:
-    image: redis
+    image: redis:6
     restart: unless-stopped
     volumes:
     - './data/redis/conf:/usr/local/etc/redis:ro'
