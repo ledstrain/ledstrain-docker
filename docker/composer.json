@@ -21,6 +21,9 @@
     "docs": "https://flarum.org/docs/"
   },
   "require": {
+    "askvortsov/flarum-checklist": "^1.1",
+    "askvortsov/flarum-markdown-tables": "^1.0",
+    "askvortsov/flarum-rich-text": "^1.1",
     "bokt/flarum-cache-assets": "^0.4.0",
     "clarkwinkelmann/flarum-ext-first-post-approval": "^0.1.4",
     "flarum/approval": "^0.1.0",

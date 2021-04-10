@@ -4,8 +4,179 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5bcd4a0e2547c57c1c110cdfdec9902e",
+    "content-hash": "89f36dfcbaf182efbda11277bbcff178",
     "packages": [
+        {
+            "name": "askvortsov/flarum-checklist",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/askvortsov1/flarum-checklist.git",
+                "reference": "f6c39d7bdb1ea03260f70b92b60426dcfdfe7019"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/askvortsov1/flarum-checklist/zipball/f6c39d7bdb1ea03260f70b92b60426dcfdfe7019",
+                "reference": "f6c39d7bdb1ea03260f70b92b60426dcfdfe7019",
+                "shasum": ""
+            },
+            "require": {
+                "flarum/core": "^0.1.0-beta.16",
+                "flarum/markdown": "^0.1.0-beta.16"
+            },
+            "type": "flarum-extension",
+            "extra": {
+                "flarum-extension": {
+                    "title": "Checklists",
+                    "category": "feature",
+                    "icon": {
+                        "name": "far fa-check-square",
+                        "backgroundColor": "#6932D1",
+                        "color": "#fff"
+                    },
+                    "optionalDependencies": [
+                        "flarum/bbcode"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Askvortsov\\FlarumChecklist\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Skvortsov",
+                    "email": "askvortsov@flarum.org",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Checklists for Flarum!",
+            "keywords": [
+                "flarum"
+            ],
+            "support": {
+                "forum": "https://discuss.flarum.org/d/26457-checklists",
+                "issues": "https://github.com/askvortsov1/flarum-checklist/issues",
+                "source": "https://github.com/askvortsov1/flarum-checklist"
+            },
+            "time": "2021-03-24T21:42:22+00:00"
+        },
+        {
+            "name": "askvortsov/flarum-markdown-tables",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/askvortsov1/flarum-markdown-tables.git",
+                "reference": "6144622a120dff17fd4e4229a8cda7cfdd0d34ab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/askvortsov1/flarum-markdown-tables/zipball/6144622a120dff17fd4e4229a8cda7cfdd0d34ab",
+                "reference": "6144622a120dff17fd4e4229a8cda7cfdd0d34ab",
+                "shasum": ""
+            },
+            "require": {
+                "flarum/core": "^0.1.0-beta.15"
+            },
+            "type": "flarum-extension",
+            "extra": {
+                "flarum-extension": {
+                    "title": "Markdown Tables",
+                    "category": "formatting",
+                    "icon": {
+                        "name": "fas fa-table",
+                        "backgroundColor": "#6932D1",
+                        "color": "#ffffff"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    " \\MarkdownTables\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Skvortsov",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Markdown tables for flarum.",
+            "keywords": [
+                "flarum"
+            ],
+            "support": {
+                "issues": "https://github.com/askvortsov1/flarum-markdown-tables/issues",
+                "source": "https://github.com/askvortsov1/flarum-markdown-tables/tree/v1.0.1"
+            },
+            "time": "2021-03-16T00:50:22+00:00"
+        },
+        {
+            "name": "askvortsov/flarum-rich-text",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/askvortsov1/flarum-rich-text.git",
+                "reference": "c0c6a82b16528cef02a5f76624362b56f8a34bb7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/askvortsov1/flarum-rich-text/zipball/c0c6a82b16528cef02a5f76624362b56f8a34bb7",
+                "reference": "c0c6a82b16528cef02a5f76624362b56f8a34bb7",
+                "shasum": ""
+            },
+            "require": {
+                "flarum/core": "^0.1.0-beta.16",
+                "flarum/markdown": "^0.1.0-beta.16"
+            },
+            "type": "flarum-extension",
+            "extra": {
+                "flarum-extension": {
+                    "title": "Rich Text",
+                    "category": "feature",
+                    "icon": {
+                        "name": "fas fa-pen-fancy",
+                        "backgroundColor": "#00CED1",
+                        "color": "#fff"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Askvortsov\\RichText\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Skvortsov",
+                    "email": "askvortsov@flarum.org",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Rich Text Editor for Flarum",
+            "keywords": [
+                "flarum"
+            ],
+            "support": {
+                "forum": "https://discuss.flarum.org/d/26455-wysiwyg-rich-text-editor",
+                "issues": "https://github.com/askvortsov1/flarum-rich-text/issues",
+                "source": "https://github.com/askvortsov1/flarum-rich-text"
+            },
+            "time": "2021-04-07T19:49:36+00:00"
+        },
         {
             "name": "axy/backtrace",
             "version": "1.0.7",
