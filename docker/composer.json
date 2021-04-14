@@ -59,6 +59,7 @@
     "fof/upload": "^0.14.0",
     "fof/user-bio": "^0.5.0",
     "kyrne/websocket": "^2.5",
+    "nearata/flarum-ext-internal-links-noreload": "^1.0",
     "v17development/flarum-seo": "^1.7"
   },
   "config": {

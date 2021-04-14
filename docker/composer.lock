@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "89f36dfcbaf182efbda11277bbcff178",
+    "content-hash": "62c9bf392c9b50b7c26724bde0b52523",
     "packages": [
         {
             "name": "askvortsov/flarum-checklist",
@@ -7248,6 +7248,64 @@
                 }
             ],
             "time": "2020-12-14T12:56:38+00:00"
+        },
+        {
+            "name": "nearata/flarum-ext-internal-links-noreload",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Nearata/flarum-ext-internal-links-noreload.git",
+                "reference": "802715bd725d725efc981debd060ba716ea55aab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Nearata/flarum-ext-internal-links-noreload/zipball/802715bd725d725efc981debd060ba716ea55aab",
+                "reference": "802715bd725d725efc981debd060ba716ea55aab",
+                "shasum": ""
+            },
+            "require": {
+                "flarum/core": ">=0.1.0-beta.16 <=0.1.0"
+            },
+            "type": "flarum-extension",
+            "extra": {
+                "flarum-extension": {
+                    "title": "Internal Links No Reload",
+                    "category": "feature",
+                    "icon": {
+                        "name": "fas fa-link",
+                        "backgroundColor": "#738290",
+                        "color": "#fff"
+                    }
+                },
+                "flagrow": {
+                    "discuss": ""
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nearata\\InternalLinksNoReload\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nearata",
+                    "email": "williamdicicco@protonmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Internal links in posts no longer trigger a page reload.",
+            "keywords": [
+                "flarum"
+            ],
+            "support": {
+                "issues": "https://github.com/Nearata/flarum-ext-internal-links-noreload/issues",
+                "source": "https://github.com/Nearata/flarum-ext-internal-links-noreload"
+            },
+            "time": "2021-04-13T16:31:00+00:00"
         },
         {
             "name": "nesbot/carbon",
