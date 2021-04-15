@@ -74,7 +74,9 @@ ENV PHP_DISMOD='amqp,apcu,bcmath,bz2,calendar,gettext,imagick,imap,intl,ioncube,
     ldap,memcached,mongodb,mysqli,pcntl,pdo_pgsql,pgsql,redis,shmop,soap,sockets,\
     sodium,sysvmsg,sysvsem,sysvshm,vips,xmlrpc,xsl'
 
-RUN apt-get update && apt-get install --no-install-recommends -y default-mysql-client && rm -rf rm /var/lib/apt/lists/*
+RUN apt-get update && apt-get install --no-install-recommends -y default-mysql-client \
+                                                                 libncurses5          \
+ && rm -rf rm /var/lib/apt/lists/*
 
 VOLUME /app/public/assets
 
