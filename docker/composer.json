@@ -60,6 +60,7 @@
     "fof/user-bio": "^0.5.0",
     "kyrne/websocket": "^2.5",
     "nearata/flarum-ext-internal-links-noreload": "^1.0",
+    "reflar/recache": "^2.3",
     "v17development/flarum-seo": "^1.7"
   },
   "config": {
