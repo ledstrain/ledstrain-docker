@@ -56,7 +56,6 @@ FROM webdevops/php-nginx:8.0 as production_builder
 ENV COMPOSER_VERSION=2
 ARG EXTIVERSE_TOKEN
 
-USER application
 WORKDIR /app
 
 RUN composer create-project flarum/flarum . --stability=beta
@@ -80,9 +79,9 @@ RUN apt-get update && apt-get install --no-install-recommends -y default-mysql-c
 
 VOLUME /app/public/assets
 
-COPY --from=webserverconfig     /opt /opt
-COPY --from=webserverconfig     /etc /etc
-COPY --from=production_builder  /app /app
+COPY --from=webserverconfig    /opt /opt
+COPY --from=webserverconfig    /etc /etc
+COPY --from=production_builder /app /app
 
 RUN usermod -s /sbin/nologin application
 

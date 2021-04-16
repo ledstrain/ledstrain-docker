@@ -39,11 +39,12 @@ EOF
 
 
 mkdir -p \
-  /app/public/assets/avatars    \
-  /app/public/assets/extensions \
-  /app/public/assets/files      \
-  /app/public/assets/images     \
-  /app/storage
+  /app/public/assets/avatars                 \
+  /app/public/assets/extensions              \
+  /app/public/assets/files                   \
+  /app/public/assets/images                  \
+  /app/storage                               \
+  /app/vendor/kyrne/websocket/poxa-Linux/tmp
 
 if [ -f /conf/config.php ]; then
   ln -fs /conf/config.php ./config.php
@@ -58,7 +59,12 @@ elif [ "$INSTALL" == "true" ]; then
   install_flarum
 fi
 
-chown "${PUID_ID}" -R                   \
-  /app/public/assets                    \
-  /app/storage                          \
-  /app/vendor/flarum/core/src/Database    # For ReCache plugin
+# Directory to plugin changes
+# /app/vendor/flarum/core/src/Database       # For ReCache plugin
+# /app/vendor/kyrne/websocket/poxa-Linux/tmp # For Websocket plugin
+
+chown "${PUID_ID}" -R                        \
+  /app/public/assets                         \
+  /app/storage                               \
+  /app/vendor/flarum/core/src/Database       \
+  /app/vendor/kyrne/websocket/poxa-Linux/tmp
