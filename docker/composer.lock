@@ -2328,16 +2328,16 @@
         },
         {
             "name": "flarum/markdown",
-            "version": "v0.1.0-beta.16",
+            "version": "v0.1.0-beta.16.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/flarum/markdown.git",
-                "reference": "5eab45af0aa7e7b110713548404a2c6b3a3ee5fc"
+                "reference": "88e41c73a28f48f24fe346ed3a1d35ec11455d3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/flarum/markdown/zipball/5eab45af0aa7e7b110713548404a2c6b3a3ee5fc",
-                "reference": "5eab45af0aa7e7b110713548404a2c6b3a3ee5fc",
+                "url": "https://api.github.com/repos/flarum/markdown/zipball/88e41c73a28f48f24fe346ed3a1d35ec11455d3b",
+                "reference": "88e41c73a28f48f24fe346ed3a1d35ec11455d3b",
                 "shasum": ""
             },
             "require": {
@@ -2381,7 +2381,7 @@
                     "type": "website"
                 }
             ],
-            "time": "2021-03-15T11:00:06+00:00"
+            "time": "2021-03-25T17:54:43+00:00"
         },
         {
             "name": "flarum/mentions",
@@ -2444,16 +2444,16 @@
         },
         {
             "name": "flarum/nicknames",
-            "version": "v0.1.0-beta.16",
+            "version": "0.1.0-beta.16.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/flarum/nicknames.git",
-                "reference": "bff69a881dd313f9c5c815800296d495b5f18162"
+                "reference": "1c72993c6345baea5131296288b87dd641a91142"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/flarum/nicknames/zipball/bff69a881dd313f9c5c815800296d495b5f18162",
-                "reference": "bff69a881dd313f9c5c815800296d495b5f18162",
+                "url": "https://api.github.com/repos/flarum/nicknames/zipball/1c72993c6345baea5131296288b87dd641a91142",
+                "reference": "1c72993c6345baea5131296288b87dd641a91142",
                 "shasum": ""
             },
             "require": {
@@ -2499,7 +2499,7 @@
                     "type": "website"
                 }
             ],
-            "time": "2021-03-15T11:15:01+00:00"
+            "time": "2021-04-06T22:20:14+00:00"
         },
         {
             "name": "flarum/statistics",
@@ -7305,16 +7305,16 @@
         },
         {
             "name": "nearata/flarum-ext-internal-links-noreload",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Nearata/flarum-ext-internal-links-noreload.git",
-                "reference": "802715bd725d725efc981debd060ba716ea55aab"
+                "reference": "c266cff1862b734c7390230b269fa1a5ea399dee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Nearata/flarum-ext-internal-links-noreload/zipball/802715bd725d725efc981debd060ba716ea55aab",
-                "reference": "802715bd725d725efc981debd060ba716ea55aab",
+                "url": "https://api.github.com/repos/Nearata/flarum-ext-internal-links-noreload/zipball/c266cff1862b734c7390230b269fa1a5ea399dee",
+                "reference": "c266cff1862b734c7390230b269fa1a5ea399dee",
                 "shasum": ""
             },
             "require": {
@@ -7359,7 +7359,7 @@
                 "issues": "https://github.com/Nearata/flarum-ext-internal-links-noreload/issues",
                 "source": "https://github.com/Nearata/flarum-ext-internal-links-noreload"
             },
-            "time": "2021-04-13T16:31:00+00:00"
+            "time": "2021-04-15T23:23:53+00:00"
         },
         {
             "name": "nesbot/carbon",
