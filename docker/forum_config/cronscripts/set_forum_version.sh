@@ -20,7 +20,7 @@ while [ "$response" -ne "204" ]; do
     --silent                                                 \
     --insecure                                               \
     --write-out '%{response_code}'                           \
-    --request POST --url "https://$HOSTNAME/api/settings"    \
+    --request POST --url "http://localhost/api/settings"    \
     --header "Authorization: Token $MASTER_TOKEN;userId=1"   \
     --header 'Content-Type: application/json; charset=utf-8' \
     --header "Origin: https://$HOSTNAME"                     \
