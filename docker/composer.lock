@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "380d3f3cd6b4350317bf19ac08f92e0b",
+    "content-hash": "bcaf40dda520e61b21561b000ce76ae1",
     "packages": [
         {
             "name": "askvortsov/flarum-checklist",
@@ -7768,6 +7768,70 @@
                 "source": "https://github.com/paragonie/sodium_compat/tree/v1.14.0"
             },
             "time": "2020-12-03T16:26:19+00:00"
+        },
+        {
+            "name": "phenomlab/fancybox-wrapper",
+            "version": "0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phenomlab/fancybox-wrapper.git",
+                "reference": "51f287b62363bd54017f75d6c28e673bf1b08fd6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phenomlab/fancybox-wrapper/zipball/51f287b62363bd54017f75d6c28e673bf1b08fd6",
+                "reference": "51f287b62363bd54017f75d6c28e673bf1b08fd6",
+                "shasum": ""
+            },
+            "require": {
+                "flarum/core": ">=0.1.0-beta.16 <=0.1.0"
+            },
+            "type": "flarum-extension",
+            "extra": {
+                "flarum-extension": {
+                    "title": "Fancybox",
+                    "category": "feature",
+                    "icon": {
+                        "name": "fas fa-images",
+                        "backgroundColor": "#666",
+                        "color": "#ffffff"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Phenomlan\\Fancybox\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Cutting",
+                    "homepage": "https://phenomlab.com",
+                    "role": "Creator"
+                }
+            ],
+            "description": "Enables all images to be presented in Fancybox",
+            "homepage": "https://paypal.me",
+            "keywords": [
+                "fancybox",
+                "images"
+            ],
+            "support": {
+                "forum": "https://discuss.flarum.org",
+                "issues": "https://github.com/phenomlab/fancybox/issues",
+                "source": "https://github.com/phenomlab/fancybox"
+            },
+            "funding": [
+                {
+                    "url": "https://phenomlab.com",
+                    "type": "website"
+                }
+            ],
+            "time": "2021-03-18T21:16:57+00:00"
         },
         {
             "name": "predis/predis",
