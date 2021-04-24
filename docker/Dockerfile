@@ -7,7 +7,7 @@ COPY forum_config/cronscripts/flarum_schedule.sh /etc/cron.script/flarum_schedul
 RUN docker-cronjob '*/15 * * * * application /etc/cron.script/flarum_schedule.sh'
 
 COPY forum_config/sql_scripts/*.sql /etc/cron.script/sql/
-RUN docker-cronjob '0 0 * * * application for sql in /etc/cron.script/sql/*.sql; do \
+RUN docker-cronjob '0 */6 * * * application for sql in /etc/cron.script/sql/*.sql; do \
  mysql --host=db --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" "$MYSQL_DATABASE" \
  < "$sql"; done'
 
