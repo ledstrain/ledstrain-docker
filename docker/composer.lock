@@ -4797,16 +4797,16 @@
         },
         {
             "name": "illuminate/database",
-            "version": "v8.36.2",
+            "version": "v8.40.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "41d31456142be497c4e6abd40b674be0162934b1"
+                "reference": "742c062a6447278f6b6f8622bd649173ed51fa3a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/41d31456142be497c4e6abd40b674be0162934b1",
-                "reference": "41d31456142be497c4e6abd40b674be0162934b1",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/742c062a6447278f6b6f8622bd649173ed51fa3a",
+                "reference": "742c062a6447278f6b6f8622bd649173ed51fa3a",
                 "shasum": ""
             },
             "require": {
@@ -4861,7 +4861,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-04-06T19:21:01+00:00"
+            "time": "2021-04-28T14:34:49+00:00"
         },
         {
             "name": "illuminate/events",
@@ -7305,16 +7305,16 @@
         },
         {
             "name": "nearata/flarum-ext-internal-links-noreload",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Nearata/flarum-ext-internal-links-noreload.git",
-                "reference": "c266cff1862b734c7390230b269fa1a5ea399dee"
+                "reference": "39ece013a541e20596b11c62c0ff93fdd2f9b9f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Nearata/flarum-ext-internal-links-noreload/zipball/c266cff1862b734c7390230b269fa1a5ea399dee",
-                "reference": "c266cff1862b734c7390230b269fa1a5ea399dee",
+                "url": "https://api.github.com/repos/Nearata/flarum-ext-internal-links-noreload/zipball/39ece013a541e20596b11c62c0ff93fdd2f9b9f4",
+                "reference": "39ece013a541e20596b11c62c0ff93fdd2f9b9f4",
                 "shasum": ""
             },
             "require": {
@@ -7356,10 +7356,11 @@
                 "flarum"
             ],
             "support": {
+                "forum": "https://discuss.flarum.org/d/26844",
                 "issues": "https://github.com/Nearata/flarum-ext-internal-links-noreload/issues",
                 "source": "https://github.com/Nearata/flarum-ext-internal-links-noreload"
             },
-            "time": "2021-04-15T23:23:53+00:00"
+            "time": "2021-04-20T13:03:16+00:00"
         },
         {
             "name": "nesbot/carbon",
