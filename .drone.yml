@@ -145,11 +145,9 @@ steps:
       stage="production"
     tags:
       - production
-  when:
-    target:
-    - production
+
 ---
 kind: signature
-hmac: 54a815d34a7ed45c078ec040462a0f6f649aeb62c5f2c173ace6d46fd84359d6
+hmac: 44f829a25272cf6a714b7ad7b46432bd32cde83cbff3c889cafe7184549dec95
 
 ...
