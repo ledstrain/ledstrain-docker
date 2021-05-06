@@ -13,6 +13,7 @@ NC='\033[0m' # No Color
 sleep 5
 
 response="-1"
+IMAGE_VERSION="$(echo "$IMAGE_VERSION" | cut -b1-7)"
 data='{"custom_footer":"<div id=img_version>'$IMAGE_VERSION'</div>"}'
 
 while [ "$response" -ne "204" ]; do

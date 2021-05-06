@@ -1,7 +1,7 @@
 ---
 kind: pipeline
 type: docker
-name: build
+name: build tagged commit
 
 trigger:
   event:
@@ -10,17 +10,17 @@ trigger:
 steps:
 
 - name: Validate composer syntax
-  image: webdevops/php-nginx:7.3
+  image: webdevops/php-nginx:8.0
   commands:
-    - cd docker
-    - composer --no-interaction validate
+  - cd docker
+  - composer --no-interaction validate
 
 - name: Validate shell scripts syntax
   image: koalaman/shellcheck-alpine
   environment:
     SHELLCHECK_OPTS: "-e SC2154"
   commands:
-    - find -type f -iname '*.sh' -exec shellcheck {} +
+  - find -type f -iname '*.sh' -exec shellcheck {} +
 
 - name: Build LEDStrain docker image and push to registry
   image: plugins/docker
@@ -39,6 +39,7 @@ steps:
       - EXTIVERSE_TOKEN
     tags:
       - latest
+      - ${DRONE_COMMIT_SHA}
       - ${DRONE_TAG}
     dockerfile: docker/Dockerfile
     context: docker/
@@ -46,21 +47,57 @@ steps:
   environment:
     EXTIVERSE_TOKEN:
       from_secret: EXTIVERSE_TOKEN
+    BUILD_COMMIT: ${DRONE_COMMIT_SHA}
 
 ---
 kind: pipeline
 type: docker
-name: deployment
+name: build and stage
 
 trigger:
-  event:
-  - promote
-  target:
-    include:
-    - production
-    - staging
+  branch:
+  - staging
 
 steps:
+
+- name: Validate composer syntax
+  image: webdevops/php-nginx:8.0
+  commands:
+  - cd docker
+  - composer --no-interaction validate
+
+- name: Validate shell scripts syntax
+  image: koalaman/shellcheck-alpine
+  environment:
+    SHELLCHECK_OPTS: "-e SC2154"
+  commands:
+  - find -type f -iname '*.sh' -exec shellcheck {} +
+
+- name: Build LEDStrain docker image and push to registry
+  image: plugins/docker
+  settings:
+    use_cache: true
+    squash: true
+    repo:
+      from_secret: DOCKER_REGISTRY_REPO
+    username:
+      from_secret: DOCKER_REGISTRY_USERNAME
+    password:
+      from_secret: DOCKER_REGISTRY_PASSWORD
+    registry:
+      from_secret: DOCKER_REGISTRY_URL
+    build_args_from_env:
+    - EXTIVERSE_TOKEN
+    tags:
+    - latest
+    - ${DRONE_COMMIT_SHA}
+    dockerfile: docker/Dockerfile
+    context: docker/
+    target: production
+  environment:
+    EXTIVERSE_TOKEN:
+      from_secret: EXTIVERSE_TOKEN
+    BUILD_COMMIT: ${DRONE_COMMIT_SHA}
 
 - name: Deploy to staging
   image: plugins/ansible:3
@@ -75,13 +112,21 @@ steps:
     private_key:
       from_secret: DRONE_SSH_PRIVATE
     extra_vars:
-      version=${DRONE_TAG}
+      version=${DRONE_COMMIT_SHA}
       stage="staging"
     tags:
-      - staging
-  when:
-    target:
     - staging
+
+---
+kind: pipeline
+type: docker
+name: deploy to production
+
+trigger:
+  branch:
+  - production
+
+steps:
 
 - name: Deploy to production
   image: plugins/ansible:3
@@ -96,7 +141,7 @@ steps:
     private_key:
       from_secret: DRONE_SSH_PRIVATE
     extra_vars:
-      version=${DRONE_TAG}
+      version=${DRONE_COMMIT_SHA}
       stage="production"
     tags:
       - production
@@ -105,6 +150,6 @@ steps:
     - production
 ---
 kind: signature
-hmac: 3c9cb045b87a7f84e89ed834c5f264b6a0f5e72544633b4f2059d33a9e2a728d
+hmac: 54a815d34a7ed45c078ec040462a0f6f649aeb62c5f2c173ace6d46fd84359d6
 
 ...
