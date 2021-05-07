@@ -56,7 +56,6 @@ COPY forum_config/forum-setup.sh                   /opt/docker/provision/entrypo
 # ========== Install the forum and plugins
 FROM webdevops/php-nginx:8.0 as production_builder
 ENV COMPOSER_VERSION=2
-ENV BUILD_COMMIT=$BUILD_COMMIT
 ARG EXTIVERSE_TOKEN
 
 WORKDIR /app
@@ -88,6 +87,8 @@ COPY --from=production_builder /app /app
 
 RUN usermod -s /sbin/nologin application
 
+ARG GIT_COMMIT
+ENV BUILD_COMMIT=$GIT_COMMIT
 WORKDIR /app
 
 

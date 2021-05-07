@@ -37,6 +37,7 @@ steps:
       from_secret: DOCKER_REGISTRY_URL
     build_args_from_env:
       - EXTIVERSE_TOKEN
+      - GIT_COMMIT
     tags:
       - latest
       - ${DRONE_COMMIT_SHA}
@@ -47,7 +48,7 @@ steps:
   environment:
     EXTIVERSE_TOKEN:
       from_secret: EXTIVERSE_TOKEN
-    BUILD_COMMIT: ${DRONE_COMMIT_SHA}
+    GIT_COMMIT: ${DRONE_COMMIT_SHA}
 
 ---
 kind: pipeline
@@ -88,6 +89,7 @@ steps:
       from_secret: DOCKER_REGISTRY_URL
     build_args_from_env:
     - EXTIVERSE_TOKEN
+    - GIT_COMMIT
     tags:
     - latest
     - ${DRONE_COMMIT_SHA}
@@ -97,7 +99,7 @@ steps:
   environment:
     EXTIVERSE_TOKEN:
       from_secret: EXTIVERSE_TOKEN
-    BUILD_COMMIT: ${DRONE_COMMIT_SHA}
+    GIT_COMMIT: ${DRONE_COMMIT_SHA}
 
 - name: Deploy to staging
   image: plugins/ansible:3
@@ -148,6 +150,6 @@ steps:
 
 ---
 kind: signature
-hmac: 44f829a25272cf6a714b7ad7b46432bd32cde83cbff3c889cafe7184549dec95
+hmac: 0cce4a5bd192770311e3b75eae380b886f10ae410cbeb6e3c4ba55c877eb2907
 
 ...
