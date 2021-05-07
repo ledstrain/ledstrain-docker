@@ -27,7 +27,6 @@ services:
       hc_schedule:     ${hc_schedule}
       PUID_ID:         ${PUID_ID}
       HOSTNAME:        ${HOSTNAME}
-      IMAGE_VERSION:   ${IMAGE_VERSION}
       MASTER_TOKEN:    ${MASTER_TOKEN}
       MYSQL_DATABASE:  ${MYSQL_DATABASE}
       MYSQL_USER:      ${MYSQL_USER}
