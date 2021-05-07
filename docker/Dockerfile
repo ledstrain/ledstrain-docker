@@ -21,6 +21,8 @@ COPY webserver_config/50-websocket.conf            /opt/docker/etc/nginx/vhost.c
 COPY webserver_config/10-location-root.conf        /opt/docker/etc/nginx/vhost.common.d/10-location-root.conf
 COPY supervisor/websocket_supervisor.conf          /opt/docker/etc/supervisor.d/websocket.conf
 COPY supervisor/websocket_server.sh                /opt/docker/bin/service.d/websocket.sh
+# Niceness for processes run by application user
+COPY webserver_config/limits.conf                   /etc/security/limits.conf
 # Custom Footer with Image version
 RUN docker-cronjob '@reboot application /etc/cron.script/set_forum_version.sh'
 COPY forum_config/cronscripts/set_forum_version.sh /etc/cron.script/set_forum_version.sh
