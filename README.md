@@ -2,16 +2,19 @@
 
 ## Versioning
 
-x-y-z
+This project uses rolling releases and CI/CD deployment.  
 
-* x = flarum version
-* y = plugin changes (added or removed)
-* z = minor changes  
-For example, the below shows the flarum version, 1 plugin or update changes, and 5 minor changes
-```
-16-001-005
-x = 16, y = 001, z = 005
-```
+There are 3 branches available  
+
+| Branch | Type | Site |
+| ------ | ---- | ---- |
+| [Master](https://github.com/ledstrain/ledstrain-docker/tree/master) | Latest development |
+| [Staging](https://github.com/ledstrain/ledstrain-docker/tree/staging) | Used to test newer features | https://staging.ledstrain.org |
+| [Production](https://github.com/ledstrain/ledstrain-docker/tree/production) | Re-uses staging images that are demonstrated to be stable | https://ledstrain.org |
+
+To verify the forum is running a specific commit, check the commit of the staging or production branch,
+ then compare the commit on the bottom-left of the forum
+ \- [example](https://user-images.githubusercontent.com/4926565/117555653-e5bb6f00-b015-11eb-8986-5d59732be564.png).
 
 ## Making changes
 
@@ -36,7 +39,7 @@ Review the changes in git before committing.
 
 ## Docker
 
-`webdevops/php-nginx` docker image base is used, and then is configured on top of it.
+`webdevops/php-nginx` docker [image base](https://github.com/webdevops/Dockerfile) is used, and then is [configured](https://dockerfile.readthedocs.io/en/latest/content/DockerImages/dockerfiles/php-nginx.html) on top of it.
 
 When the image is built, it is meant to provide the structure but not the data for the forum and should be considered immutable.
 This includes items like
