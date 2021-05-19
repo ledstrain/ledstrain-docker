@@ -1,7 +1,7 @@
 -- If a user has
---  - Been last seen in the last week
---  - An account that must be at least 2 days old
---  - An account that must not be suspended
+--  - Been seen in the last week
+--  - An account that is at least 2 days old
+--  - An account that is not be suspended
 --  - Not already been approved for creating a post or discussion
 --  - A post with at least 1 like from another user
 --  -  Or, a post that another user has mentioned.
