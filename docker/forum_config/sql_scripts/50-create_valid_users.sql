@@ -1,9 +1,8 @@
--- We use the one named "Valid User" or valid
+-- We use the group named "Valid User" aka valid to for users to have extra capabilities.
 SET @validUserGroup=(SELECT id FROM groups WHERE name_singular='Valid User');
 
 -- Used to promote users to a group to allow extras like PMing
--- Should have a specific group for this.
--- It also uses the first post plugin column, first_discussion_approval_count
+-- It uses the first post plugin column, first_discussion_approval_count
 INSERT IGNORE INTO group_user (user_id, group_id)
   SELECT id, @validUserGroup FROM users u
   WHERE u.first_discussion_approval_count > 0
@@ -16,5 +15,5 @@ INSERT IGNORE INTO group_user (user_id, group_id)
 DELETE FROM group_user gu
   WHERE gu.group_id = @validUserGroup
     AND gu.user_id IN (SELECT id FROM users u
-                         WHERE u.last_seen_at < (NOW() - INTERVAL 6 MONTH)
-                           AND u.comment_count < 10);
+                       WHERE u.last_seen_at < (NOW() - INTERVAL 6 MONTH)
+                         AND u.comment_count < 10);

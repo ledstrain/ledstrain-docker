@@ -3,8 +3,11 @@
 --  - An account that is at least 2 days old
 --  - An account that is not be suspended
 --  - Not already been approved for creating a post or discussion
+
+-- Then, any of these conditions
 --  - A post with at least 1 like from another user
---  -  Or, a post that another user has mentioned.
+--  - A post that another user has mentioned.
+--  - Created 5 posts
 -- Then it will set approval to 1
 -- tldr; If someone else liked or replied to your post, you can
 -- create discussions without needing approval
@@ -18,9 +21,11 @@ UPDATE users u SET first_post_approval_count=1,
           u.first_post_approval_count       = 0
        OR u.first_discussion_approval_count = 0
       )
-  AND u.id IN (SELECT p.user_id FROM posts p
+  AND ( u.comment_count >= 5
+     OR u.id IN (SELECT p.user_id FROM posts p
                WHERE p.id IN (SELECT post_id FROM post_likes pl
                                WHERE pl.user_id != u.id
                               UNION ALL
                               SELECT mentions_post_id FROM post_mentions_post pmp
-                               WHERE pmp.post_id IN (SELECT id FROM posts WHERE id != u.id)));
+                               WHERE pmp.post_id IN (SELECT id FROM posts WHERE id != u.id)))
+      );
