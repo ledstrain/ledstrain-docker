@@ -12,8 +12,8 @@ INSERT IGNORE INTO group_user (user_id, group_id)
 -- - Has not been active for 6 months
 -- - Has fewer then 10 posts
 -- Then they are removed from the valid group.
-DELETE FROM group_user gu
-  WHERE gu.group_id = @validUserGroup
-    AND gu.user_id IN (SELECT id FROM users u
-                       WHERE u.last_seen_at < (NOW() - INTERVAL 6 MONTH)
-                         AND u.comment_count < 10);
+DELETE FROM group_user
+  WHERE group_user.group_id = @validUserGroup
+    AND group_user.user_id IN (SELECT id FROM users u
+                         WHERE u.last_seen_at < (NOW() - INTERVAL 6 MONTH)
+                           AND u.comment_count < 10);
