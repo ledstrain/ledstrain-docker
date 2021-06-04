@@ -1,9 +1,9 @@
 -- To determine users to allow approving posts
--- User should have
--- - Joined more than a year ago
--- - Been seen in the last 2 weeks
--- - 10 posts in the last 6 months
--- - 20 post likes in the last 6 months
+-- User should have at a min
+-- - Joined more than 3 months ago
+-- - Been seen in the last week
+-- - 2 post in the last 3 months
+-- - 2 post like in the last 3 months
 
 SET @approverUserGroup=(SELECT id FROM groups WHERE name_singular='Approver');
 
@@ -31,8 +31,8 @@ CREATE OR REPLACE VIEW good_users AS
   JOIN   view_recent_post_likes rpl ON u.id=rpl.id
   WHERE  u.joined_at < (NOW() - INTERVAL 3 MONTH)
     AND  u.last_seen_at > (NOW() - INTERVAL 1 WEEK)
-    AND  upc.recent_post_count > 1
-    AND  rpl.recent_post_likes > 1;
+    AND  upc.recent_post_count > 2
+    AND  rpl.recent_post_likes > 2;
 
 -- This is largely the same operation done 3 times over for each segment of time for time zones.
 -- First for midnight to 8am, then 8-4pm, then 4pm to midnight (UTC).
