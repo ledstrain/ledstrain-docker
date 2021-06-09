@@ -80,3 +80,7 @@ DELETE FROM group_user
                                JOIN   view_recent_post_likes rpl ON u.id=rpl.id
                                WHERE  u.last_seen_at < (NOW() - INTERVAL 4 WEEK)
                                  AND  upc.recent_post_count < 5);
+
+DROP VIEW IF EXISTS view_user_post_count;
+DROP VIEW IF EXISTS view_recent_post_likes;
+DROP VIEW IF EXISTS good_users;
