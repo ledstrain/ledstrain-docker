@@ -49,6 +49,7 @@ mkdir -p \
 if [ -f /conf/config.php ]; then
   ln -fs /conf/config.php ./config.php
   php flarum migrate
+  php flarum assets:publish
 
   # Requires Cache Assets
   # https://discuss.flarum.org/d/23321-cache-assets-by-bokt
