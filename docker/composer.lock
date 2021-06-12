@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2a4b36dee6a4a1b18aac0e1f303cf901",
+    "content-hash": "f090c9635b42f8ddbdf129680d91b634",
     "packages": [
         {
             "name": "askvortsov/flarum-checklist",
@@ -371,7 +371,7 @@
             "time": "2020-08-20T09:49:44+00:00"
         },
         {
-            "name": "bokt/flarum-cache-assets",
+            "name": "blomstra/cache-assets",
             "version": "0.5",
             "source": {
                 "type": "git",
@@ -429,7 +429,6 @@
                 "issues": "https://github.com/blomstra/flarum-ext-cache-assets/issues",
                 "source": "https://github.com/blomstra/flarum-ext-cache-assets/tree/0.5"
             },
-            "abandoned": "blomstra/cache-assets",
             "time": "2021-06-04T12:10:26+00:00"
         },
         {
@@ -2657,16 +2656,16 @@
         },
         {
             "name": "flarum/tags",
-            "version": "v1.0.2",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/flarum/tags.git",
-                "reference": "453169d8093feb1ad523cfdbdcf47c3b3a391cab"
+                "reference": "d5882c26249d7771d1b7ed91b54a676a41654d41"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/flarum/tags/zipball/453169d8093feb1ad523cfdbdcf47c3b3a391cab",
-                "reference": "453169d8093feb1ad523cfdbdcf47c3b3a391cab",
+                "url": "https://api.github.com/repos/flarum/tags/zipball/d5882c26249d7771d1b7ed91b54a676a41654d41",
+                "reference": "d5882c26249d7771d1b7ed91b54a676a41654d41",
                 "shasum": ""
             },
             "require": {
@@ -2716,7 +2715,7 @@
                     "type": "website"
                 }
             ],
-            "time": "2021-06-07T10:11:11+00:00"
+            "time": "2021-06-10T22:25:24+00:00"
         },
         {
             "name": "fof/analytics",
@@ -7139,17 +7138,76 @@
             "time": "2021-05-28T08:32:12+00:00"
         },
         {
-            "name": "nesbot/carbon",
-            "version": "2.48.1",
+            "name": "nearata/flarum-ext-internal-links-noreload",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "8d1f50f1436fb4b05e7127360483dd9c6e73da16"
+                "url": "https://github.com/Nearata/flarum-ext-internal-links-noreload.git",
+                "reference": "c06f77ba33d312039f11e8a92497d91a5edf80e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/8d1f50f1436fb4b05e7127360483dd9c6e73da16",
-                "reference": "8d1f50f1436fb4b05e7127360483dd9c6e73da16",
+                "url": "https://api.github.com/repos/Nearata/flarum-ext-internal-links-noreload/zipball/c06f77ba33d312039f11e8a92497d91a5edf80e9",
+                "reference": "c06f77ba33d312039f11e8a92497d91a5edf80e9",
+                "shasum": ""
+            },
+            "require": {
+                "flarum/core": "^1.0"
+            },
+            "type": "flarum-extension",
+            "extra": {
+                "flarum-extension": {
+                    "title": "Internal Links No Reload",
+                    "category": "feature",
+                    "icon": {
+                        "name": "fas fa-link",
+                        "backgroundColor": "#738290",
+                        "color": "#fff"
+                    }
+                },
+                "flagrow": {
+                    "discuss": ""
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nearata\\InternalLinksNoReload\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nearata",
+                    "email": "williamdicicco@protonmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Internal links in posts no longer trigger a page reload.",
+            "keywords": [
+                "flarum"
+            ],
+            "support": {
+                "forum": "https://discuss.flarum.org/d/26844",
+                "issues": "https://github.com/Nearata/flarum-ext-internal-links-noreload/issues",
+                "source": "https://github.com/Nearata/flarum-ext-internal-links-noreload"
+            },
+            "time": "2021-06-10T14:06:34+00:00"
+        },
+        {
+            "name": "nesbot/carbon",
+            "version": "2.49.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/briannesbitt/Carbon.git",
+                "reference": "93d9db91c0235c486875d22f1e08b50bdf3e6eee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/93d9db91c0235c486875d22f1e08b50bdf3e6eee",
+                "reference": "93d9db91c0235c486875d22f1e08b50bdf3e6eee",
                 "shasum": ""
             },
             "require": {
@@ -7229,7 +7287,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-26T22:08:38+00:00"
+            "time": "2021-06-02T07:31:40+00:00"
         },
         {
             "name": "nikic/fast-route",
