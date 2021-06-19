@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f090c9635b42f8ddbdf129680d91b634",
+    "content-hash": "37cc855e807be426fc94935385009dcf",
     "packages": [
         {
             "name": "askvortsov/flarum-checklist",
@@ -3501,6 +3501,73 @@
                 }
             ],
             "time": "2021-05-22T17:18:21+00:00"
+        },
+        {
+            "name": "fof/secure-https",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfFlarum/secure-https.git",
+                "reference": "03582954343c303a353ef95ae860f0e9808f8ea9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfFlarum/secure-https/zipball/03582954343c303a353ef95ae860f0e9808f8ea9",
+                "reference": "03582954343c303a353ef95ae860f0e9808f8ea9",
+                "shasum": ""
+            },
+            "require": {
+                "flarum/core": "^1.0.0",
+                "guzzlehttp/guzzle": "^7.0"
+            },
+            "type": "flarum-extension",
+            "extra": {
+                "flarum-extension": {
+                    "title": "FoF Secure HTTPS",
+                    "category": "feature",
+                    "icon": {
+                        "name": "fas fa-lock",
+                        "backgroundColor": "#e74c3c",
+                        "color": "#fff"
+                    }
+                },
+                "flagrow": {
+                    "discuss": "https://discuss.flarum.org/d/17771"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "FoF\\SecureHttps\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Sevilla Martín",
+                    "email": "david.s@redevs.org",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Changes all images using http to https",
+            "homepage": "https://friendsofflarum.org",
+            "keywords": [
+                "flarum"
+            ],
+            "support": {
+                "forum": "https://discuss.flarum.org/d/17771",
+                "issues": "https://github.com/FriendsOfFlarum/secure-https/issues",
+                "source": "https://github.com/FriendsOfFlarum/secure-https"
+            },
+            "funding": [
+                {
+                    "url": "https://opencollective.com/fof/donate",
+                    "type": "website"
+                }
+            ],
+            "time": "2021-06-18T20:48:57+00:00"
         },
         {
             "name": "fof/sitemap",
