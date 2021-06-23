@@ -59,6 +59,7 @@
     "fof/stopforumspam": "^1.0",
     "fof/upload": "^1.0",
     "fof/user-bio": "^1.0",
+    "kilowhat/flarum-ext-audit-free": "^1.4",
     "kyrne/websocket": "^2.6",
     "nearata/flarum-ext-internal-links-noreload": "^2.0",
     "phenomlab/fancybox-wrapper": "^0.8.0",
