@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0c971830f2dafbc78b9162f1c77492ee",
+    "content-hash": "3021580768ea671570fe6058c34b54af",
     "packages": [
         {
             "name": "askvortsov/flarum-checklist",
@@ -2944,16 +2944,16 @@
         },
         {
             "name": "fof/drafts",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfFlarum/drafts.git",
-                "reference": "baa1567b8d6372a499d037f5ca0a0ae0417c4b64"
+                "reference": "240044e226625ec72d300f6c2b66878aa89a6d6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfFlarum/drafts/zipball/baa1567b8d6372a499d037f5ca0a0ae0417c4b64",
-                "reference": "baa1567b8d6372a499d037f5ca0a0ae0417c4b64",
+                "url": "https://api.github.com/repos/FriendsOfFlarum/drafts/zipball/240044e226625ec72d300f6c2b66878aa89a6d6c",
+                "reference": "240044e226625ec72d300f6c2b66878aa89a6d6c",
                 "shasum": ""
             },
             "require": {
@@ -3007,7 +3007,7 @@
                     "type": "website"
                 }
             ],
-            "time": "2021-05-29T07:31:02+00:00"
+            "time": "2021-06-23T19:27:46+00:00"
         },
         {
             "name": "fof/extend",
