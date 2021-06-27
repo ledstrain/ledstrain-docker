@@ -25,6 +25,7 @@
     "askvortsov/flarum-markdown-tables": "^1.2",
     "askvortsov/flarum-rich-text": "^2.0",
     "blomstra/cache-assets": "*",
+    "blomstra/flarum-redis": "*",
     "clarkwinkelmann/flarum-ext-first-post-approval": "^1.0",
     "flarum/approval": "*",
     "flarum/bbcode": "*",
