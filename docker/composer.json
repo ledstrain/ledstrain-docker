@@ -25,7 +25,7 @@
     "askvortsov/flarum-markdown-tables": "^1.2",
     "askvortsov/flarum-rich-text": "^2.0",
     "blomstra/cache-assets": "*",
-    "blomstra/flarum-redis": "*",
+    "blomstra/flarum-redis": "0.4.0-beta",
     "clarkwinkelmann/flarum-ext-first-post-approval": "^1.0",
     "flarum/approval": "*",
     "flarum/bbcode": "*",
@@ -64,6 +64,7 @@
     "kyrne/websocket": "^2.6",
     "nearata/flarum-ext-internal-links-noreload": "^2.0",
     "phenomlab/fancybox-wrapper": "^0.8.0",
+    "reflar/recache": "^3.0",
     "v17development/flarum-seo": "^1.8"
   },
   "config": {
