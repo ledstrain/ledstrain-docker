@@ -5856,11 +5856,11 @@
         },
         {
             "name": "kyrne/websocket",
-            "version": "2.6.0",
+            "version": "2.7.0",
             "dist": {
                 "type": "zip",
-                "url": "https://extiverse.com/composer/archive/kyrne/websocket/2.6.0.0.zip",
-                "reference": "cc9cc43f8d7efe8d4d099550797aff4e4f813e17"
+                "url": "https://extiverse.com/composer/archive/kyrne/websocket/2.7.0.0.zip",
+                "reference": "06a18996031275892335106dcf59e04340d5d4f9"
             },
             "require": {
                 "cboden/ratchet": "^0.4.1",
@@ -5933,7 +5933,7 @@
                 "forum": "https://discuss.flarum.org/d/23473-websockets-locally-hosted-alternative-for-pusher",
                 "docs": "https://extiverse.com/extension/kyrne/websocket"
             },
-            "time": "2021-06-07T08:30:20+00:00"
+            "time": "2021-06-30T03:47:48+00:00"
         },
         {
             "name": "laminas/laminas-diactoros",
