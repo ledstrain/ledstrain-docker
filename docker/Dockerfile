@@ -22,8 +22,8 @@ COPY webserver_config/10-location-root.conf        /opt/docker/etc/nginx/vhost.c
 COPY supervisor/websocket_supervisor.conf          /opt/docker/etc/supervisor.d/websocket.conf
 COPY supervisor/websocket_server.sh                /opt/docker/bin/service.d/websocket.sh
 # Redis queues
-COPY supervisor/redis_cache_supervisor.conf        /opt/docker/etc/supervisor.d/redis_cache_supervisor.conf
-COPY supervisor/redis_cache.sh                     /opt/docker/bin/service.d/redis_cache.sh
+COPY supervisor/redis_queue_supervisor.conf        /opt/docker/etc/supervisor.d/redis_queue_supervisor.conf
+COPY supervisor/redis_queue.sh                     /opt/docker/bin/service.d/redis_queue.sh
 # Niceness for processes run by application user
 COPY webserver_config/limits.conf                   /etc/security/limits.conf
 # Custom Footer with Image version
