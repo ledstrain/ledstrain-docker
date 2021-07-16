@@ -8,7 +8,7 @@ RUN docker-cronjob '*/15 * * * * application /etc/cron.script/flarum_schedule.sh
 
 COPY forum_config/sql_scripts/*.sql /etc/cron.script/sql/
 RUN docker-cronjob '0 */6 * * * application for sql in /etc/cron.script/sql/*.sql; do \
- mysql --host=db --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" "$MYSQL_DATABASE" \
+ nice -n 10 mysql --host=db --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" "$MYSQL_DATABASE" \
  < "$sql"; done'
 
 # Custom php config
@@ -27,7 +27,7 @@ COPY supervisor/redis_queue.sh                     /opt/docker/bin/service.d/red
 # Niceness for processes run by application user
 COPY webserver_config/limits.conf                   /etc/security/limits.conf
 # Custom Footer with Image version
-RUN docker-cronjob '@reboot application /etc/cron.script/set_forum_version.sh'
+RUN docker-cronjob '@reboot application nice -n 10 /etc/cron.script/set_forum_version.sh'
 COPY forum_config/cronscripts/set_forum_version.sh /etc/cron.script/set_forum_version.sh
 # Entrypoint
 COPY forum_config/forum-setup.sh                   /opt/docker/provision/entrypoint.d/50-forum-setup.sh
