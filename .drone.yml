@@ -26,7 +26,7 @@ steps:
   image: plugins/docker
   settings:
     use_cache: true
-    squash: true
+    squash: false
     repo:
       from_secret: DOCKER_REGISTRY_REPO
     username:
@@ -150,6 +150,6 @@ steps:
 
 ---
 kind: signature
-hmac: 0cce4a5bd192770311e3b75eae380b886f10ae410cbeb6e3c4ba55c877eb2907
+hmac: 7aab545c728833841d4730c6f133bd0d05b9bd0ce9960fcf3565117bae17dc97
 
 ...
