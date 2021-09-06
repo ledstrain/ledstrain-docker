@@ -3706,16 +3706,16 @@
         },
         {
             "name": "fof/sitemap",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfFlarum/sitemap.git",
-                "reference": "e25ec9fe22370b994140670b3c36c414964b50e0"
+                "reference": "6f2262efa72ea07cf7af1a6dbf60fcbf43763506"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfFlarum/sitemap/zipball/e25ec9fe22370b994140670b3c36c414964b50e0",
-                "reference": "e25ec9fe22370b994140670b3c36c414964b50e0",
+                "url": "https://api.github.com/repos/FriendsOfFlarum/sitemap/zipball/6f2262efa72ea07cf7af1a6dbf60fcbf43763506",
+                "reference": "6f2262efa72ea07cf7af1a6dbf60fcbf43763506",
                 "shasum": ""
             },
             "require": {
@@ -3784,7 +3784,7 @@
                     "type": "website"
                 }
             ],
-            "time": "2021-05-27T14:39:55+00:00"
+            "time": "2021-09-06T08:31:49+00:00"
         },
         {
             "name": "fof/spamblock",
