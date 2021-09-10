@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "999f1a327b6b5d85b7ad6e3c8d823326",
+    "content-hash": "90c48b5c048b852c6d3802b79576b893",
     "packages": [
         {
             "name": "askvortsov/flarum-checklist",
@@ -485,6 +485,67 @@
             "time": "2021-05-22T16:48:02+00:00"
         },
         {
+            "name": "blomstra/payments",
+            "version": "0.3.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://extiverse.com/composer/archive/blomstra/payments/0.3.0.0.zip",
+                "reference": "41f7b11767cc17e1ad4e397eef552b2ed39799b5"
+            },
+            "require": {
+                "brick/money": "^0.5.0",
+                "ext-intl": "*",
+                "flarum/core": "^1.0.0",
+                "flarum/tags": "^1.0.0",
+                "stripe/stripe-php": "^v7.68.0"
+            },
+            "type": "flarum-extension",
+            "extra": {
+                "flarum-extension": {
+                    "title": "Payments",
+                    "category": "feature",
+                    "icon": {
+                        "image": "resources/assets/logo.svg",
+                        "backgroundColor": "#E3E7F1",
+                        "backgroundSize": "60%",
+                        "backgroundRepeat": "no-repeat",
+                        "backgroundPosition": "center"
+                    }
+                },
+                "extiverse": {
+                    "discuss": "https://discuss.flarum.org/d/26095"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Blomstra\\Payments\\": "src/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Daniël Klabbers",
+                    "email": "daniel@klabbers.email",
+                    "homepage": "http://luceos.com"
+                }
+            ],
+            "description": "Monetize your Flarum community; pay to post/view/access",
+            "homepage": "https://blomstra.net",
+            "keywords": [
+                "access",
+                "blomstra",
+                "charging",
+                "extension",
+                "flarum",
+                "monetize",
+                "paywall",
+                "stripe"
+            ],
+            "time": "2021-06-02T08:04:37+00:00"
+        },
+        {
             "name": "brick/math",
             "version": "0.9.3",
             "source": {
@@ -543,6 +604,67 @@
                 }
             ],
             "time": "2021-08-15T20:50:18+00:00"
+        },
+        {
+            "name": "brick/money",
+            "version": "0.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/brick/money.git",
+                "reference": "f5a372df99c17c805c6816b3057eb057a357735c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/brick/money/zipball/f5a372df99c17c805c6816b3057eb057a357735c",
+                "reference": "f5a372df99c17c805c6816b3057eb057a357735c",
+                "shasum": ""
+            },
+            "require": {
+                "brick/math": "~0.7.3 || ~0.8.0 || ~0.9.0",
+                "php": "^7.1 || ^8.0"
+            },
+            "require-dev": {
+                "brick/varexporter": "~0.2.1",
+                "ext-dom": "*",
+                "ext-pdo": "*",
+                "php-coveralls/php-coveralls": "^2.2",
+                "phpunit/phpunit": "^7.5.15 || ^8.0 || ^9.0",
+                "vimeo/psalm": "4.6.4"
+            },
+            "suggest": {
+                "ext-intl": "Required to format Money objects"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Brick\\Money\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Money and currency library",
+            "keywords": [
+                "brick",
+                "currency",
+                "money"
+            ],
+            "support": {
+                "issues": "https://github.com/brick/money/issues",
+                "source": "https://github.com/brick/money/tree/0.5.2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/BenMorel",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/brick/money",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-04-03T20:56:48+00:00"
         },
         {
             "name": "cboden/ratchet",
@@ -2938,21 +3060,20 @@
         },
         {
             "name": "fof/byobu",
-            "version": "1.0.0-beta.7",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfFlarum/byobu.git",
-                "reference": "14069274f05a641a99dbbabf5196825de125b9e9"
+                "reference": "0ecf4f5c4a25cbd2b42c207b3b28e98dc9ddf1cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfFlarum/byobu/zipball/14069274f05a641a99dbbabf5196825de125b9e9",
-                "reference": "14069274f05a641a99dbbabf5196825de125b9e9",
+                "url": "https://api.github.com/repos/FriendsOfFlarum/byobu/zipball/0ecf4f5c4a25cbd2b42c207b3b28e98dc9ddf1cb",
+                "reference": "0ecf4f5c4a25cbd2b42c207b3b28e98dc9ddf1cb",
                 "shasum": ""
             },
             "require": {
-                "flarum/core": "^1.0.2",
-                "fof/components": "^1.0.0"
+                "flarum/core": "^1.0.2"
             },
             "replace": {
                 "flagrow/byobu": "*"
@@ -3024,7 +3145,7 @@
                     "type": "website"
                 }
             ],
-            "time": "2021-06-18T21:09:45+00:00"
+            "time": "2021-09-09T11:25:06+00:00"
         },
         {
             "name": "fof/components",
@@ -3706,16 +3827,16 @@
         },
         {
             "name": "fof/sitemap",
-            "version": "1.0.1",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfFlarum/sitemap.git",
-                "reference": "6f2262efa72ea07cf7af1a6dbf60fcbf43763506"
+                "reference": "e25ec9fe22370b994140670b3c36c414964b50e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfFlarum/sitemap/zipball/6f2262efa72ea07cf7af1a6dbf60fcbf43763506",
-                "reference": "6f2262efa72ea07cf7af1a6dbf60fcbf43763506",
+                "url": "https://api.github.com/repos/FriendsOfFlarum/sitemap/zipball/e25ec9fe22370b994140670b3c36c414964b50e0",
+                "reference": "e25ec9fe22370b994140670b3c36c414964b50e0",
                 "shasum": ""
             },
             "require": {
@@ -3784,7 +3905,7 @@
                     "type": "website"
                 }
             ],
-            "time": "2021-09-06T08:31:49+00:00"
+            "time": "2021-05-27T14:39:55+00:00"
         },
         {
             "name": "fof/spamblock",
@@ -9953,6 +10074,67 @@
             "time": "2021-05-30T10:34:43+00:00"
         },
         {
+            "name": "stripe/stripe-php",
+            "version": "v7.95.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stripe/stripe-php.git",
+                "reference": "ed372a1f6430b06dda408bb33b27d2be35ceaf07"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/ed372a1f6430b06dda408bb33b27d2be35ceaf07",
+                "reference": "ed372a1f6430b06dda408bb33b27d2be35ceaf07",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "2.17.1",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "^5.7",
+                "squizlabs/php_codesniffer": "^3.3",
+                "symfony/process": "~3.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Stripe\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stripe and contributors",
+                    "homepage": "https://github.com/stripe/stripe-php/contributors"
+                }
+            ],
+            "description": "Stripe PHP Library",
+            "homepage": "https://stripe.com/",
+            "keywords": [
+                "api",
+                "payment processing",
+                "stripe"
+            ],
+            "support": {
+                "issues": "https://github.com/stripe/stripe-php/issues",
+                "source": "https://github.com/stripe/stripe-php/tree/v7.95.0"
+            },
+            "time": "2021-09-02T02:30:40+00:00"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "v6.2.7",
             "source": {
@@ -13112,8 +13294,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "blomstra/flarum-redis": 10,
-        "fof/byobu": 10
+        "blomstra/flarum-redis": 10
     },
     "prefer-stable": false,
     "prefer-lowest": false,
