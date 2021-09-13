@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "90c48b5c048b852c6d3802b79576b893",
+    "content-hash": "57e4140953e71974567f98b5068f0f67",
     "packages": [
         {
             "name": "askvortsov/flarum-checklist",
@@ -3311,6 +3311,77 @@
                 }
             ],
             "time": "2021-05-21T23:38:23+00:00"
+        },
+        {
+            "name": "fof/filter",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfFlarum/filter.git",
+                "reference": "7e8ef6ffebf7a922ac5bf09bd6d7ce0e8f17ce34"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfFlarum/filter/zipball/7e8ef6ffebf7a922ac5bf09bd6d7ce0e8f17ce34",
+                "reference": "7e8ef6ffebf7a922ac5bf09bd6d7ce0e8f17ce34",
+                "shasum": ""
+            },
+            "require": {
+                "flarum/approval": "*",
+                "flarum/core": "^1.0.0",
+                "flarum/flags": "*"
+            },
+            "type": "flarum-extension",
+            "extra": {
+                "flarum-extension": {
+                    "title": "FoF Filter",
+                    "category": "feature",
+                    "icon": {
+                        "name": "fas fa-filter",
+                        "backgroundColor": "#e74c3c",
+                        "color": "#fff"
+                    }
+                },
+                "flagrow": {
+                    "discuss": "https://discuss.flarum.org/d/5131"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "FoF\\Filter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Charlie K",
+                    "email": "charlie.k@redevs.org"
+                },
+                {
+                    "name": "Katos",
+                    "email": "katos@flarum.org"
+                }
+            ],
+            "description": "Filter out words and phrases from forum posts",
+            "homepage": "https://friendsofflarum.org",
+            "keywords": [
+                "moderation"
+            ],
+            "support": {
+                "forum": "https://discuss.flarum.org/d/5131",
+                "issues": "https://github.com/friendsofflarum/filter/issues",
+                "source": "https://github.com/friendsofflarum/filter"
+            },
+            "funding": [
+                {
+                    "url": "https://opencollective.com/fof/donate",
+                    "type": "website"
+                }
+            ],
+            "time": "2021-09-13T10:04:08+00:00"
         },
         {
             "name": "fof/follow-tags",

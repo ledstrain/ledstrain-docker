@@ -48,6 +48,7 @@
     "fof/analytics": "^1.0",
     "fof/byobu": "*",
     "fof/drafts": "^1.0",
+    "fof/filter": "^1.0",
     "fof/follow-tags": "^1.0",
     "fof/formatting": "^1.0",
     "fof/links": "^1.0",
