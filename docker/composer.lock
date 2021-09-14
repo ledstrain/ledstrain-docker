@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "57e4140953e71974567f98b5068f0f67",
+    "content-hash": "5499cfb96ee8be3a4be52845ff265962",
     "packages": [
         {
             "name": "askvortsov/flarum-checklist",
@@ -4120,16 +4120,16 @@
         },
         {
             "name": "fof/stopforumspam",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfFlarum/stopforumspam.git",
-                "reference": "6bc018f1b1d842743f28315ed8a39b99d5d49d20"
+                "reference": "5ae3fdbf246b456c5b5c39869b651ed8c930cb26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfFlarum/stopforumspam/zipball/6bc018f1b1d842743f28315ed8a39b99d5d49d20",
-                "reference": "6bc018f1b1d842743f28315ed8a39b99d5d49d20",
+                "url": "https://api.github.com/repos/FriendsOfFlarum/stopforumspam/zipball/5ae3fdbf246b456c5b5c39869b651ed8c930cb26",
+                "reference": "5ae3fdbf246b456c5b5c39869b651ed8c930cb26",
                 "shasum": ""
             },
             "require": {
@@ -4148,7 +4148,7 @@
                     "title": "FoF Stop Forum Spam",
                     "category": "feature",
                     "icon": {
-                        "name": "fas fa-stop",
+                        "name": "fas fa-stop-circle",
                         "backgroundColor": "#e74c3c",
                         "color": "#fff"
                     },
@@ -4176,7 +4176,7 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Stop Forum Spam",
+            "description": "Check user registrations against the StopForumSpam database",
             "homepage": "https://friendsofflarum.org",
             "keywords": [
                 "flarum",
@@ -4193,7 +4193,7 @@
                     "type": "website"
                 }
             ],
-            "time": "2021-05-26T19:09:29+00:00"
+            "time": "2021-09-14T12:12:08+00:00"
         },
         {
             "name": "fof/upload",

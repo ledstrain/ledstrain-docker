@@ -59,7 +59,7 @@
     "fof/sitemap": "^1.0",
     "fof/spamblock": "^1.0",
     "fof/split": "^1.0",
-    "fof/stopforumspam": "^1.0",
+    "fof/stopforumspam": "*",
     "fof/upload": "^1.0",
     "fof/user-bio": "^1.0",
     "kilowhat/flarum-ext-audit-free": "^1.4",
