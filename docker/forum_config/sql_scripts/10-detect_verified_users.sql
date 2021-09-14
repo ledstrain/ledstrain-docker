@@ -2,7 +2,7 @@
 --  - Been seen in the last week
 --  - An account that is at least 2 days old
 --  - An account that is not be suspended
---  - Not already been approved for creating a post or discussion
+--  - Not already been set to being a verified user
 
 -- Then, any of these conditions
 --  - Created 5 posts

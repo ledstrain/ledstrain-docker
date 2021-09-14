@@ -72,7 +72,9 @@ FROM (SELECT *, '0-8' SEGMENT FROM (SELECT * FROM good_users
                                     ) time_grouped;
 
 
-
+-- This removes users from the "good user" group if they
+-- - Have not been seen in the last 4 weeks
+-- - Have less then 5 recent posts
 DELETE FROM group_user
   WHERE group_user.group_id = @approverUserGroup
     AND group_user.user_id IN (SELECT u.id FROM users u
