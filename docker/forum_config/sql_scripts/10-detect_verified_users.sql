@@ -12,9 +12,7 @@
 -- tldr; If someone else liked or replied to your post, you can
 -- create discussions without needing approval
 
-UPDATE users u SET verified_user=1,
-                   first_post_approval_count=1,
-                   first_discussion_approval_count=1
+UPDATE users u SET verified_user=1
  WHERE verified_user = 0
   AND  u.last_seen_at > (NOW() - INTERVAL 7 DAY)
   AND  u.joined_at    < (NOW() - INTERVAL 2 DAY)
