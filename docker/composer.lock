@@ -3060,16 +3060,16 @@
         },
         {
             "name": "fof/byobu",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfFlarum/byobu.git",
-                "reference": "0ecf4f5c4a25cbd2b42c207b3b28e98dc9ddf1cb"
+                "reference": "cef9a07668d483e67d113c021786fcadbcd1cd64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfFlarum/byobu/zipball/0ecf4f5c4a25cbd2b42c207b3b28e98dc9ddf1cb",
-                "reference": "0ecf4f5c4a25cbd2b42c207b3b28e98dc9ddf1cb",
+                "url": "https://api.github.com/repos/FriendsOfFlarum/byobu/zipball/cef9a07668d483e67d113c021786fcadbcd1cd64",
+                "reference": "cef9a07668d483e67d113c021786fcadbcd1cd64",
                 "shasum": ""
             },
             "require": {
@@ -3145,7 +3145,7 @@
                     "type": "website"
                 }
             ],
-            "time": "2021-09-09T11:25:06+00:00"
+            "time": "2021-10-12T18:51:09+00:00"
         },
         {
             "name": "fof/components",
