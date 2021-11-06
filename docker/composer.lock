@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "46c07764401b76ba0081bd7c655dbf29",
+    "content-hash": "7d6904bb60ae206aac4661848bdb5fe9",
     "packages": [
         {
             "name": "askvortsov/flarum-checklist",
@@ -3597,72 +3597,6 @@
             "time": "2021-10-14T12:24:25+00:00"
         },
         {
-            "name": "fof/merge-discussions",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/FriendsOfFlarum/merge-discussions.git",
-                "reference": "85f53279c5466f33927362de954ccebecc8b9f93"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfFlarum/merge-discussions/zipball/85f53279c5466f33927362de954ccebecc8b9f93",
-                "reference": "85f53279c5466f33927362de954ccebecc8b9f93",
-                "shasum": ""
-            },
-            "require": {
-                "flarum/core": "^1.0.0"
-            },
-            "type": "flarum-extension",
-            "extra": {
-                "flarum-extension": {
-                    "title": "FoF Merge Discussions",
-                    "category": "feature",
-                    "icon": {
-                        "name": "fas fa-code-branch fa-flip-vertical",
-                        "backgroundColor": "#e74c3c",
-                        "color": "#fff"
-                    }
-                },
-                "flagrow": {
-                    "discuss": "https://discuss.flarum.org/d/19460"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "FoF\\MergeDiscussions\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "David Sevilla Martín",
-                    "email": "me+fof@datitisev.me",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Merge two or more discussions into one",
-            "homepage": "https://friendsofflarum.org",
-            "keywords": [
-                "flarum"
-            ],
-            "support": {
-                "forum": "https://discuss.flarum.org/d/19460",
-                "issues": "https://github.com/FriendsOfFlarum/merge-discussions/issues",
-                "source": "https://github.com/FriendsOfFlarum/merge-discussions"
-            },
-            "funding": [
-                {
-                    "url": "https://opencollective.com/fof/donate",
-                    "type": "website"
-                }
-            ],
-            "time": "2021-06-06T21:12:51+00:00"
-        },
-        {
             "name": "fof/nightmode",
             "version": "1.0.0",
             "source": {
@@ -4052,76 +3986,6 @@
                 }
             ],
             "time": "2021-09-23T15:07:13+00:00"
-        },
-        {
-            "name": "fof/split",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/FriendsOfFlarum/split.git",
-                "reference": "d405a2139c1a677550d8eafbbfdec5a644faa774"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfFlarum/split/zipball/d405a2139c1a677550d8eafbbfdec5a644faa774",
-                "reference": "d405a2139c1a677550d8eafbbfdec5a644faa774",
-                "shasum": ""
-            },
-            "require": {
-                "flarum/core": "^1.0.0"
-            },
-            "type": "flarum-extension",
-            "extra": {
-                "flarum-extension": {
-                    "title": "FoF Split",
-                    "category": "feature",
-                    "icon": {
-                        "name": "fas fa-code-branch",
-                        "backgroundColor": "#e74c3c",
-                        "color": "#fff"
-                    }
-                },
-                "flagrow": {
-                    "discuss": "https://discuss.flarum.org/d/1903"
-                },
-                "branch-alias": {
-                    "dev-master": "0.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "FoF\\Split\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Daniël Klabbers",
-                    "email": "daniel@klabbers.email",
-                    "homepage": "http://luceos.com"
-                }
-            ],
-            "description": "Separate posts from one discussion into its own, splits discussions.",
-            "homepage": "https://friendsofflarum.org",
-            "keywords": [
-                "flarum",
-                "split"
-            ],
-            "support": {
-                "forum": "https://discuss.flarum.org/d/1903",
-                "issues": "https://github.com/FriendsOfFlarum/split/issues",
-                "source": "https://github.com/FriendsOfFlarum/split"
-            },
-            "funding": [
-                {
-                    "url": "https://opencollective.com/fof/donate",
-                    "type": "website"
-                }
-            ],
-            "time": "2021-05-26T17:37:52+00:00"
         },
         {
             "name": "fof/stopforumspam",
@@ -10361,6 +10225,127 @@
                 }
             ],
             "time": "2021-10-18T15:26:12+00:00"
+        },
+        {
+            "name": "sycho/flarum-move-posts",
+            "version": "v0.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SychO9/flarum-move-posts.git",
+                "reference": "2625bf862f757460ef80dcb6b367fb2cacbf3ce3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SychO9/flarum-move-posts/zipball/2625bf862f757460ef80dcb6b367fb2cacbf3ce3",
+                "reference": "2625bf862f757460ef80dcb6b367fb2cacbf3ce3",
+                "shasum": ""
+            },
+            "require": {
+                "flarum/core": "^1.0.0",
+                "sycho/flarum-uikit": "^0.2.0"
+            },
+            "require-dev": {
+                "flarum/testing": "^1.0.0"
+            },
+            "type": "flarum-extension",
+            "extra": {
+                "flarum-extension": {
+                    "title": "Move Posts",
+                    "category": "",
+                    "optional-dependencies": [
+                        "flarum/tags"
+                    ],
+                    "icon": {
+                        "name": "fas fa-exchange-alt",
+                        "backgroundColor": "#117187",
+                        "color": "#fff"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SychO\\MovePosts\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sami Mazouz",
+                    "email": "sychocouldy@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Move posts from one discussion to another",
+            "homepage": "https://sycho9.github.io",
+            "keywords": [
+                "flarum"
+            ],
+            "support": {
+                "issues": "https://github.com/SychO9/flarum-move-posts/issues",
+                "source": "https://github.com/SychO9/flarum-move-posts"
+            },
+            "funding": [
+                {
+                    "url": "https://www.buymeacoffee.com/sycho",
+                    "type": "other"
+                }
+            ],
+            "time": "2021-08-31T11:56:03+00:00"
+        },
+        {
+            "name": "sycho/flarum-uikit",
+            "version": "v0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SychO9/flarum-uikit.git",
+                "reference": "3a796df5cf53e1e6c7dae61e192afb7610204158"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SychO9/flarum-uikit/zipball/3a796df5cf53e1e6c7dae61e192afb7610204158",
+                "reference": "3a796df5cf53e1e6c7dae61e192afb7610204158",
+                "shasum": ""
+            },
+            "require": {
+                "flarum/core": "^1.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SychO\\UiKit\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sami 'SychO' Mazouz",
+                    "email": "ilyasmazouz@gmail.com",
+                    "homepage": "https://sycho9.github.io"
+                }
+            ],
+            "description": "Frontend utilities for extension developers.",
+            "support": {
+                "issues": "https://github.com/SychO9/flarum-uikit/issues",
+                "source": "https://github.com/SychO9/flarum-uikit"
+            },
+            "funding": [
+                {
+                    "url": "https://www.buymeacoffee.com/sycho",
+                    "type": "other"
+                }
+            ],
+            "time": "2021-08-31T11:04:52+00:00"
         },
         {
             "name": "symfony/config",

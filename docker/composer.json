@@ -53,13 +53,11 @@
     "fof/follow-tags": "^1.0",
     "fof/formatting": "^1.0",
     "fof/links": "^1.0",
-    "fof/merge-discussions": "^1.0",
     "fof/nightmode": "^1.0",
     "fof/oauth": "^1.0",
     "fof/secure-https": "*",
     "fof/sitemap": "^1.0",
     "fof/spamblock": "^1.0",
-    "fof/split": "^1.0",
     "fof/stopforumspam": "^1.0",
     "fof/upload": "^1.0",
     "fof/user-bio": "^1.0",
@@ -67,6 +65,7 @@
     "kyrne/websocket": "^3.0",
     "nearata/flarum-ext-internal-links-noreload": "^2.0",
     "reflar/recache": "^3.0",
+    "sycho/flarum-move-posts": "*",
     "v17development/flarum-seo": "^1.8"
   },
   "config": {
