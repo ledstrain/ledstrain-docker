@@ -32,7 +32,7 @@ CREATE OR REPLACE VIEW good_users AS
   WHERE  u.joined_at < (NOW() - INTERVAL 12 MONTH)
     AND  u.last_seen_at > (NOW() - INTERVAL 1 WEEK)
     AND  upc.recent_post_count > 2
-    AND  rpl.recent_post_likes > 2;
+    AND  rpl.recent_post_likes > 4;
 
 -- This is largely the same operation done 3 times over for each segment of time for time zones.
 -- First for midnight to 8am, then 8-4pm, then 4pm to midnight (UTC).
