@@ -36,7 +36,7 @@ CREATE OR REPLACE VIEW good_users AS
 
 -- This is largely the same operation done 3 times over for each segment of time for time zones.
 -- First for midnight to 8am, then 8-4pm, then 4pm to midnight (UTC).
--- A check is done to ensure the user isn't in the 1 or 4 groups (admin | mod)
+-- A check is done to ensure the user isn't in the 1, 4, or 10 groups (admin | mod | approver_block)
 -- It is ordered by focusing on first the post likes, the post count and then last seen.
 -- These are rounded to allow it to be ordered by the other conditions
 
@@ -46,7 +46,7 @@ SELECT id, @approverUserGroup
 FROM (SELECT *, '0-8' SEGMENT FROM (SELECT * FROM good_users
                                      WHERE (   TIME(last_seen_at) > TIME('00:00:00')
                                            AND TIME(last_seen_at) < TIME('08:00:00'))
-                                       AND id NOT IN (SELECT user_id FROM group_user WHERE group_id IN (1, 4))
+                                       AND id NOT IN (SELECT user_id FROM group_user WHERE group_id IN (1, 4, 10))
                                      ORDER BY ROUND(recent_post_likes) DESC,
                                               ROUND(recent_post_count) DESC,
                                               DATE_FORMAT(last_seen_at, '%m.%d') DESC
