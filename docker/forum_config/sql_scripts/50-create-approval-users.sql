@@ -2,8 +2,8 @@
 -- User should have at a min
 -- - Joined more than 3 months ago
 -- - Been seen in the last week
--- - 2 post in the last 3 months
--- - 2 post like in the last 3 months
+-- - 2 posts in the last 3 months
+-- - 2 post likes in the last 3 months
 
 SET @approverUserGroup=(SELECT id FROM groups WHERE name_singular='Approver');
 
@@ -15,7 +15,7 @@ SELECT     u.id id, COUNT(p.id) recent_post_count
   WHERE    p.created_at > (NOW() - INTERVAL 3 MONTH)
   GROUP BY u.id;
 
--- How many posts the user has received in the last n months
+-- How many post likes the user has received in the last n months
 CREATE OR REPLACE VIEW view_recent_post_likes AS
 SELECT     u.id id, COUNT(pl.post_id) recent_post_likes
   FROM     users u
@@ -29,7 +29,7 @@ CREATE OR REPLACE VIEW good_users AS
   FROM   users u
   JOIN   view_user_post_count upc   ON u.id=upc.id
   JOIN   view_recent_post_likes rpl ON u.id=rpl.id
-  WHERE  u.joined_at < (NOW() - INTERVAL 3 MONTH)
+  WHERE  u.joined_at < (NOW() - INTERVAL 12 MONTH)
     AND  u.last_seen_at > (NOW() - INTERVAL 1 WEEK)
     AND  upc.recent_post_count > 2
     AND  rpl.recent_post_likes > 2;
