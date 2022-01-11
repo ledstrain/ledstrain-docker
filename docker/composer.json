@@ -21,6 +21,7 @@
     "docs": "https://flarum.org/docs/"
   },
   "require": {
+    "acpl/flarum-lscache": "*",
     "askvortsov/flarum-checklist": "^1.3",
     "askvortsov/flarum-markdown-tables": "^1.2",
     "askvortsov/flarum-rich-text": "^2.0",

@@ -4,8 +4,66 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d6904bb60ae206aac4661848bdb5fe9",
+    "content-hash": "fb80698d35a21148856a66ad6df29620",
     "packages": [
+        {
+            "name": "acpl/flarum-lscache",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/android-com-pl/flarum-lscache.git",
+                "reference": "675585e527f03bad7f16431b4ba3ff69ce05fdf4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/android-com-pl/flarum-lscache/zipball/675585e527f03bad7f16431b4ba3ff69ce05fdf4",
+                "reference": "675585e527f03bad7f16431b4ba3ff69ce05fdf4",
+                "shasum": ""
+            },
+            "require": {
+                "flarum/core": "^1.0.0",
+                "guzzlehttp/guzzle": "^7.4",
+                "php": "^7.4||^8.0"
+            },
+            "type": "flarum-extension",
+            "extra": {
+                "flarum-extension": {
+                    "title": "LiteSpeed Cache",
+                    "category": "feature",
+                    "icon": {
+                        "name": "fas fa-bolt",
+                        "backgroundColor": "#2b82d9",
+                        "color": "#fff"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ACPL\\FlarumCache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Rafał Całka",
+                    "email": "rafal.calka@android.com.pl",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Speed up your forum on LiteSpeed Web server.",
+            "keywords": [
+                "flarum"
+            ],
+            "support": {
+                "forum": "https://discuss.flarum.org/d/29475-litespeed-cache-for-flarum",
+                "issues": "https://github.com/android-com-pl/flarum-lscache/issues",
+                "source": "https://github.com/android-com-pl/flarum-lscache"
+            },
+            "time": "2021-12-11T02:22:10+00:00"
+        },
         {
             "name": "askvortsov/flarum-checklist",
             "version": "v1.3.1",
@@ -13357,5 +13415,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }
