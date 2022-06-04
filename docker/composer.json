@@ -1,82 +1,82 @@
 {
-  "name": "flarum/flarum",
-  "description": "Delightfully simple forum software.",
-  "type": "project",
-  "keywords": [
-    "forum",
-    "discussion"
-  ],
-  "homepage": "https://flarum.org/",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Flarum",
-      "email": "info@flarum.org",
-      "homepage": "https://flarum.org/team"
+    "name": "flarum/flarum",
+    "description": "Delightfully simple forum software.",
+    "type": "project",
+    "keywords": [
+        "forum",
+        "discussion"
+    ],
+    "homepage": "https://flarum.org/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Flarum",
+            "email": "info@flarum.org",
+            "homepage": "https://flarum.org/team"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/flarum/core/issues",
+        "source": "https://github.com/flarum/flarum",
+        "docs": "https://flarum.org/docs/"
+    },
+    "require": {
+        "acpl/flarum-lscache": "*",
+        "askvortsov/flarum-checklist": "*",
+        "askvortsov/flarum-markdown-tables": "*",
+        "askvortsov/flarum-rich-text": "*",
+        "blomstra/cache-assets": "*",
+        "blomstra/flarum-redis": "*",
+        "blomstra/payments": "*",
+        "clarkwinkelmann/flarum-ext-first-post-approval": "*",
+        "darkle/fancybox": "*",
+        "flarum/approval": "*",
+        "flarum/bbcode": "*",
+        "flarum/core": "^1.0",
+        "flarum/emoji": "*",
+        "flarum/flags": "*",
+        "flarum/lang-english": "*",
+        "flarum/likes": "*",
+        "flarum/lock": "*",
+        "flarum/markdown": "*",
+        "flarum/mentions": "*",
+        "flarum/nicknames": "*",
+        "flarum/pusher": "*",
+        "flarum/statistics": "*",
+        "flarum/sticky": "*",
+        "flarum/subscriptions": "*",
+        "flarum/suspend": "*",
+        "flarum/tags": "*",
+        "fof/analytics": "*",
+        "fof/byobu": "*",
+        "fof/drafts": "*",
+        "fof/filter": "*",
+        "fof/follow-tags": "*",
+        "fof/formatting": "*",
+        "fof/links": "*",
+        "fof/nightmode": "*",
+        "fof/oauth": "*",
+        "fof/secure-https": "*",
+        "fof/sitemap": "*",
+        "fof/spamblock": "*",
+        "fof/stopforumspam": "*",
+        "fof/upload": "*",
+        "fof/user-bio": "*",
+        "kilowhat/flarum-ext-audit-free": "*",
+        "kyrne/websocket": "*",
+        "nearata/flarum-ext-internal-links-noreload": "*",
+        "reflar/recache": "*",
+        "sycho/flarum-move-posts": "*",
+        "v17development/flarum-seo": "*"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "repositories": {
+        "extiverse": {
+            "type": "composer",
+            "url": "https://extiverse.com/composer/"
+        }
     }
-  ],
-  "support": {
-    "issues": "https://github.com/flarum/core/issues",
-    "source": "https://github.com/flarum/flarum",
-    "docs": "https://flarum.org/docs/"
-  },
-  "require": {
-    "acpl/flarum-lscache": "*",
-    "askvortsov/flarum-checklist": "*",
-    "askvortsov/flarum-markdown-tables": "*",
-    "askvortsov/flarum-rich-text": "*",
-    "blomstra/cache-assets": "*",
-    "blomstra/flarum-redis": "*",
-    "blomstra/payments": "*",
-    "clarkwinkelmann/flarum-ext-first-post-approval": "*",
-    "darkle/fancybox": "*",
-    "flarum/approval": "*",
-    "flarum/bbcode": "*",
-    "flarum/core": "^1.0",
-    "flarum/emoji": "*",
-    "flarum/flags": "*",
-    "flarum/lang-english": "*",
-    "flarum/likes": "*",
-    "flarum/lock": "*",
-    "flarum/markdown": "*",
-    "flarum/mentions": "*",
-    "flarum/nicknames": "*",
-    "flarum/pusher": "*",
-    "flarum/statistics": "*",
-    "flarum/sticky": "*",
-    "flarum/subscriptions": "*",
-    "flarum/suspend": "*",
-    "flarum/tags": "*",
-    "fof/analytics": "*",
-    "fof/byobu": "*",
-    "fof/drafts": "*",
-    "fof/filter": "*",
-    "fof/follow-tags": "*",
-    "fof/formatting": "*",
-    "fof/links": "*",
-    "fof/nightmode": "*",
-    "fof/oauth": "*",
-    "fof/secure-https": "*",
-    "fof/sitemap": "*",
-    "fof/spamblock": "*",
-    "fof/stopforumspam": "*",
-    "fof/upload": "*",
-    "fof/user-bio": "*",
-    "kilowhat/flarum-ext-audit-free": "*",
-    "kyrne/websocket": "*",
-    "nearata/flarum-ext-internal-links-noreload": "*",
-    "reflar/recache": "*",
-    "sycho/flarum-move-posts": "*",
-    "v17development/flarum-seo": "*"
-  },
-  "config": {
-    "preferred-install": "dist",
-    "sort-packages": true
-  },
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "https://extiverse.com/composer/"
-    }
-  ]
 }
