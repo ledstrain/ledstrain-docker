@@ -54,6 +54,7 @@
         "fof/follow-tags": "*",
         "fof/formatting": "*",
         "fof/links": "*",
+        "fof/moderator-notes": "^1.1",
         "fof/nightmode": "*",
         "fof/oauth": "*",
         "fof/secure-https": "*",
