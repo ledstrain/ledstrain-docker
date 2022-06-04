@@ -1,5 +1,5 @@
 # ========== webserver overrides
-FROM webdevops/php-nginx:8.0 as webserverconfig
+FROM webdevops/php-nginx:8.1 as webserverconfig
 
 # Flarum Scheduler for
 # Draft, Sitemap
@@ -35,7 +35,7 @@ COPY forum_config/forum-setup.sh                   /opt/docker/provision/entrypo
 
 # # ========== Install the forum and plugins from scratch
 # # ========== Only uncomment when in use (or using BuildKit)
-# FROM webdevops/php-nginx:8.0 as dev_builder
+# FROM webdevops/php-nginx:8.1 as dev_builder
 # ENV COMPOSER_VERSION=2
 # ARG EXTIVERSE_TOKEN
 #
@@ -57,7 +57,7 @@ COPY forum_config/forum-setup.sh                   /opt/docker/provision/entrypo
 #
 #
 # ========== Install the forum and plugins
-FROM webdevops/php-nginx:8.0 as production_builder
+FROM webdevops/php-nginx:8.1 as production_builder
 ENV COMPOSER_VERSION=2
 ARG EXTIVERSE_TOKEN
 
@@ -71,7 +71,7 @@ RUN composer install
 
 
 # ========== Setup webserver
-FROM webdevops/php-nginx:8.0 as production
+FROM webdevops/php-nginx:8.1 as production
 
 ENV WEB_DOCUMENT_ROOT=/app/public
 ENV PHP_DISMOD='amqp,apcu,bcmath,bz2,calendar,gettext,imagick,imap,ioncube,\
