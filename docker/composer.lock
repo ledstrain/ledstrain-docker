@@ -424,17 +424,17 @@
         },
         {
             "name": "blomstra/payments",
-            "version": "0.3.0",
+            "version": "0.4.0",
             "dist": {
                 "type": "zip",
-                "url": "https://extiverse.com/composer/archive/blomstra/payments/0.3.0.0.zip",
-                "reference": "41f7b11767cc17e1ad4e397eef552b2ed39799b5"
+                "url": "https://extiverse.com/composer/archive/blomstra/payments/0.4.0.0.zip",
+                "reference": "ffb2c81b3da66f290ba11a871728f8abe44fc912"
             },
             "require": {
                 "brick/money": "^0.5.0",
                 "ext-intl": "*",
-                "flarum/core": "^1.0.0",
-                "flarum/tags": "^1.0.0",
+                "flarum/core": "^1.2.0",
+                "flarum/tags": "^1.2.0",
                 "stripe/stripe-php": "^v7.68.0"
             },
             "type": "flarum-extension",
@@ -464,9 +464,9 @@
             ],
             "authors": [
                 {
-                    "name": "Daniël Klabbers",
-                    "email": "daniel@klabbers.email",
-                    "homepage": "http://luceos.com"
+                    "name": "Team Blomstra",
+                    "email": "development@blomstra.net",
+                    "role": "Developer"
                 }
             ],
             "description": "Monetize your Flarum community; pay to post/view/access",
@@ -481,7 +481,11 @@
                 "paywall",
                 "stripe"
             ],
-            "time": "2021-06-02T08:04:37+00:00"
+            "support": {
+                "email": "helpdesk@blomstra.net",
+                "forum": "https://blomstra.community/t/ext-payments"
+            },
+            "time": "2022-07-08T05:14:34+00:00"
         },
         {
             "name": "brick/math",
