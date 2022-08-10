@@ -67,6 +67,7 @@
         "kyrne/websocket": "*",
         "nearata/flarum-ext-internal-links-noreload": "*",
         "sycho/flarum-move-posts": "*",
+        "the-turk/flarum-diff": "*",
         "v17development/flarum-seo": "*"
     },
     "config": {
