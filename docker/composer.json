@@ -63,7 +63,7 @@
         "fof/stopforumspam": "*",
         "fof/upload": "*",
         "fof/user-bio": "*",
-        "kilowhat/flarum-ext-audit-free": "*",
+        "kilowhat/flarum-ext-audit-pro": "*",
         "kyrne/websocket": "*",
         "nearata/flarum-ext-internal-links-noreload": "*",
         "sycho/flarum-move-posts": "*",
