@@ -2,9 +2,6 @@
 
 - name: Deploy forum version
   hosts: ledstrain
-  tags:
-    - staging
-    - production
   vars_files:
     - vault.yml
   vars:
@@ -17,11 +14,18 @@
         path: '{{ dockerpath }}/{{ vars[stage]["hostname"] }}/{{ vars[stage]["app"] }}/.env'
         regexp: '^IMAGE_VERSION=".*"'
         line:   'IMAGE_VERSION="{{ version }}"'
+      tags:
+        - staging
+        - production
 
     - name: Pull new image
       community.docker.docker_compose:
         project_src: '{{ dockerpath }}/{{ vars[stage]["hostname"]}}/{{ vars[stage]["app"] }}'
+        state: absent
         pull: yes
+      tags:
+        - staging
+        - production
 
     - name: Recreate with new image
       community.docker.docker_compose:
@@ -35,6 +39,9 @@
     - name: Report site and version
       debug:
         msg: '{{ vars[stage]["hostname"] }} set to {{ version }}'
+      tags:
+        - staging
+        - production
 
   handlers:
     - name: restart_reverse_proxy
