@@ -5,7 +5,7 @@ start:
     sudo chown $(whoami) data/redis/conf
     cp docs/redis.example data/redis/conf/redis.conf
   fi
-  docker-compose up -d
+  docker-compose up -d --remove-orphans
 stop:
   docker-compose down
 enter:

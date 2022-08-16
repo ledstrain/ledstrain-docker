@@ -424,17 +424,18 @@
         },
         {
             "name": "blomstra/payments",
-            "version": "0.4.0",
+            "version": "0.5.0",
             "dist": {
                 "type": "zip",
-                "url": "https://extiverse.com/composer/archive/blomstra/payments/0.4.0.0.zip",
-                "reference": "ffb2c81b3da66f290ba11a871728f8abe44fc912"
+                "url": "https://extiverse.com/composer/archive/blomstra/payments/0.5.0.0.zip",
+                "reference": "810c98a2ea0d6a73fc3b1ae1e9af32f067bb0421"
             },
             "require": {
                 "brick/money": "^0.5.0",
                 "ext-intl": "*",
                 "flarum/core": "^1.2.0",
                 "flarum/tags": "^1.2.0",
+                "php": "8.*",
                 "stripe/stripe-php": "^v7.68.0"
             },
             "type": "flarum-extension",
@@ -469,11 +470,12 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Monetize your Flarum community; pay to post/view/access",
+            "description": "Monetize your Flarum community with different, flexible monetization strategies",
             "homepage": "https://blomstra.net",
             "keywords": [
                 "access",
                 "blomstra",
+                "bounty",
                 "charging",
                 "extension",
                 "flarum",
@@ -485,7 +487,7 @@
                 "email": "helpdesk@blomstra.net",
                 "forum": "https://blomstra.community/t/ext-payments"
             },
-            "time": "2022-07-08T05:14:34+00:00"
+            "time": "2022-08-15T15:57:03+00:00"
         },
         {
             "name": "brick/math",
