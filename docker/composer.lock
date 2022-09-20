@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3bb17dd714d06a8fc8bb0fab91f8c76a",
+    "content-hash": "5da7e5275b62af82e83561b543924b6c",
     "packages": [
         {
             "name": "acpl/flarum-lscache",
@@ -739,6 +739,68 @@
                 "source": "https://github.com/ratchetphp/Ratchet/tree/v0.4.4"
             },
             "time": "2021-12-14T00:20:41+00:00"
+        },
+        {
+            "name": "clarkwinkelmann/flarum-ext-discussion-lists",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/clarkwinkelmann/flarum-ext-discussion-lists.git",
+                "reference": "ed3fc3402531d505e2b859f5bee00225f8602fa7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/clarkwinkelmann/flarum-ext-discussion-lists/zipball/ed3fc3402531d505e2b859f5bee00225f8602fa7",
+                "reference": "ed3fc3402531d505e2b859f5bee00225f8602fa7",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "flamarkt/backoffice": "^0.1.0",
+                "flarum/core": "^1.2"
+            },
+            "type": "flarum-extension",
+            "extra": {
+                "flarum-extension": {
+                    "title": "Discussion Lists",
+                    "category": "feature",
+                    "icon": {
+                        "name": "fas fa-list-ol",
+                        "backgroundColor": "#684ba6",
+                        "color": "#fff"
+                    },
+                    "optional-dependencies": [
+                        "v17development/flarum-blog"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ClarkWinkelmann\\DiscussionLists\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Clark Winkelmann",
+                    "email": "clark.winkelmann@gmail.com",
+                    "homepage": "https://clarkwinkelmann.com/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Create public or private lists of discussions",
+            "keywords": [
+                "flarum",
+                "list"
+            ],
+            "support": {
+                "issues": "https://github.com/clarkwinkelmann/flarum-ext-discussion-lists/issues",
+                "source": "https://github.com/clarkwinkelmann/flarum-ext-discussion-lists"
+            },
+            "time": "2022-08-30T13:27:35+00:00"
         },
         {
             "name": "clarkwinkelmann/flarum-ext-first-post-approval",
@@ -1886,6 +1948,73 @@
                 }
             ],
             "time": "2022-01-07T12:00:00+00:00"
+        },
+        {
+            "name": "flamarkt/backoffice",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/flamarkt/backoffice.git",
+                "reference": "2d3d2d56a3fa634015610c8f70d751c780ad409c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/flamarkt/backoffice/zipball/2d3d2d56a3fa634015610c8f70d751c780ad409c",
+                "reference": "2d3d2d56a3fa634015610c8f70d751c780ad409c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "flarum/core": "^1.2"
+            },
+            "type": "flarum-extension",
+            "extra": {
+                "flarum-extension": {
+                    "title": "Backoffice",
+                    "category": "feature",
+                    "icon": {
+                        "name": "fas fa-tachometer-alt",
+                        "backgroundColor": "#266a13",
+                        "color": "#fff"
+                    }
+                },
+                "flamarkt-backoffice": {
+                    "settingsInBackoffice": true,
+                    "showInBackoffice": true
+                },
+                "branch-alias": {
+                    "dev-main": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Flamarkt\\Backoffice\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Flamarkt",
+                    "homepage": "https://flamarkt.org/"
+                }
+            ],
+            "description": "Starting point for Flamarkt extensions.",
+            "keywords": [
+                "admin",
+                "backoffice",
+                "flamarkt",
+                "flarum",
+                "panel"
+            ],
+            "support": {
+                "forum": "https://discuss.flarum.org/d/30498",
+                "issues": "https://github.com/flamarkt/backoffice/issues",
+                "source": "https://github.com/flamarkt/backoffice"
+            },
+            "time": "2022-04-01T00:04:54+00:00"
         },
         {
             "name": "flarum/approval",
