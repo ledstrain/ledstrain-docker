@@ -32,6 +32,8 @@ services:
       MYSQL_USER:      ${MYSQL_USER}
       MYSQL_PASSWORD:  ${MYSQL_PASSWORD}
       REDIS_PASS:      ${REDIS_PASS}
+    ports:
+      - 6001:6001
     depends_on:
       db:
         condition: "service_healthy"
