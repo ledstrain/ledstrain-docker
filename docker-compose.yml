@@ -32,6 +32,8 @@ services:
       MYSQL_USER:      ${MYSQL_USER}
       MYSQL_PASSWORD:  ${MYSQL_PASSWORD}
       REDIS_PASS:      ${REDIS_PASS}
+    logging:
+      driver: "json-file"
     ports:
       - 6001:6001
     depends_on:
@@ -49,6 +51,8 @@ services:
     - './data/redis/conf:/usr/local/etc/redis:ro'
     - './data/redis/data:/data:rw'
     entrypoint: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+    logging:
+      driver: "json-file"
     networks:
     - internal
   db:
@@ -60,6 +64,8 @@ services:
       MYSQL_PASSWORD:      ${MYSQL_PASSWORD}
     volumes:
       - "./data/db/data:/var/lib/mysql"
+    logging:
+      driver: "json-file"
     healthcheck:
       test: "/usr/bin/mysql --user=${MYSQL_USER} --password=${MYSQL_PASSWORD} --execute \"SELECT 1;\""
       timeout: 2s
@@ -73,6 +79,8 @@ services:
     labels:
       caddy: ${PHPMYADMIN_HOSTNAME}
       caddy.reverse_proxy: "{{ upstreams 80 }}"
+    logging:
+      driver: "json-file"
     environment:
       PMA_HOST: db
       PMA_ABSOLUTE_URI: ${PHPMYADMIN_HOSTNAME}
