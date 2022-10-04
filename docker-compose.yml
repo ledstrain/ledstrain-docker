@@ -41,7 +41,7 @@ services:
         condition: "service_started"
     networks:
       - internal
-      - caddy
+      - public
   redis:
     image: redis:6
     restart: unless-stopped
@@ -80,9 +80,9 @@ services:
       PMA_PASSWORD:     ${MYSQL_ROOT_PASSWORD}
     networks:
       - internal
-      - caddy
+      - public
 
 networks:
   internal:
-  caddy:
+  public:
     external: true
