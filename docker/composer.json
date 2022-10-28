@@ -58,6 +58,7 @@
         "fof/moderator-notes": "^1.1",
         "fof/nightmode": "*",
         "fof/oauth": "*",
+        "fof/pages": "^1.0",
         "fof/secure-https": "*",
         "fof/sitemap": "*",
         "fof/spamblock": "*",
