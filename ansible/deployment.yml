@@ -29,10 +29,9 @@
         - restart_reverse_proxy
 
     - name: Pull image only
-      community.docker.docker_compose:
-        project_src: '{{ dockerpath }}/{{ vars[stage]["hostname"]}}/{{ vars[stage]["app"] }}'
-        state: absent
-        pull: yes
+      shell: docker-compose pull
+      args:
+        chdir: '{{ dockerpath }}/{{ vars[stage]["hostname"]}}/{{ vars[stage]["app"] }}'
       tags:
         - staging
 
