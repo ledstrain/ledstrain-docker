@@ -64,7 +64,7 @@ services:
   ledstrain_directus:
     image: docker.xyzz.work/server/directus:10
     environment:
-      PUBLIC_URL: 'https://${DIRECTUS_URL}/'
+      PUBLIC_URL: 'https://${DIRECTUS_HOSTNAME}/'
       KEY: '${DIRECTUS_KEY}'
       SECRET: '${DIRECTUS_SECRET}'
 #     ADMIN_EMAIL: '${ADMIN_EMAIL}'

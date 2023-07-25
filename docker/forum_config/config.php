@@ -4,7 +4,7 @@
   'database' =>
   array (
     'driver' => env('DB_CLIENT', 'mysql'),
-    'host' => env('DB_HOST', ''),
+    'host' => env('DB_HOST', 'localhost'),
     'port' => env('DB_PORT', '3306'),
     'database' => env('DB_NAME', 'envDefaultDbName')
     'username' => env('DB_USER', 'envDefaultUser'),

@@ -65,9 +65,10 @@ WORKDIR /app
 
 RUN composer create-project flarum/flarum .
 
-COPY .null composer.* ./
+COPY .null forum_config/config.php composer.* ./
 RUN if [ -n "$EXTIVERSE_TOKEN" ]; then composer config --global --auth bearer.extiverse.com "$EXTIVERSE_TOKEN"; fi
 RUN composer install
+
 
 
 # ========== Setup webserver
