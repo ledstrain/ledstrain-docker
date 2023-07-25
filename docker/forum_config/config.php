@@ -6,7 +6,7 @@
     'driver' => env('DB_CLIENT', 'mysql'),
     'host' => env('DB_HOST', 'localhost'),
     'port' => env('DB_PORT', '3306'),
-    'database' => env('DB_NAME', 'envDefaultDbName')
+    'database' => env('DB_NAME', 'envDefaultDbName'),
     'username' => env('DB_USER', 'envDefaultUser'),
     'password' => env('DB_PASS', 'envDefaultPass'),
     'charset' => 'utf8mb4',
