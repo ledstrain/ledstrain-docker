@@ -90,3 +90,12 @@ jobs:
           chmod 400 ~/.ssh/id_ecdsa
           echo -e "Host *\n  StrictHostKeyChecking no" > ~/.ssh/config
           docker stack deploy --with-registry-auth -c deployment/docker-compose.yml ${{ steps.v.outputs.reponame }}
+
+         FLOWS_EXEC_ALLOWEWD_MODULES: ${{ env.FLOWS_EXEC_ALLOWEWD_MODULES }}
+
+       run: |
+         mkdir -p ~/.ssh
+         echo "${{ env.REMOTE_SERVER_PRIVATE_KEY_BASE64 }}" | base64 -d > ~/.ssh/id_ecdsa
+         chmod 400 ~/.ssh/id_ecdsa
+         echo -e "Host *\n  StrictHostKeyChecking no" > ~/.ssh/config
+         docker stack deploy --with-registry-auth -c deployment/docker-compose.yml ${{ steps.v.outputs.reponame }}
