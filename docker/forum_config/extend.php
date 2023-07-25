@@ -16,7 +16,7 @@ return [
         'port' => 6379,
         'database' => 1,
 //  ]))->disable(['session'])
-    ]))]
+    ]))
     ->useDatabaseWith('cache', 3)
     ->useDatabaseWith('queue', 4)
     ->useDatabaseWith('session', 5)
