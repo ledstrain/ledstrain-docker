@@ -12,19 +12,19 @@
 set -e
 cd "$APPLICATION_PATH"
 
-printenv | grep -E 'MYSQL_USER|MYSQL_PASSWORD|MYSQL_DATABASE|REDIS_PASS|HOSTNAME|MASTER_TOKEN|BUILD_COMMIT' > /etc/environment
+printenv | grep -E 'DB_USER|DB_PASS|DB_NAME|REDIS_PASS|HOSTNAME|MASTER_TOKEN|BUILD_COMMIT' > /etc/environment
 
 install_flarum() {
   cat > install.yml <<EOF
 debug: true
 baseUrl: https://${HOSTNAME}
 databaseConfiguration:
-  driver: mysql
-  host: db
-  port: 3306
-  database: ${MYSQL_DATABASE}
-  username: ${MYSQL_USER}
-  password: ${MYSQL_PASSWORD}
+  driver: ${DB_DRIVER}
+  host: ${DB_HOST}
+  port: ${DB_PORT}
+  database: ${DB_NAME}
+  username: ${DB_USER}
+  password: ${DB_PASS}
   prefix:
 adminUser:
   username: admin
@@ -46,8 +46,7 @@ mkdir -p \
   /app/storage                               \
   /app/vendor/kyrne/websocket/poxa-Linux/tmp
 
-if [ -f /conf/config.php ]; then
-  ln -fs /conf/config.php ./config.php
+if [ -f ./config.php ]; then
   php flarum migrate
   php flarum assets:publish
 

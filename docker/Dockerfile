@@ -42,20 +42,20 @@ COPY forum_config/forum-setup.sh                   /opt/docker/provision/entrypo
 #
 # USER application
 # WORKDIR /app
-# 
+#
 # RUN composer create-project flarum/flarum .
-# 
+#
 # RUN if [ -n "$EXTIVERSE_TOKEN" ]; then \
 #       composer config --global --auth bearer.extiverse.com "$EXTIVERSE_TOKEN"; \
 #       jq '. += {"repositories": [{"type": "composer", "url": "https://extiverse.com/composer/"}]}' composer.json > .composer.json.tmp; \
 #       mv .composer.json.tmp composer.json; \
 #     fi
-# 
+#
 # COPY .null composer*.json /composer/conf/
 # RUN plugins=$(jq '.require | keys' /composer/conf/composer.json | sed -nr 's/"(.*)?",?/\1:*/p' | grep -v 'flarum/' | tr -s '\n' ' ') \
 #  && echo $plugins | tr ' ' '\n' \
 #  && composer require -W $plugins
-# 
+#
 # ========== Install the forum and plugins
 FROM webdevops/php-nginx:8.1 as production_builder
 ENV COMPOSER_VERSION=2

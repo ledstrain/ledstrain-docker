@@ -12,11 +12,12 @@ use Flarum\Extend;
 return [
     (new Blomstra\Redis\Extend\Redis([
         'host' => 'redis',
-        'password' => getenv('REDIS_PASS'),
+//      'password' => getenv('REDIS_PASS'),
         'port' => 6379,
         'database' => 1,
-    ]))->disable(['session'])
+//  ]))->disable(['session'])
+    ]))]
     ->useDatabaseWith('cache', 3)
     ->useDatabaseWith('queue', 4)
-//  ->useDatabaseWith('session', 5)
+    ->useDatabaseWith('session', 5)
 ];

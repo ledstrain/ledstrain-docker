@@ -10,6 +10,9 @@ services:
     labels:
       caddy: "${HOSTNAME}"
       caddy.reverse_proxy: "{{ upstreams 80 }}"
+      caddy.reverse_proxy.health_uri: '/api/posts/1'
+      caddy.reverse_proxy.lb_try_duration: '60s'
+      caddy.reverse_proxy.lb_try_interval: '5s'
       caddy.header: /assets
       caddy.header.+Cache-Control_0: "public, must-revalidate, proxy-revalidate"
       caddy.header.+Cache-Control_1: "max-age=25000"
@@ -31,7 +34,6 @@ services:
       MYSQL_DATABASE:  ${MYSQL_DATABASE}
       MYSQL_USER:      ${MYSQL_USER}
       MYSQL_PASSWORD:  ${MYSQL_PASSWORD}
-      REDIS_PASS:      ${REDIS_PASS}
     logging:
       driver: "json-file"
     ports:
@@ -89,6 +91,34 @@ services:
     networks:
       - internal
       - public
+
+  ledstrain_directus:
+    image: docker.xyzz.work/server/directus:10
+    labels:
+      caddy: '${PUBLIC_URL}'
+      caddy.reverse_proxy: '{{ upstreams 8055 }}'
+    environment:
+      PUBLIC_URL: 'https://${PUBLIC_URL}/'
+      KEY: '${KEY}'
+      SECRET: '${SECRET}'
+      ADMIN_EMAIL: '${ADMIN_EMAIL}'
+      ADMIN_PASSWORD: '${ADMIN_PASSWORD}'
+      WEBSOCKETS_ENABLED: '${WEBSOCKETS_ENABLED}'
+      CACHE_ENABLED: '${CACHED_ENABLED}'
+      CACHE_TTL: '${CACHE_TTL}'
+      CACHE_AUTO_PURGE: '${CACHE_AUTO_PURGE}'
+
+      DB_CLIENT: '${DB_CLIENT}'
+      DB_HOST: '${DB_HOST}'
+      DB_PORT: '${DB_PORT}'
+      DB_DATABASE: '${MYSQL_DATABASE}'
+      DB_USER: '${MYSQL_USER}'
+      DB_PASSWORD: '${MYSQL_PASSWORD}'
+
+      FLOWS_EXEC_ALLOWED_MODULES: 'array:${FLOWS_EXEC_ALLOWED_MODULES}'
+    networks:
+      - public
+      - internal
 
 networks:
   internal:
