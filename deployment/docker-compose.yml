@@ -91,7 +91,7 @@ services:
       mode: replicated
       replicas: 1
       labels:
-        caddy: '${PUBLIC_URL}'
+        caddy: '${DIRECTUS_HOSTNAME}'
         caddy.reverse_proxy: '{{ upstreams 8055 }}'
       placement:
         constraints:
