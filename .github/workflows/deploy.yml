@@ -3,7 +3,7 @@ name: Build and push LEDStrain forum
 on:
   push:
     branches:
-      - dev
+      - prod
 
 jobs:
   deploy:
