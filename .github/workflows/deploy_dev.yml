@@ -68,7 +68,7 @@ jobs:
       - name: Deploy
         env:
           DOCKER_HOST: ssh://${{ env.REMOTE_SERVER_USER }}@${{ env.REMOTE_SERVER_HOSTNAME }}
-          HOSTNAME: ${{ env.APP_HOSTNAME }}
+          HOSTNAME: ${{ env.DEV_HOSTNAME }}
           IMAGE: ${{ env.DOCKER_REGISTRY_HOST }}/server/${{ steps.v.outputs.reponame }}:build_${{ steps.v.outputs.date }}
           DOCKER_REGISTRY: ${{ env.DOCKER_REGISTRY_HOST }}
           PUID_ID: ${{ env.PUID_ID }}

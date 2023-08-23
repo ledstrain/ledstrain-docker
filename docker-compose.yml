@@ -31,11 +31,10 @@ services:
       PUID_ID:         ${PUID_ID}
       HOSTNAME:        ${HOSTNAME}
       MASTER_TOKEN:    ${MASTER_TOKEN}
-      DB_NAME:  ${MYSQL_DATABASE}
-      DB_USER:      ${MYSQL_USER}
-      DB_PASS:  ${MYSQL_PASSWORD}
-      DB_DRIVER: mysql
-      DB_HOST: db
+      DB_HOST:         ${DB_HOST}
+      DB_NAME:         ${MYSQL_DATABASE}
+      DB_USER:         ${MYSQL_USER}
+      DB_PASS:         ${MYSQL_PASSWORD}
     logging:
       driver: "json-file"
     ports:
