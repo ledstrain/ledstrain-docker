@@ -1,0 +1,92 @@
+name: Build and push LEDStrain forum
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup BitWarden
+        id: bitwarden
+        uses: tyler71/setup-bitwarden@v1
+        with:
+          bw-host: ${{ secrets.BW_HOST }}
+          bw-clientid: ${{ secrets.BW_CLIENTID }}
+          bw-clientsecret: ${{ secrets.BW_CLIENTSECRET }}
+          bw-password: ${{ secrets.BW_PASSWORD }}
+
+      - name: Load cred into env
+        id: cred
+        env:
+          BW_SESSION: ${{ steps.bitwarden.outputs.session-key }}
+        run: |
+          bw_items="$(bw get item ${{ secrets.BW_ITEM_CODE }} | jq -c '.fields[]')"
+          while read -r line; do
+            echo "$(jq -r '. | "\(.name)=\(.value)"' <<< "$line")" >> "$GITHUB_ENV"
+          done <<< "$bw_items"
+
+      - name: Variables
+        id: v
+        run: |
+          echo "date=$(date '+%m_%d_%Y')" >> "$GITHUB_OUTPUT"
+          echo "reponame=$(echo ${{ github.event.repository.name }} | tr '[:upper:]' '[:lower:]')" >> "$GITHUB_OUTPUT"
+
+      - name: Login to Personal Repo
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.DOCKER_REGISTRY_HOST }}
+          username: ${{ env.DOCKER_REGISTRY_USER }}
+          password: ${{ env.DOCKER_REGISTRY_PASS }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build
+        uses: docker/build-push-action@v3
+        with:
+          context: ./docker
+          target: production
+          push: true
+          build-args: |
+            SET_GIT_SHA=${{ github.sha }}
+            SET_BUILD_NUMBER=${{ github.run_number }}
+            GIT_COMMIT=${{ github.GITHUB_SHA }}
+            EXTIVERSE_TOKEN=${{ env.EXTIVERSE_TOKEN }}
+          tags: |
+            ${{ env.DOCKER_REGISTRY_HOST }}/server/${{ steps.v.outputs.reponame }}:build_${{ steps.v.outputs.date }}
+            ${{ env.DOCKER_REGISTRY_HOST }}/server/${{ steps.v.outputs.reponame }}:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+
+      - name: Deploy
+        env:
+          DOCKER_HOST: ssh://${{ env.REMOTE_SERVER_USER }}@${{ env.REMOTE_SERVER_HOSTNAME }}
+          HOSTNAME: ${{ env.APP_HOSTNAME }}
+          IMAGE: ${{ env.DOCKER_REGISTRY_HOST }}/server/${{ steps.v.outputs.reponame }}:build_${{ steps.v.outputs.date }}
+          DOCKER_REGISTRY: ${{ env.DOCKER_REGISTRY_HOST }}
+          PUID_ID: ${{ env.PUID_ID }}
+          MASTER_TOKEN: ${{ env.MASTER_TOKEN }}
+          hc_schedule: ${{ env.hc_schedule }}
+          DB_CLIENT: ${{ env.DB_CLIENT }}
+          DB_HOST: ${{ env.DB_HOST }}
+          DB_PORT: ${{ env.DB_PORT }}
+          DB_NAME: ${{ env.DB_NAME }}
+          DB_USER: ${{ env.DB_USER }}
+          DB_PASS: ${{ env.DB_PASS }}
+          DIRECTUS_HOSTNAME: ${{ env.DIRECTUS_HOSTNAME }}
+          DIRECTUS_KEY: ${{ env.DIRECTUS_KEY }}
+          DIRECTUS_SECRET: ${{ env.DIRECTUS_SECRET }}
+          FLOWS_EXEC_ALLOWEWD_MODULES: ${{ env.FLOWS_EXEC_ALLOWEWD_MODULES }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ env.REMOTE_SERVER_PRIVATE_KEY_BASE64 }}" | base64 -d > ~/.ssh/id_ecdsa
+          chmod 400 ~/.ssh/id_ecdsa
+          echo -e "Host *\n  StrictHostKeyChecking no" > ~/.ssh/config
+          docker stack deploy --with-registry-auth -c deployment/docker-compose.yml dev_${{ steps.v.outputs.reponame }}

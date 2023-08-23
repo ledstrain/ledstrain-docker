@@ -12,7 +12,7 @@ use Flarum\Extend;
 return [
     (new Blomstra\Redis\Extend\Redis([
         'host' => 'redis',
-//      'password' => getenv('REDIS_PASS'),
+//      'password' => getenv('REDIS_PASS') ?: 'getenvDefaultRedisPass',
         'port' => 6379,
         'database' => 1,
 //  ]))->disable(['session'])

@@ -31,9 +31,11 @@ services:
       PUID_ID:         ${PUID_ID}
       HOSTNAME:        ${HOSTNAME}
       MASTER_TOKEN:    ${MASTER_TOKEN}
-      MYSQL_DATABASE:  ${MYSQL_DATABASE}
-      MYSQL_USER:      ${MYSQL_USER}
-      MYSQL_PASSWORD:  ${MYSQL_PASSWORD}
+      DB_NAME:  ${MYSQL_DATABASE}
+      DB_USER:      ${MYSQL_USER}
+      DB_PASS:  ${MYSQL_PASSWORD}
+      DB_DRIVER: mysql
+      DB_HOST: db
     logging:
       driver: "json-file"
     ports:
@@ -50,9 +52,9 @@ services:
     image: redis:6
     restart: unless-stopped
     volumes:
-    - './data/redis/conf:/usr/local/etc/redis:ro'
+#   - './data/redis/conf:/usr/local/etc/redis:ro'
     - './data/redis/data:/data:rw'
-    entrypoint: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+    entrypoint: ["redis-server", "--save", "60", "1", "--loglevel", "warning"]
     logging:
       driver: "json-file"
     networks:
