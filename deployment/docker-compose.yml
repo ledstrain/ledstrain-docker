@@ -41,6 +41,7 @@ services:
         caddy.route_1.rate_limit: '{cookie.flarum_session} 60r/m'
         caddy.route_2: /api/forgot
         caddy.route_2.rate_limit: '{cookie.flarum_session} 5r/m'
+        caddy.redir: '/donate https://ln.sandcatdev.com/ledstrain-donation'
       placement:
         constraints:
           - node.platform.os == linux
@@ -61,42 +62,42 @@ services:
           - node.platform.os == linux
           - node.labels.app == ledstrain
 
-  ledstrain_directus:
-    image: docker.xyzz.work/server/directus:10
-    environment:
-      PUBLIC_URL: 'https://${DIRECTUS_HOSTNAME}/'
-      KEY: '${DIRECTUS_KEY}'
-      SECRET: '${DIRECTUS_SECRET}'
+# ledstrain_directus:
+#   image: docker.xyzz.work/server/directus:10
+#   environment:
+#     PUBLIC_URL: 'https://${DIRECTUS_HOSTNAME}/'
+#     KEY: '${DIRECTUS_KEY}'
+#     SECRET: '${DIRECTUS_SECRET}'
 #     ADMIN_EMAIL: '${ADMIN_EMAIL}'
 #     ADMIN_PASSWORD: '${ADMIN_PASSWORD}'
-      WEBSOCKETS_ENABLED: '${WEBSOCKETS_ENABLED:-true}'
-      CACHE_ENABLED: '${CACHED_ENABLED}'
-      CACHE_TTL: '${CACHE_TTL}'
-      CACHE_AUTO_PURGE: '${CACHE_AUTO_PURGE}'
+#     WEBSOCKETS_ENABLED: '${WEBSOCKETS_ENABLED:-true}'
+#     CACHE_ENABLED: '${CACHED_ENABLED}'
+#     CACHE_TTL: '${CACHE_TTL}'
+#     CACHE_AUTO_PURGE: '${CACHE_AUTO_PURGE}'
 
-      DB_CLIENT: '${DB_CLIENT}'
-      DB_HOST: '${DB_HOST}'
-      DB_PORT: '${DB_PORT}'
-      DB_DATABASE: '${DB_NAME}'
-      DB_USER: '${DB_USER}'
-      DB_PASSWORD: '${DB_PASS}'
-      DB_POOL__MIN: '0'
+#     DB_CLIENT: '${DB_CLIENT}'
+#     DB_HOST: '${DB_HOST}'
+#     DB_PORT: '${DB_PORT}'
+#     DB_DATABASE: '${DB_NAME}'
+#     DB_USER: '${DB_USER}'
+#     DB_PASSWORD: '${DB_PASS}'
+#     DB_POOL__MIN: '0'
 
-      FLOWS_EXEC_ALLOWED_MODULES: 'array:${FLOWS_EXEC_ALLOWED_MODULES}'
-    networks:
-      - internal
-      - database
-      - public
-    deploy:
-      mode: replicated
-      replicas: 1
-      labels:
-        caddy: '${DIRECTUS_HOSTNAME}'
-        caddy.reverse_proxy: '{{ upstreams 8055 }}'
-      placement:
-        constraints:
-          - node.platform.os == linux
-          - node.labels.app == ledstrain
+#     FLOWS_EXEC_ALLOWED_MODULES: 'array:${FLOWS_EXEC_ALLOWED_MODULES}'
+#   networks:
+#     - internal
+#     - database
+#     - public
+#   deploy:
+#     mode: replicated
+#     replicas: 1
+#     labels:
+#       caddy: '${DIRECTUS_HOSTNAME}'
+#       caddy.reverse_proxy: '{{ upstreams 8055 }}'
+#     placement:
+#       constraints:
+#         - node.platform.os == linux
+#         - node.labels.app == ledstrain
 
 networks:
   internal:

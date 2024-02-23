@@ -17,6 +17,7 @@ services:
       caddy.header.+Cache-Control_0: "public, must-revalidate, proxy-revalidate"
       caddy.header.+Cache-Control_1: "max-age=25000"
       caddy.header.Pragma: "public"
+      caddy.redir: '/donate https://ln.sandcatdev.com/ledstrain-donation'
     volumes:
       - "./data/forum/conf:/conf"
       - "./data/forum/data/storage/sessions:/app/storage/sessions"
@@ -59,7 +60,7 @@ services:
     networks:
     - internal
   db:
-    image: mariadb:10.5
+    image: mariadb:lts
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE:      ${MYSQL_DATABASE}
