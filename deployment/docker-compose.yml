@@ -41,7 +41,7 @@ services:
         caddy.route_1.rate_limit: '{cookie.flarum_session} 60r/m'
         caddy.route_2: /api/forgot
         caddy.route_2.rate_limit: '{cookie.flarum_session} 5r/m'
-        caddy.redir: '/donate https://ln.sandcatdev.com/ledstrain-donation'
+        caddy.redir: '/donate https://hi.switchy.io/ledstrain-donation'
       placement:
         constraints:
           - node.platform.os == linux
