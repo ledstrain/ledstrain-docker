@@ -6,6 +6,8 @@ FROM webdevops/php-nginx:8.1 as webserverconfig
 COPY forum_config/cronscripts/flarum_schedule.sh /etc/cron.script/flarum_schedule.sh
 RUN docker-cronjob '*/15 * * * * application /etc/cron.script/flarum_schedule.sh'
 
+RUN docker-cronjob '* * * * * application cd /app && /usr/local/bin/php flarum queue:work --stop-when-empty'
+
 COPY forum_config/sql_scripts/*.sql /etc/cron.script/sql/
 RUN docker-cronjob '0 */6 * * * application for sql in /etc/cron.script/sql/*.sql; do \
  nice -n 10 mysql --host=db --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" "$MYSQL_DATABASE" \
