@@ -12,7 +12,7 @@
 set -e
 cd "$APPLICATION_PATH"
 
-printenv | grep -E 'DB_USER|DB_PASS|DB_NAME|REDIS_PASS|HOSTNAME|MASTER_TOKEN|BUILD_COMMIT' > /etc/environment
+printenv | grep -E 'DB_USER|DB_PASS|DB_NAME|DB_HOST|REDIS_PASS|HOSTNAME|MASTER_TOKEN|BUILD_COMMIT' > /etc/environment
 
 install_flarum() {
   cat > install.yml <<EOF
