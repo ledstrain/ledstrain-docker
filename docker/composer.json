@@ -15,6 +15,7 @@
             "homepage": "https://flarum.org/team"
         }
     ],
+    "prefer-stable": true,
     "support": {
         "issues": "https://github.com/flarum/core/issues",
         "source": "https://github.com/flarum/flarum",
@@ -27,8 +28,6 @@
         "askvortsov/flarum-rich-text": "*",
         "blomstra/cache-assets": "*",
         "blomstra/flarum-redis": "*",
-        "blomstra/payments": "*",
-        "blomstra/realtime": "*",
         "clarkwinkelmann/flarum-ext-discussion-lists": "*",
         "clarkwinkelmann/flarum-ext-first-post-approval": "*",
         "darkle/fancybox": "*",
@@ -49,11 +48,13 @@
         "flarum/suspend": "*",
         "flarum/tags": "*",
         "fof/analytics": "*",
+        "fof/anti-spam": "*",
         "fof/byobu": "*",
         "fof/drafts": "*",
         "fof/filter": "*",
         "fof/follow-tags": "*",
         "fof/formatting": "*",
+        "fof/ignore-users": "*",
         "fof/links": "*",
         "fof/moderator-notes": "^1.1",
         "fof/nightmode": "*",
@@ -61,8 +62,6 @@
         "fof/pages": "^1.0",
         "fof/secure-https": "*",
         "fof/sitemap": "*",
-        "fof/spamblock": "*",
-        "fof/stopforumspam": "*",
         "fof/upload": "*",
         "fof/user-bio": "*",
         "kilowhat/flarum-ext-audit-pro": "*",
@@ -75,10 +74,11 @@
         "preferred-install": "dist",
         "sort-packages": true
     },
+
     "repositories": {
-        "extiverse": {
+        "flarum": {
             "type": "composer",
-            "url": "https://extiverse.com/composer/"
+            "url": "https://flarum.org/composer"
         }
     }
 }

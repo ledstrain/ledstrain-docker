@@ -61,6 +61,7 @@ COPY forum_config/forum-setup.sh                   /opt/docker/provision/entrypo
 # ========== Install the forum and plugins
 FROM webdevops/php-nginx:8.1 as production_builder
 ENV COMPOSER_VERSION=2
+ENV COMPOSER_ALLOW_SUPERUSER=1
 ARG EXTIVERSE_TOKEN
 
 WORKDIR /app
@@ -68,7 +69,9 @@ WORKDIR /app
 RUN composer create-project flarum/flarum .
 
 COPY .null forum_config/config.php composer.* ./
-RUN if [ -n "$EXTIVERSE_TOKEN" ]; then composer config --global --auth bearer.extiverse.com "$EXTIVERSE_TOKEN"; fi
+RUN if [ -n "$EXTIVERSE_TOKEN" ]; then composer config --global bearer.flarum.org "$EXTIVERSE_TOKEN"; fi \
+ && if [ -n "$EXTIVERSE_TOKEN" ]; then composer config repositories.flarum composer https://flarum.org/composer; fi
+
 RUN composer install
 
 
