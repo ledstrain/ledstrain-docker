@@ -23,7 +23,6 @@
     'admin' => 'admin',
   ),
   'websocket' => [
-    'server-port' => getenv('FLARUM_WEBSOCKET_PORT') ?: '6001',
     'js-client-port' => '443',
     'php-client-host' => '127.0.0.1',
     'php-client-port' => '6001',

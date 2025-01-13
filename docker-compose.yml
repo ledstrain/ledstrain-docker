@@ -1,5 +1,3 @@
-version: '3.3'
-
 services:
   forum:
     build:
@@ -94,33 +92,33 @@ services:
       - internal
       - public
 
-  ledstrain_directus:
-    image: docker.xyzz.work/server/directus:10
-    labels:
-      caddy: '${PUBLIC_URL}'
-      caddy.reverse_proxy: '{{ upstreams 8055 }}'
-    environment:
-      PUBLIC_URL: 'https://${PUBLIC_URL}/'
-      KEY: '${KEY}'
-      SECRET: '${SECRET}'
-      ADMIN_EMAIL: '${ADMIN_EMAIL}'
-      ADMIN_PASSWORD: '${ADMIN_PASSWORD}'
-      WEBSOCKETS_ENABLED: '${WEBSOCKETS_ENABLED}'
-      CACHE_ENABLED: '${CACHED_ENABLED}'
-      CACHE_TTL: '${CACHE_TTL}'
-      CACHE_AUTO_PURGE: '${CACHE_AUTO_PURGE}'
+# ledstrain_directus:
+#   image: docker.xyzz.work/server/directus:10
+#   labels:
+#     caddy: '${PUBLIC_URL}'
+#     caddy.reverse_proxy: '{{ upstreams 8055 }}'
+#   environment:
+#     PUBLIC_URL: 'https://${PUBLIC_URL}/'
+#     KEY: '${KEY}'
+#     SECRET: '${SECRET}'
+#     ADMIN_EMAIL: '${ADMIN_EMAIL}'
+#     ADMIN_PASSWORD: '${ADMIN_PASSWORD}'
+#     WEBSOCKETS_ENABLED: '${WEBSOCKETS_ENABLED}'
+#     CACHE_ENABLED: '${CACHED_ENABLED}'
+#     CACHE_TTL: '${CACHE_TTL}'
+#     CACHE_AUTO_PURGE: '${CACHE_AUTO_PURGE}'
 
-      DB_CLIENT: '${DB_CLIENT}'
-      DB_HOST: '${DB_HOST}'
-      DB_PORT: '${DB_PORT}'
-      DB_DATABASE: '${MYSQL_DATABASE}'
-      DB_USER: '${MYSQL_USER}'
-      DB_PASSWORD: '${MYSQL_PASSWORD}'
+#     DB_CLIENT: '${DB_CLIENT}'
+#     DB_HOST: '${DB_HOST}'
+#     DB_PORT: '${DB_PORT}'
+#     DB_DATABASE: '${MYSQL_DATABASE}'
+#     DB_USER: '${MYSQL_USER}'
+#     DB_PASSWORD: '${MYSQL_PASSWORD}'
 
-      FLOWS_EXEC_ALLOWED_MODULES: 'array:${FLOWS_EXEC_ALLOWED_MODULES}'
-    networks:
-      - public
-      - internal
+#     FLOWS_EXEC_ALLOWED_MODULES: 'array:${FLOWS_EXEC_ALLOWED_MODULES}'
+#   networks:
+#     - public
+#     - internal
 
 networks:
   internal:

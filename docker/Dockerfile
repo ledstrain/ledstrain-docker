@@ -18,13 +18,13 @@ COPY webserver_config/php.ini                      /opt/docker/etc/php/php.ini
 # Get real ip
 COPY webserver_config/20-realip.conf               /opt/docker/etc/nginx/conf.d/20-realip.conf
 # Configure for realtime plugin
-COPY webserver_config/50-websocket.conf            /opt/docker/etc/nginx/vhost.common.d/5-realtime.conf
+# COPY webserver_config/50-websocket.conf            /opt/docker/etc/nginx/vhost.common.d/5-realtime.conf
 COPY webserver_config/100-flarum.conf              /opt/docker/etc/nginx/vhost.common.d/10-location-root.conf
-COPY supervisor/websocket_supervisor.conf          /opt/docker/etc/supervisor.d/websocket.conf
-COPY supervisor/websocket_server.sh                /opt/docker/bin/service.d/websocket.sh
+# COPY supervisor/websocket_supervisor.conf          /opt/docker/etc/supervisor.d/websocket.conf
+# COPY supervisor/websocket_server.sh                /opt/docker/bin/service.d/websocket.sh
 # Redis queues
-COPY supervisor/redis_queue_supervisor.conf        /opt/docker/etc/supervisor.d/redis_queue_supervisor.conf
-COPY supervisor/redis_queue.sh                     /opt/docker/bin/service.d/redis_queue.sh
+# COPY supervisor/redis_queue_supervisor.conf        /opt/docker/etc/supervisor.d/redis_queue_supervisor.conf
+# COPY supervisor/redis_queue.sh                     /opt/docker/bin/service.d/redis_queue.sh
 # Niceness for processes run by application user
 COPY webserver_config/limits.conf                  /etc/security/limits.conf
 # Custom Footer with Image version
@@ -96,7 +96,7 @@ COPY --from=production_builder /app /app
 # COPY --from=dev_builder /app /app
 
 # Redis queues
-COPY forum_config/extend.php                       /app/extend.php
+# COPY forum_config/extend.php                       /app/extend.php
 
 RUN usermod -s /sbin/nologin application
 

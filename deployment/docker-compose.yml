@@ -47,20 +47,20 @@ services:
           - node.platform.os == linux
           - node.labels.app == ledstrain
 
-  redis:
-    image: redis:6
-    volumes:
-    - 'ledstrain-redis:/data:rw'
-    entrypoint: ["redis-server", "--save", "60", "1", "--loglevel", "warning"]
-    networks:
-    - internal
-    deploy:
-      mode: replicated
-      replicas: 1
-      placement:
-        constraints:
-          - node.platform.os == linux
-          - node.labels.app == ledstrain
+# redis:
+#   image: redis:6
+#   volumes:
+#   - 'ledstrain-redis:/data:rw'
+#   entrypoint: ["redis-server", "--save", "60", "1", "--loglevel", "warning"]
+#   networks:
+#   - internal
+#   deploy:
+#     mode: replicated
+#     replicas: 1
+#     placement:
+#       constraints:
+#         - node.platform.os == linux
+#         - node.labels.app == ledstrain
 
 # ledstrain_directus:
 #   image: docker.xyzz.work/server/directus:10
