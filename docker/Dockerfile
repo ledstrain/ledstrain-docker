@@ -1,5 +1,7 @@
+FROM webdevops/php-nginx:8.4 AS init
+
 # ========== webserver overrides
-FROM webdevops/php-nginx:8.1 as webserverconfig
+FROM init AS webserverconfig
 
 # Flarum Scheduler for
 # Draft, Sitemap
@@ -15,6 +17,7 @@ RUN docker-cronjob '0 */6 * * * application for sql in /etc/cron.script/sql/*.sq
 
 # Custom php config
 COPY webserver_config/php.ini                      /opt/docker/etc/php/php.ini
+COPY webserver_config/fpm_pool_application.conf    /opt/docker/etc/php/fpm/pool.d/application.conf
 # Get real ip
 COPY webserver_config/20-realip.conf               /opt/docker/etc/nginx/conf.d/20-realip.conf
 # Configure for realtime plugin
@@ -59,7 +62,7 @@ COPY forum_config/forum-setup.sh                   /opt/docker/provision/entrypo
 #  && composer require -W $plugins
 #
 # ========== Install the forum and plugins
-FROM webdevops/php-nginx:8.1 as production_builder
+FROM init AS production_builder
 ENV COMPOSER_VERSION=2
 ENV COMPOSER_ALLOW_SUPERUSER=1
 ARG EXTIVERSE_TOKEN
@@ -77,7 +80,7 @@ RUN composer install
 
 
 # ========== Setup webserver
-FROM webdevops/php-nginx:8.1 as production
+FROM init AS production
 
 ENV WEB_DOCUMENT_ROOT=/app/public
 ENV PHP_DISMOD='amqp,apcu,bcmath,bz2,calendar,gettext,imagick,imap,ioncube,\
@@ -95,8 +98,8 @@ COPY --from=webserverconfig    /etc /etc
 COPY --from=production_builder /app /app
 # COPY --from=dev_builder /app /app
 
-# Redis queues
-# COPY forum_config/extend.php                       /app/extend.php
+# Extending Flarum
+COPY forum_config/extend.php                       /app/extend.php
 
 RUN usermod -s /sbin/nologin application
 
@@ -106,7 +109,7 @@ WORKDIR /app
 
 
 # ========== Setup development mode
-FROM production as dev
+FROM production AS dev
 
 RUN usermod -s /bin/bash application
 

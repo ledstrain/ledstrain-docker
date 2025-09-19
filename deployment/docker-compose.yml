@@ -27,7 +27,8 @@ services:
       labels:
         caddy: "${HOSTNAME}"
         caddy.reverse_proxy: "{{ upstreams 80 }}"
-        caddy.reverse_proxy.health_uri: '/api/posts/1'
+        caddy.tls.dns: "cloudflare {env.CLOUDFLARE_API}"
+      caddy.reverse_proxy.health_uri: '/api/posts/1'
         caddy.reverse_proxy.lb_try_duration: '60s'
         caddy.reverse_proxy.lb_try_interval: '5s'
         caddy.header_0: /assets
@@ -41,7 +42,7 @@ services:
         caddy.route_1.rate_limit: '{cookie.flarum_session} 60r/m'
         caddy.route_2: /api/forgot
         caddy.route_2.rate_limit: '{cookie.flarum_session} 5r/m'
-        caddy.redir: '/donate https://hi.switchy.io/ledstrain-donation'
+        caddy.redir: '/donate https://link.sandcatdev.com/ledstrain-donation'
       placement:
         constraints:
           - node.platform.os == linux

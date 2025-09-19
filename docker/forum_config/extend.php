@@ -7,17 +7,36 @@
  * LICENSE file that was distributed with this source code.
  */
 
+
 use Flarum\Extend;
+use Blomstra\Spam;
+use Laminas\Diactoros\Uri;
+use Flarum\User\User;
 
 return [
-    (new Blomstra\Redis\Extend\Redis([
-        'host' => 'redis',
-//      'password' => getenv('REDIS_PASS') ?: 'getenvDefaultRedisPass',
-        'port' => 6379,
-        'database' => 1,
-//  ]))->disable(['session'])
-    ]))
-    ->useDatabaseWith('cache', 3)
-    ->useDatabaseWith('queue', 4)
-    ->useDatabaseWith('session', 5)
+    (new Spam\Filter)
+        // use domain name
+        // ->allowLinksFromDomain('luceos.com')
+        // or just a full domain with protocol, only the host name is used
+        // ->allowLinksFromDomain('http://flarum.org')
+        // even a link works, only the domain will be used
+        // ->allowLinksFromDomain('discuss.flarum.org/d/26095')
+        // Alternatively, use an array of domains
+        ->allowLinksFromDomains([
+            'ledstrain.org',
+            'wiki.ledstrain.org'
+        ])
+        // Use custom (expert) logic.
+        // Return true to ignore further checking this link for validity.
+        // ->allowLink(function (Uri $uri, User $actor = null) {
+        //     if ($uri->getHost() === '127.0.0.1') return true;
+        // })
+        // How long after sign up all posts are scrutinized for bad content
+        ->checkForUserUpToHoursSinceSignUp(48)
+        // How many of the first posts of a user to scrutinize for bad content
+        ->checkForUserUpToPostContribution(2)
+        // Specify the user Id of the moderator raising flags for some actions, otherwise the first admin is used
+        // ->moderateAsUser(2)
+        // Disable specific spam prevention components
+        // ->disable(\Blomstra\Spam\Filters\UserBio::class),
 ];

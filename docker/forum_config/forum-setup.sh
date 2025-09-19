@@ -65,6 +65,6 @@ fi
 
 chown "${PUID_ID}" -R                        \
   /app/public/assets                         \
-  /app/storage                               \
-  /app/vendor/flarum/core/src/Database       \
-  /app/vendor/kyrne/websocket/poxa-Linux/tmp
+  /app/storage
+# /app/vendor/flarum/core/src/Database       \
+# /app/vendor/kyrne/websocket/poxa-Linux/tmp
