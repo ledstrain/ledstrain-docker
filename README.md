@@ -1,5 +1,7 @@
 # ledstrain-docker
 
+![screenzy-1737231652214](https://github.com/user-attachments/assets/18c3b789-3a60-458b-846d-db6791421273)
+
 ## Versioning
 
 This project uses rolling releases and CI/CD deployment.  
