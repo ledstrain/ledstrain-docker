@@ -5,13 +5,13 @@ FROM init AS webserverconfig
 
 # Flarum Scheduler for
 # Draft, Sitemap
-RUN docker-cronjob '* * * * * application cd /app && /usr/local/bin/php flarum schedule:run | logger -t flarum-schedule'
-RUN docker-cronjob '* * * * * application cd /app && /usr/local/bin/php flarum queue:work --stop-when-empty | logger -t flarum-queue'
+RUN docker-cronjob '* * * * * application cd /app && /usr/local/bin/php flarum schedule:run | logger -t cron-flarum-schedule'
+RUN docker-cronjob '* * * * * application cd /app && /usr/local/bin/php flarum queue:work --stop-when-empty | logger -t cron-flarum-queue'
 
 COPY forum_config/sql_scripts/*.sql /etc/cron.script/sql/
 RUN docker-cronjob '0 */6 * * * application for sql in /etc/cron.script/sql/*.sql; do \
  nice -n 10 mysql --host=db --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" "$MYSQL_DATABASE" \
- < "$sql" | logger -t cron-script; done'
+ < "$sql" | logger -t cron-sql-script; done'
 
 # Custom php config
 COPY webserver_config/php.ini                      /opt/docker/etc/php/php.ini
@@ -29,7 +29,7 @@ COPY webserver_config/100-flarum.conf              /opt/docker/etc/nginx/vhost.c
 # Niceness for processes run by application user
 COPY webserver_config/limits.conf                  /etc/security/limits.conf
 # Custom Footer with Image version
-RUN docker-cronjob '@reboot application nice -n 10 /etc/cron.script/set_forum_version.sh | logger -t forum-version'
+RUN docker-cronjob '@reboot application nice -n 10 /etc/cron.script/set_forum_version.sh | logger -t cron-forum-version'
 COPY forum_config/cronscripts/set_forum_version.sh /etc/cron.script/set_forum_version.sh
 # Entrypoint
 COPY forum_config/forum-setup.sh                   /opt/docker/provision/entrypoint.d/50-forum-setup.sh
