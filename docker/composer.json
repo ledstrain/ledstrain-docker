@@ -26,6 +26,7 @@
         "askvortsov/flarum-markdown-tables": "*",
         "askvortsov/flarum-rich-text": "*",
         "blomstra/cache-assets": "*",
+        "blomstra/database-queue": "*",
         "blomstra/spam-prevention": "^1.8",
         "darkle/fancybox": "*",
         "flarum/approval": "*",

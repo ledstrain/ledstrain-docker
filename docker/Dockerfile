@@ -5,15 +5,13 @@ FROM init AS webserverconfig
 
 # Flarum Scheduler for
 # Draft, Sitemap
-COPY forum_config/cronscripts/flarum_schedule.sh /etc/cron.script/flarum_schedule.sh
-RUN docker-cronjob '*/15 * * * * application /etc/cron.script/flarum_schedule.sh'
-
-RUN docker-cronjob '* * * * * application cd /app && /usr/local/bin/php flarum queue:work --stop-when-empty'
+RUN docker-cronjob '* * * * * application cd /app && /usr/local/bin/php flarum schedule:run | logger -t flarum-schedule'
+RUN docker-cronjob '* * * * * application cd /app && /usr/local/bin/php flarum queue:work --stop-when-empty | logger -t flarum-queue'
 
 COPY forum_config/sql_scripts/*.sql /etc/cron.script/sql/
 RUN docker-cronjob '0 */6 * * * application for sql in /etc/cron.script/sql/*.sql; do \
  nice -n 10 mysql --host=db --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" "$MYSQL_DATABASE" \
- < "$sql"; done'
+ < "$sql" | logger -t cron-script; done'
 
 # Custom php config
 COPY webserver_config/php.ini                      /opt/docker/etc/php/php.ini
@@ -31,7 +29,7 @@ COPY webserver_config/100-flarum.conf              /opt/docker/etc/nginx/vhost.c
 # Niceness for processes run by application user
 COPY webserver_config/limits.conf                  /etc/security/limits.conf
 # Custom Footer with Image version
-RUN docker-cronjob '@reboot application nice -n 10 /etc/cron.script/set_forum_version.sh'
+RUN docker-cronjob '@reboot application nice -n 10 /etc/cron.script/set_forum_version.sh | logger -t forum-version'
 COPY forum_config/cronscripts/set_forum_version.sh /etc/cron.script/set_forum_version.sh
 # Entrypoint
 COPY forum_config/forum-setup.sh                   /opt/docker/provision/entrypoint.d/50-forum-setup.sh
@@ -39,7 +37,7 @@ COPY forum_config/forum-setup.sh                   /opt/docker/provision/entrypo
 
 # # ========== Install the forum and plugins from scratch
 # ========== Only uncomment when in use (or using BuildKit)
-# FROM webdevops/php-nginx:8.1 as dev_builder
+# FROM init AS dev_builder
 # ENV COMPOSER_VERSION=2
 # ARG EXTIVERSE_TOKEN
 #
@@ -87,8 +85,9 @@ ENV PHP_DISMOD='amqp,apcu,bcmath,bz2,calendar,gettext,imagick,imap,ioncube,\
     ldap,memcached,mongodb,mysqli,pcntl,pdo_pgsql,pgsql,redis,shmop,soap,sockets,\
     sodium,sysvmsg,sysvsem,sysvshm,vips,xmlrpc,xsl'
 
-RUN apt-get update && apt-get install --no-install-recommends -y default-mysql-client \
-                                                                 libncurses5          \
+RUN apt-get update && apt-get install --no-install-recommends -y \
+  default-mysql-client \
+  libncurses5          \
  && rm -rf rm /var/lib/apt/lists/*
 
 VOLUME /app/public/assets
@@ -114,4 +113,4 @@ FROM production AS dev
 RUN usermod -s /bin/bash application
 
 ARG EXTIVERSE_TOKEN
-RUN if [ -n "$EXTIVERSE_TOKEN" ]; then composer config --global --auth bearer.extiverse.com "$EXTIVERSE_TOKEN"; fi
+RUN if [ -n "$EXTIVERSE_TOKEN" ]; then composer config --global --auth bearer.flarum.org "$EXTIVERSE_TOKEN"; fi

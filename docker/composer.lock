@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e60cb168b34307d4f7db8dfb87a922a5",
+    "content-hash": "dc6a569f49a166b69329f0147838a00f",
     "packages": [
         {
             "name": "askvortsov/flarum-checklist",
@@ -308,6 +308,79 @@
                 "source": "https://github.com/blomstra/flarum-ext-cache-assets/tree/0.5"
             },
             "time": "2021-06-04T12:10:26+00:00"
+        },
+        {
+            "name": "blomstra/database-queue",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/blomstra/flarum-ext-database-queue.git",
+                "reference": "6995f1be109d8c33af15d81c1ef63b4af54a93f8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/blomstra/flarum-ext-database-queue/zipball/6995f1be109d8c33af15d81c1ef63b4af54a93f8",
+                "reference": "6995f1be109d8c33af15d81c1ef63b4af54a93f8",
+                "shasum": ""
+            },
+            "require": {
+                "flarum/core": "^1.0.0"
+            },
+            "require-dev": {
+                "flarum/phpstan": "*",
+                "flarum/testing": "^1.0.0"
+            },
+            "type": "flarum-extension",
+            "extra": {
+                "extiverse": {
+                    "discuss": ""
+                },
+                "flarum-cli": {
+                    "modules": {
+                        "githubActions": true,
+                        "backendTesting": true
+                    }
+                },
+                "flarum-extension": {
+                    "icon": {
+                        "name": "fas fa-pallet",
+                        "color": "#FF9045",
+                        "backgroundColor": "#E3E7F1"
+                    },
+                    "title": "Database Queue",
+                    "category": "feature"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Blomstra\\DatabaseQueue\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Team Blomstra",
+                    "email": "development@blomstra.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Adds Database queues to Flarum",
+            "homepage": "https://blomstra.net",
+            "keywords": [
+                "blomstra",
+                "database",
+                "flarum",
+                "queue"
+            ],
+            "support": {
+                "forum": "https://discuss.flarum.org/d/28151",
+                "issues": "https://github.com/blomstra/flarum-ext-database-queue/issues",
+                "source": "https://github.com/blomstra/flarum-ext-database-queue"
+            },
+            "time": "2024-01-05T22:06:35+00:00"
         },
         {
             "name": "blomstra/spam-prevention",
