@@ -65,25 +65,25 @@ jobs:
           cache-to: type=gha,mode=max
 
 
-      - name: Deploy
-        env:
-          DOCKER_HOST: ssh://${{ env.REMOTE_SERVER_USER }}@${{ env.REMOTE_SERVER_HOSTNAME }}
-          HOSTNAME: ${{ env.APP_HOSTNAME }}
-          IMAGE: ${{ env.DOCKER_REGISTRY_HOST }}/server/${{ steps.v.outputs.reponame }}:build_${{ steps.v.outputs.date }}
-          DOCKER_REGISTRY: ${{ env.DOCKER_REGISTRY_HOST }}
-          PUID_ID: ${{ env.PUID_ID }}
-          MASTER_TOKEN: ${{ env.MASTER_TOKEN }}
-          hc_schedule: ${{ env.hc_schedule }}
-          DB_CLIENT: ${{ env.DB_CLIENT }}
-          DB_HOST: ${{ env.DB_HOST }}
-          DB_PORT: ${{ env.DB_PORT }}
-          DB_NAME: ${{ env.DB_NAME }}
-          DB_USER: ${{ env.DB_USER }}
-          DB_PASS: ${{ env.DB_PASS }}
-          FLOWS_EXEC_ALLOWED_MODULES: ${{ env.FLOWS_EXEC_ALLOWED_MODULES }}
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ env.REMOTE_SERVER_PRIVATE_KEY_BASE64 }}" | base64 -d > ~/.ssh/id_ecdsa
-          chmod 400 ~/.ssh/id_ecdsa
-          echo -e "Host *\n  StrictHostKeyChecking no" > ~/.ssh/config
-          docker stack deploy --with-registry-auth -c deployment/docker-compose.yml ${{ steps.v.outputs.reponame }}
+#     - name: Deploy
+#       env:
+#         DOCKER_HOST: ssh://${{ env.REMOTE_SERVER_USER }}@${{ env.REMOTE_SERVER_HOSTNAME }}
+#         HOSTNAME: ${{ env.APP_HOSTNAME }}
+#         IMAGE: ${{ env.DOCKER_REGISTRY_HOST }}/server/${{ steps.v.outputs.reponame }}:build_${{ steps.v.outputs.date }}
+#         DOCKER_REGISTRY: ${{ env.DOCKER_REGISTRY_HOST }}
+#         PUID_ID: ${{ env.PUID_ID }}
+#         MASTER_TOKEN: ${{ env.MASTER_TOKEN }}
+#         hc_schedule: ${{ env.hc_schedule }}
+#         DB_CLIENT: ${{ env.DB_CLIENT }}
+#         DB_HOST: ${{ env.DB_HOST }}
+#         DB_PORT: ${{ env.DB_PORT }}
+#         DB_NAME: ${{ env.DB_NAME }}
+#         DB_USER: ${{ env.DB_USER }}
+#         DB_PASS: ${{ env.DB_PASS }}
+#         FLOWS_EXEC_ALLOWED_MODULES: ${{ env.FLOWS_EXEC_ALLOWED_MODULES }}
+#       run: |
+#         mkdir -p ~/.ssh
+#         echo "${{ env.REMOTE_SERVER_PRIVATE_KEY_BASE64 }}" | base64 -d > ~/.ssh/id_ecdsa
+#         chmod 400 ~/.ssh/id_ecdsa
+#         echo -e "Host *\n  StrictHostKeyChecking no" > ~/.ssh/config
+#         docker stack deploy --with-registry-auth -c deployment/docker-compose.yml ${{ steps.v.outputs.reponame }}
