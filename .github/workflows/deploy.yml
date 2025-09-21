@@ -56,7 +56,7 @@ jobs:
           build-args: |
             SET_GIT_SHA=${{ github.sha }}
             SET_BUILD_NUMBER=${{ github.run_number }}
-            GIT_COMMIT=${{ github.GITHUB_SHA }}
+            GIT_COMMIT=${{ github.sha }}
             EXTIVERSE_TOKEN=${{ env.EXTIVERSE_TOKEN }}
           tags: |
             ${{ env.DOCKER_REGISTRY_HOST }}/server/${{ steps.v.outputs.reponame }}:build_${{ steps.v.outputs.date }}

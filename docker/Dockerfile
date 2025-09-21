@@ -82,8 +82,11 @@ FROM init AS production
 
 ENV WEB_DOCUMENT_ROOT=/app/public
 ENV PHP_DISMOD='amqp,apcu,bcmath,bz2,calendar,gettext,imagick,imap,ioncube,\
-    ldap,memcached,mongodb,mysqli,pcntl,pdo_pgsql,pgsql,redis,shmop,soap,sockets,\
-    sodium,sysvmsg,sysvsem,sysvshm,vips,xmlrpc,xsl'
+ldap,memcached,mongodb,mysqli,pcntl,pdo_pgsql,pgsql,redis,shmop,soap,sockets,\
+sodium,sysvmsg,sysvsem,sysvshm,vips,xmlrpc,xsl'
+
+ARG GIT_COMMIT
+ENV BUILD_COMMIT=$GIT_COMMIT
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
   default-mysql-client \
@@ -102,8 +105,6 @@ COPY forum_config/extend.php                       /app/extend.php
 
 RUN usermod -s /sbin/nologin application
 
-ARG GIT_COMMIT
-ENV BUILD_COMMIT=$GIT_COMMIT
 WORKDIR /app
 
 
