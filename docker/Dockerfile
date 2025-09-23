@@ -102,6 +102,7 @@ COPY --from=production_builder /app /app
 
 # Extending Flarum
 COPY forum_config/extend.php                       /app/extend.php
+COPY forum_config/new_user_allowed_domains.json    /app/new_user_allowed_domains.json
 
 RUN usermod -s /sbin/nologin application
 
