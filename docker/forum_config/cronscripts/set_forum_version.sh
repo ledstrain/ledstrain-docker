@@ -28,6 +28,7 @@ while [ "$response" -ne "204" ]; do
     --data "$data")
   if [ "$response" -eq "204" ]; then
     echo -e "Image Version (footer): ${GREEN}$IMAGE_VERSION${NC}" 2>&1 | logger -t set-forum-version
+    unset MASTER_TOKEN
     (
       cd /app || exit
       php flarum cache:clear
