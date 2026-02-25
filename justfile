@@ -1,3 +1,5 @@
+set dotenv-load
+
 start:
   #!/usr/bin/env bash
   mkdir -p data/redis/conf
@@ -27,3 +29,20 @@ loadsql file:
   #!/usr/bin/env bash
   gzip -dc {{file}} | docker-compose exec -T db mysql --user=$MYSQL_USER --password="$MYSQL_PASSWORD" $MYSQL_DATABASE
   if [ ! -f data/forum/conf/config.php ]; then docs/template_config.sh; fi
+deploy:
+  #!/usr/bin/env bash
+
+  cd docker/
+  version="$(git rev-parse --short HEAD)"
+  build_date="$(date '+%m_%d_%Y')"
+  reponame=ledstrain-docker
+  docker image build --target production \
+    --build-arg GIT_COMMIT="$version" \
+    --build-arg EXTIVERSE_TOKEN="$EXTIVERSE_TOKEN" \
+    -t docker.sandcatdev.com/server/$reponame:build_${build_date} .
+  docker image tag docker.sandcatdev.com/server/$reponame:build_${build_date} \
+    docker.sandcatdev.com/server/$reponame:latest
+  for i in docker.sandcatdev.com/server/$reponame:{build_${build_date},latest};
+  do
+    docker image push $i;
+  done

@@ -59,11 +59,13 @@
         "fof/oauth": "*",
         "fof/pages": "*",
         "fof/secure-https": "*",
+        "fof/sentry": "*",
         "fof/sitemap": "*",
         "fof/upload": "*",
         "fof/user-bio": "*",
         "kilowhat/flarum-ext-audit-pro": "*",
         "nearata/flarum-ext-internal-links-noreload": "*",
+        "sentry/sdk": "*",
         "sycho/flarum-move-posts": "*",
         "the-turk/flarum-diff": "*",
         "v17development/flarum-seo": "*"
@@ -73,10 +75,11 @@
         "sort-packages": true
     },
 
-    "repositories": {
-        "flarum": {
+    "repositories": [
+        {
+            "name": "flarum",
             "type": "composer",
             "url": "https://flarum.org/composer"
         }
-    }
+    ]
 }

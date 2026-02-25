@@ -13,6 +13,8 @@ use Blomstra\Spam;
 use Laminas\Diactoros\Uri;
 use Flarum\User\User;
 
+Sentry\init(['dsn' => getenv('SENTRY_DSN') ]);
+
 class JsonDataCache
 {
     private static $cache = null;
