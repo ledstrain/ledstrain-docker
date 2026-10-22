@@ -16,6 +16,7 @@
         }
     ],
     "prefer-stable": true,
+    "minimum-stability": "stable",
     "support": {
         "issues": "https://github.com/flarum/core/issues",
         "source": "https://github.com/flarum/flarum",
@@ -27,11 +28,10 @@
         "askvortsov/flarum-rich-text": "*",
         "blomstra/cache-assets": "*",
         "blomstra/database-queue": "*",
-        "blomstra/spam-prevention": "*",
-        "darkle/fancybox": "*",
         "flarum/approval": "*",
+        "flarum/audit": "*",
         "flarum/bbcode": "*",
-        "flarum/core": "^1.0",
+        "flarum/core": "^1.8.20",
         "flarum/emoji": "*",
         "flarum/flags": "*",
         "flarum/lang-english": "*",
@@ -45,6 +45,8 @@
         "flarum/subscriptions": "*",
         "flarum/suspend": "*",
         "flarum/tags": "*",
+        "flectar/flarum-fancybox": "*",
+        "floxum/spam-prevention": "*",
         "fof/analytics": "*",
         "fof/anti-spam": "*",
         "fof/byobu": "*",
@@ -63,23 +65,38 @@
         "fof/sitemap": "*",
         "fof/upload": "*",
         "fof/user-bio": "*",
-        "kilowhat/flarum-ext-audit-pro": "*",
         "nearata/flarum-ext-internal-links-noreload": "*",
         "sentry/sdk": "*",
         "sycho/flarum-move-posts": "*",
-        "the-turk/flarum-diff": "*",
-        "v17development/flarum-seo": "*"
+        "v17development/flarum-seo": "^2.0"
     },
     "config": {
         "preferred-install": "dist",
-        "sort-packages": true
-    },
-
-    "repositories": [
-        {
-            "name": "flarum",
-            "type": "composer",
-            "url": "https://flarum.org/composer"
+        "sort-packages": true,
+	    "policy": {
+        "advisories": {
+            "ignore-id": {
+                "PKSA-w9tt-7782-78jx": {
+                    "on-block": false,
+                    "reason": "No patched flysystem 1.x exists; flarum/core 1.8 pins ^1.0.11."
+                },
+                "PKSA-pwh8-d4fr-nywn": {
+                    "on-block": false,
+                    "reason": "No patched flysystem 1.x exists; flarum/core 1.8 pins ^1.0.11."
+                },
+                "GHSA-cxf4-7mrp-vvpr": {
+                    "on-block": false,
+                    "reason": "Same flysystem advisory chain, 1.x has no fix."
+                }
+            }
         }
-    ]
+    }
+    },
+    "minimum-stability": "stable",
+    "repositories": [{
+        "name": "floxum",
+        "type": "composer",
+        "url": "https://floxum.com/composer",
+        "canonical": false
+    }]
 }
