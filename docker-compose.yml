@@ -17,13 +17,13 @@ services:
       caddy.header.Pragma: "public"
       caddy.redir: '/donate https://ln.sandcatdev.com/ledstrain-donation'
     volumes:
-      - "./data/forum/conf:/conf"
-      - "./data/forum/data/storage/sessions:/app/storage/sessions"
-      - "./data/forum/data/composer_cache:/root/.composer/cache"
-#     - "./data/forum/data/public/assets:/app/public/assets"
-      - "./data/forum/data/public/assets/avatars:/app/public/assets/avatars"
-      - "./data/forum/data/public/assets/files:/app/public/assets/files"
-      - "./data/forum/data/public/assets/images:/app/public/assets/images"
+      - "./_data/forum/conf:/conf"
+      - "./_data/forum/data/storage/sessions:/app/storage/sessions"
+      - "./_data/forum/data/composer_cache:/root/.composer/cache"
+#     - "./_data/forum/data/public/assets:/app/public/assets"
+      - "./_data/forum/data/public/assets/avatars:/app/public/assets/avatars"
+      - "./_data/forum/data/public/assets/files:/app/public/assets/files"
+      - "./_data/forum/data/public/assets/images:/app/public/assets/images"
     environment:
       INSTALL:         "${INSTALL}"
       hc_schedule:     "${hc_schedule}"
@@ -54,7 +54,7 @@ services:
       MYSQL_PASSWORD:      "${MYSQL_PASSWORD}"
       MARIADB_AUTO_UPGRADE: "true"
     volumes:
-      - "./data/db/data:/var/lib/mysql"
+      - "./_data/db/data:/var/lib/mysql"
     logging:
       driver: "json-file"
     healthcheck:

@@ -2,10 +2,10 @@ set dotenv-load
 
 start:
   #!/usr/bin/env bash
-  mkdir -p data/redis/conf
-  if [ ! -f data/redis/conf/redis.conf ]; then
-    sudo chown $(whoami) data/redis/conf
-    cp docs/redis.example data/redis/conf/redis.conf
+  mkdir -p _data/redis/conf
+  if [ ! -f _data/redis/conf/redis.conf ]; then
+    sudo chown $(whoami) _data/redis/conf
+    cp docs/redis.example _data/redis/conf/redis.conf
   fi
   docker-compose up -d --remove-orphans
 stop:
@@ -27,8 +27,9 @@ update:
     git diff -U0 docker/composer.json | grep -E '^[+-] ' || true
 loadsql file:
   #!/usr/bin/env bash
-  gzip -dc {{file}} | docker-compose exec -T db mysql --user=$MYSQL_USER --password="$MYSQL_PASSWORD" $MYSQL_DATABASE
-  if [ ! -f data/forum/conf/config.php ]; then docs/template_config.sh; fi
+  set -xv
+  gzip -dc {{file}} | docker compose exec -T db mariadb --user=$MYSQL_USER --password="$MYSQL_PASSWORD" $MYSQL_DATABASE
+  if [ ! -f _data/forum/conf/config.php ]; then docs/template_config.sh; fi
 deploy:
   #!/usr/bin/env bash
 

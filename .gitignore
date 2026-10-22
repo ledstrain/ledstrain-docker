@@ -2,8 +2,12 @@
 .dockerignore
 
 *.swp
-data/
+_data/
 .localconfig
 
 .idea/
 .vscode/
+.serena/
+
+*.gz
+*.sql

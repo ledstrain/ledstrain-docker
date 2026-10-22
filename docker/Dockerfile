@@ -10,7 +10,7 @@ RUN docker-cronjob '* * * * * application cd /app && /usr/local/bin/php flarum q
 
 COPY forum_config/sql_scripts/*.sql /etc/cron.script/sql/
 RUN docker-cronjob '0 */6 * * * application for sql in /etc/cron.script/sql/*.sql; do \
- nice -n 10 mysql --host=db --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" "$MYSQL_DATABASE" \
+ nice -n 10 mysql --host="$DB_HOST" --user="$DB_USER" --password="$DB_PASS" "$DB_NAME" \
  < "$sql" | logger -t cron-sql-script; done'
 
 # Custom php config
@@ -37,28 +37,28 @@ COPY forum_config/forum-setup.sh                   /opt/docker/provision/entrypo
 
 # # ========== Install the forum and plugins from scratch
 # ========== Only uncomment when in use (or using BuildKit)
-# FROM init AS dev_builder
-# ENV COMPOSER_VERSION=2
-# ARG EXTIVERSE_TOKEN
-#
-# RUN apt-get update && apt-get install --no-install-recommends -y jq && rm -rf rm /var/lib/apt/lists/*
-#
-# USER application
-# WORKDIR /app
-#
-# RUN composer create-project flarum/flarum .
-#
-# RUN if [ -n "$EXTIVERSE_TOKEN" ]; then \
-#       composer config --global --auth bearer.extiverse.com "$EXTIVERSE_TOKEN"; \
-#       jq '. += {"repositories": [{"type": "composer", "url": "https://extiverse.com/composer/"}]}' composer.json > .composer.json.tmp; \
-#       mv .composer.json.tmp composer.json; \
-#     fi
-#
-# COPY .null composer*.json /composer/conf/
-# RUN plugins=$(jq '.require | keys' /composer/conf/composer.json | sed -nr 's/"(.*)?",?/\1:*/p' | grep -v 'flarum/' | tr -s '\n' ' ') \
-#  && echo $plugins | tr ' ' '\n' \
-#  && composer require -W $plugins
-#
+FROM init AS dev_builder
+ENV COMPOSER_VERSION=2
+ARG EXTIVERSE_TOKEN
+
+RUN apt-get update && apt-get install --no-install-recommends -y jq && rm -rf rm /var/lib/apt/lists/*
+
+USER application
+WORKDIR /app
+
+RUN composer create-project flarum/flarum:^1.8.0 .
+
+RUN if [ -n "$EXTIVERSE_TOKEN" ]; then \
+      composer config --global --auth bearer.extiverse.com "$EXTIVERSE_TOKEN"; \
+      jq '. += {"repositories": [{"type": "composer", "url": "https://extiverse.com/composer/"}]}' composer.json > .composer.json.tmp; \
+      mv .composer.json.tmp composer.json; \
+    fi
+
+COPY .null composer*.json /composer/conf/
+RUN plugins=$(jq '.require | keys' /composer/conf/composer.json | sed -nr 's/"(.*)?",?/\1:*/p' | grep -v 'flarum/' | tr -s '\n' ' ') \
+ && echo $plugins | tr ' ' '\n' \
+ && composer require -W $plugins
+
 # ========== Install the forum and plugins
 FROM init AS production_builder
 ENV COMPOSER_VERSION=2
@@ -67,14 +67,13 @@ ARG EXTIVERSE_TOKEN
 
 WORKDIR /app
 
-RUN composer create-project flarum/flarum .
+RUN composer create-project --no-blocking flarum/flarum:^1.8.0 .
 
 COPY .null forum_config/config.php composer.* ./
 RUN if [ -n "$EXTIVERSE_TOKEN" ]; then composer config --global bearer.flarum.org "$EXTIVERSE_TOKEN"; fi \
  && if [ -n "$EXTIVERSE_TOKEN" ]; then composer config repositories.flarum composer https://flarum.org/composer; fi
 
 RUN composer install
-
 
 
 # ========== Setup webserver
@@ -97,12 +96,9 @@ VOLUME /app/public/assets
 
 COPY --from=webserverconfig    /opt /opt
 COPY --from=webserverconfig    /etc /etc
+
 COPY --from=production_builder /app /app
 # COPY --from=dev_builder /app /app
-
-# Extending Flarum
-COPY forum_config/extend.php                       /app/extend.php
-COPY forum_config/new_user_allowed_domains.json    /app/new_user_allowed_domains.json
 
 RUN usermod -s /sbin/nologin application
 
