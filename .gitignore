@@ -1,8 +1,9 @@
 .env
 .dockerignore
 
-*.swp
 _data/
+
+*.swp
 .localconfig
 
 .idea/

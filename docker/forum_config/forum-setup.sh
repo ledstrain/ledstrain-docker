@@ -59,12 +59,6 @@ elif [ "$INSTALL" == "true" ]; then
   install_flarum
 fi
 
-# Directory to plugin changes
-# /app/vendor/flarum/core/src/Database       # For ReCache plugin
-# /app/vendor/kyrne/websocket/poxa-Linux/tmp # For Websocket plugin
-
 chown "${PUID_ID}" -R                        \
   /app/public/assets                         \
   /app/storage
-# /app/vendor/flarum/core/src/Database       \
-# /app/vendor/kyrne/websocket/poxa-Linux/tmp
