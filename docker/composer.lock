@@ -4,68 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7644443988d84be78d56f8bece573c10",
+    "content-hash": "6ce70b097ccea4312b4cd401db9e0074",
     "packages": [
-        {
-            "name": "askvortsov/flarum-checklist",
-            "version": "v1.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/askvortsov1/flarum-checklist.git",
-                "reference": "c708ee12cfd4228e54e0b02d363d135265ff2c56"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/askvortsov1/flarum-checklist/zipball/c708ee12cfd4228e54e0b02d363d135265ff2c56",
-                "reference": "c708ee12cfd4228e54e0b02d363d135265ff2c56",
-                "shasum": ""
-            },
-            "require": {
-                "flarum/core": "^1.0.0",
-                "flarum/markdown": "^1.0.0"
-            },
-            "type": "flarum-extension",
-            "extra": {
-                "flarum-extension": {
-                    "icon": {
-                        "name": "far fa-check-square",
-                        "color": "#fff",
-                        "backgroundColor": "#6932D1"
-                    },
-                    "title": "Checklists",
-                    "category": "feature",
-                    "optionalDependencies": [
-                        "flarum/bbcode"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Askvortsov\\FlarumChecklist\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Alexander Skvortsov",
-                    "email": "askvortsov@flarum.org",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Checklists for Flarum!",
-            "keywords": [
-                "flarum"
-            ],
-            "support": {
-                "forum": "https://discuss.flarum.org/d/26457-checklists",
-                "issues": "https://github.com/askvortsov1/flarum-checklist/issues",
-                "source": "https://github.com/askvortsov1/flarum-checklist"
-            },
-            "time": "2021-05-18T18:06:15+00:00"
-        },
         {
             "name": "askvortsov/flarum-markdown-tables",
             "version": "v1.2.1",
@@ -1032,23 +972,23 @@
         },
         {
             "name": "doctrine/inflector",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "6d6c96277ea252fc1304627204c3d5e6e15faa3b"
+                "reference": "46351b6812b7b6d52b82c3efa5dfb786a198ec88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/6d6c96277ea252fc1304627204c3d5e6e15faa3b",
-                "reference": "6d6c96277ea252fc1304627204c3d5e6e15faa3b",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/46351b6812b7b6d52b82c3efa5dfb786a198ec88",
+                "reference": "46351b6812b7b6d52b82c3efa5dfb786a198ec88",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.2 || ^8.0"
             },
             "require-dev": {
-                "doctrine/coding-standard": "^12.0 || ^13.0",
+                "doctrine/coding-standard": "^12.0 || ^14.0",
                 "phpstan/phpstan": "^1.12 || ^2.0",
                 "phpstan/phpstan-phpunit": "^1.4 || ^2.0",
                 "phpstan/phpstan-strict-rules": "^1.6 || ^2.0",
@@ -1102,7 +1042,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/inflector/issues",
-                "source": "https://github.com/doctrine/inflector/tree/2.1.0"
+                "source": "https://github.com/doctrine/inflector/tree/2.1.1"
             },
             "funding": [
                 {
@@ -1118,7 +1058,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-08-10T19:31:58+00:00"
+            "time": "2026-10-26T08:14:14+00:00"
         },
         {
             "name": "doctrine/lexer",
@@ -1761,16 +1701,16 @@
         },
         {
             "name": "flarum/core",
-            "version": "v1.8.20",
+            "version": "v1.8.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/flarum/flarum-core.git",
-                "reference": "f7c7a8e65554a8ba69c6e624dca57a7eae89fbd6"
+                "reference": "c8575d14436edaded2a664f81cd59c1b6bf5b850"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/flarum/flarum-core/zipball/f7c7a8e65554a8ba69c6e624dca57a7eae89fbd6",
-                "reference": "f7c7a8e65554a8ba69c6e624dca57a7eae89fbd6",
+                "url": "https://api.github.com/repos/flarum/flarum-core/zipball/c8575d14436edaded2a664f81cd59c1b6bf5b850",
+                "reference": "c8575d14436edaded2a664f81cd59c1b6bf5b850",
                 "shasum": ""
             },
             "require": {
@@ -1903,7 +1843,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2026-09-17T11:48:01+00:00"
+            "time": "2026-10-23T14:48:56+00:00"
         },
         {
             "name": "flarum/emoji",
@@ -3367,6 +3307,91 @@
             "time": "2026-05-12T13:49:56+00:00"
         },
         {
+            "name": "fof/checklist",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfFlarum/checklist.git",
+                "reference": "017b123eedb3c9298f3fd6b397d326b34743211f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfFlarum/checklist/zipball/017b123eedb3c9298f3fd6b397d326b34743211f",
+                "reference": "017b123eedb3c9298f3fd6b397d326b34743211f",
+                "shasum": ""
+            },
+            "require": {
+                "flarum/core": "^1.8",
+                "flarum/markdown": "*",
+                "php": "^8.1"
+            },
+            "replace": {
+                "askvortsov/flarum-checklist": "*"
+            },
+            "require-dev": {
+                "flarum/phpstan": "^1.8",
+                "fof/rich-text": "*"
+            },
+            "type": "flarum-extension",
+            "extra": {
+                "flarum-cli": {
+                    "modules": {
+                        "githubActions": true
+                    }
+                },
+                "flarum-extension": {
+                    "icon": {
+                        "name": "far fa-check-square",
+                        "color": "#fff",
+                        "backgroundColor": "#e74c3c"
+                    },
+                    "title": "FoF Checklists",
+                    "category": "feature",
+                    "optionalDependencies": [
+                        "flarum/bbcode",
+                        "fof/rich-text"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "FoF\\Checklist\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "FriendsOfFlarum",
+                    "email": "team@friendsofflarum.org",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Alexander Skvortsov",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Checklists for Flarum",
+            "homepage": "https://friendsofflarum.org",
+            "keywords": [
+                "flarum"
+            ],
+            "support": {
+                "forum": "https://discuss.flarum.org/d/39018",
+                "issues": "https://github.com/FriendsOfFlarum/checklist/issues",
+                "source": "https://github.com/FriendsOfFlarum/checklist"
+            },
+            "funding": [
+                {
+                    "url": "https://opencollective.com/fof/donate",
+                    "type": "website"
+                }
+            ],
+            "time": "2026-04-03T20:19:17+00:00"
+        },
+        {
             "name": "fof/drafts",
             "version": "1.2.14",
             "source": {
@@ -4780,16 +4805,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.16.0",
+            "version": "7.16.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "ffb62ec787050ae4fa9449cdd6b80335db69bda2"
+                "reference": "81755d989b3007ca7f88a069857553cd08e7dc2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/ffb62ec787050ae4fa9449cdd6b80335db69bda2",
-                "reference": "ffb62ec787050ae4fa9449cdd6b80335db69bda2",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/81755d989b3007ca7f88a069857553cd08e7dc2e",
+                "reference": "81755d989b3007ca7f88a069857553cd08e7dc2e",
                 "shasum": ""
             },
             "require": {
@@ -4888,7 +4913,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.16.0"
+                "source": "https://github.com/guzzle/guzzle/tree/7.16.1"
             },
             "funding": [
                 {
@@ -4904,7 +4929,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-10-18T13:38:36+00:00"
+            "time": "2026-10-25T21:35:21+00:00"
         },
         {
             "name": "guzzlehttp/promises",

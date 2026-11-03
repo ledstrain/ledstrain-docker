@@ -23,7 +23,6 @@
         "docs": "https://flarum.org/docs/"
     },
     "require": {
-        "askvortsov/flarum-checklist": "*",
         "askvortsov/flarum-markdown-tables": "*",
         "askvortsov/flarum-rich-text": "*",
         "blomstra/cache-assets": "*",
@@ -31,7 +30,7 @@
         "flarum/approval": "*",
         "flarum/audit": "*",
         "flarum/bbcode": "*",
-        "flarum/core": "^1.8.20",
+        "flarum/core": "^1.8.",
         "flarum/emoji": "*",
         "flarum/flags": "*",
         "flarum/lang-english": "*",
@@ -50,6 +49,7 @@
         "fof/analytics": "*",
         "fof/anti-spam": "*",
         "fof/byobu": "*",
+        "fof/checklist": "^1.0",
         "fof/drafts": "*",
         "fof/filter": "*",
         "fof/follow-tags": "*",
@@ -77,15 +77,15 @@
         "advisories": {
             "ignore-id": {
                 "PKSA-w9tt-7782-78jx": {
-                    "on-block": false,
+                    "on-block": true,
                     "reason": "No patched flysystem 1.x exists; flarum/core 1.8 pins ^1.0.11."
                 },
                 "PKSA-pwh8-d4fr-nywn": {
-                    "on-block": false,
+                    "on-block": true,
                     "reason": "No patched flysystem 1.x exists; flarum/core 1.8 pins ^1.0.11."
                 },
                 "GHSA-cxf4-7mrp-vvpr": {
-                    "on-block": false,
+                    "on-block": true,
                     "reason": "Same flysystem advisory chain, 1.x has no fix."
                 }
             }
